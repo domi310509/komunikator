@@ -1,0 +1,2 @@
+# komunikator
+Projekt do szkoły
