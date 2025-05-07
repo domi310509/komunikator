@@ -25,7 +25,7 @@ JWT_REFRESH_SECRET=(inne 128 losowych znakow i cyferek (wszystko zmalej bez znak
 Odpal xampa i stwórz bazę danych z pliku queries o nazwie (dbName)
 
 
-Terminal (BEZ ```):
+Terminal:
 ```npm install```
 ```npm install nodemon```
 ```npm run dev```
