@@ -14,7 +14,7 @@ Zawartość (dla xampa):
 #Database login
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=" "
+DB_PASSWORD=""
 DB_NAME=(dbName)
 
 #Access tokens
