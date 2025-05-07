@@ -9,8 +9,7 @@ function isLoggedIn(){
 
 async function register(username, password){
     if(isLoggedIn()){
-        console.error('Użytkownik jest już zalogowany')
-        return;
+        return new Error('Użytkownik jest już zalogowany')
     }
 
     const url = `${window.location.origin}/api/register`;
@@ -27,18 +26,18 @@ async function register(username, password){
         if(response.ok){
             const accessToken = data.accessToken;
             localStorage.setItem('accessToken', accessToken);
-            console.log('Rejestracja zakończona pomyślnie');
+            return 'Rejestracja zakończona pomyślnie';
         } else {
-            console.error(`Błąd rejestracji: ${data.error}`);
+            return new Error(`Błąd rejestracji: ${data.error}`);
         }
     } catch(error){
-        console.error('Błąd połączenia z serwerem: ' + error);
+        return new Error('Błąd połączenia z serwerem: ' + error);
     }
 }
 
 async function login(username, password){
     if(isLoggedIn()){
-        console.error('Użytkownik jest już zalogowany')
+        return new Error('Użytkownik jest już zalogowany')
         return;
     }
 
@@ -56,18 +55,21 @@ async function login(username, password){
         if(response.ok){
             const accessToken = data.accessToken;
             localStorage.setItem('accessToken', accessToken);
-            console.log('Zalogowano pomyślnie');
+            return 'Zalogowano pomyślnie';
         } else {
-            console.error(`Błąd logowania: ${data.error}`);
+            return new Error(`Błąd logowania: ${data.error}`);
         }
     } catch(error){
-        console.error('Błąd połączenia z serwerem: ' + error);
+        return new Error('Błąd połączenia z serwerem: ' + error);
     }
 }
 
 async function logout() {
     const url = `${window.location.origin}/api/logout`;
     localStorage.removeItem('accessToken');
+    if(!!socket){
+        socket.disconnect();
+    }
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -78,12 +80,12 @@ async function logout() {
         });
         const data = await response.text();
         if(response.ok){
-            console.log('Wylogowano pomyślnie');
+            return 'Wylogowano pomyślnie';
         } else {
-            console.error(`Błąd logowania: ${data}`);
+            return new Error(`Błąd wylogowywania: ${data}`);
         }
     } catch(error){
-        console.error('Błąd połączenia z serwerem: ' + error);
+        return new Error('Błąd połączenia z serwerem: ' + error);
     }
 }
 
@@ -92,7 +94,7 @@ async function testAccessToken(){
     const accessToken = localStorage.getItem('accessToken');
 
     if (!accessToken) {
-        console.error('Access token is missing');
+        return new Error('Access token is missing');
         return;
     }
     try {
@@ -105,12 +107,12 @@ async function testAccessToken(){
         });
         const data = await response.text();
         if(response.ok){
-            console.log(data);
+            return data;
         } else {
-            console.error(`Błąd logowania: ${data}`);
+            return new Error(`Błąd logowania: ${data}`);
         }
     } catch(error){
-        console.error('Błąd połączenia z serwerem: ' + error);
+        return new Error('Błąd połączenia z serwerem: ' + error);
     }
 }
 
@@ -125,43 +127,71 @@ async function refreshToken() {
         if(response.ok){
             const accessToken = data.accessToken;
             localStorage.setItem('accessToken', accessToken);
-            console.log('Odświeżono token pomyślnie');
+            return 'Odświeżono token pomyślnie';
         } else {
-            console.error(`Błąd logowania: ${data.error}`);
+            return new Error(`Błąd logowania: ${data.error}`);
         }
     } catch(error){
-        console.error('Błąd połączenia z serwerem: ' + error);
+        return new Error('Błąd połączenia z serwerem: ' + error);
     }
 }
+
+// TODO:
+// Zamienić wszystkie console.error na throw error -- 50/50 zrobione? 
 
 let socket;
 
 function startSocket() {
     const accessToken = localStorage.getItem('accessToken');
-    // Inicjalizujemy socket.io z tokenem w nagłówku
-    socket = io(`http://localhost:80`, {
+    socket = io(`${window.location.origin}`, {
         auth: {
-            token: accessToken // Przekazujemy token autoryzacyjny
+            token: accessToken
         }
     });
 
-    // Reagujemy na wydarzenie 'connect' - potwierdzenie połączenia
     socket.on('connect', () => {
         console.log('Successfully connected to server!');
     });
 
-    // Reagujemy na wydarzenie 'disconnect' - połączenie zostało zerwane
     socket.on('disconnect', () => {
         console.log('Disconnected from server!');
     });
 
-    // Obsługa błędów, np. jeśli połączenie nie udało się nawiązać
     socket.on('connect_error', (err) => {
         console.error('Connection error:', err.message);
     });
 
-    // Opcjonalnie możesz nasłuchiwać na wiadomości od serwera
-    socket.on('message', (data) => {
-        console.log('Received message from server:', data);
+    socket.on('message', (message) => {
+        console.log('Received message from server:', message);
     });
+
+    socket.on('messageHistory', (messages) => {
+        console.log(messages);
+    });
+
+    socket.on('listOfAllUsers', (listOfAllUsers) => {
+        console.table(listOfAllUsers);
+    });
+
+    socket.on('chatHistory', (listOfChats) => {
+        console.log(listOfChats);
+    });
+}
+
+// ADD SOCKET CLASS / HANDLER
+
+function sendMessage(receiverId, content){
+    socket.emit('message', { receiverId, content });
+}
+
+function getChatHistory(withUserId){
+    socket.emit('getMessages', {withUserId});
+}
+
+function getAllChats(){
+    socket.emit('getChats');
+}
+
+function getUserList(){
+    socket.emit('getAllUsers');
 }
