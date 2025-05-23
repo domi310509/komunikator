@@ -3,3 +3,18 @@ h1{
     justify-content: center;
     text-align: center;
 }
+#ekran_główny{
+    display: flex;
+    justify-content: center;
+    border: 30px solid black;
+    margin: 10px;
+    width: 96vw;
+    height: 93vh;
+}
+#lista_ludzi{
+    display: flex;
+    justify-content: center;
+    border: 10px solid black;
+    height: 92vh;
+    width: 23vw;
+}
