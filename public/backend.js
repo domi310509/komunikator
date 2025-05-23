@@ -1,3 +1,8 @@
+/**
+ * Sprawdza, czy użytkownik jest zalogowany na podstawie obecności tokenu w localStorage
+ * @returns {boolean} true, jeśli accessToken istnieje; false w przeciwnym razie
+ */
+
 function isLoggedIn(){
     const token = localStorage.getItem('accessToken');
     if(token){
@@ -6,6 +11,13 @@ function isLoggedIn(){
         return false;
     }
 }
+
+/**
+ * Rejestruje nowego użytkownika, jeśli nie jest zalogowany
+ * @param {string} username - nazwa użytkownika
+ * @param {string} password - hasło
+ * @returns {Promise<string|Error>} komunikat sukcesu lub obiekt błędu
+ */
 
 async function register(username, password){
     if(isLoggedIn()){
@@ -20,7 +32,7 @@ async function register(username, password){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ username, password }),
-            credentials: 'include' // automatically stores cookies send by server
+            credentials: 'include'
         });
         const data = await response.json();
         if(response.ok){
@@ -35,6 +47,12 @@ async function register(username, password){
     }
 }
 
+/**
+ * Loguje użytkownika, jeśli nie jest już zalogowany
+ * @param {string} username - nazwa użytkownika
+ * @param {string} password - hasło
+ * @returns {Promise<string|Error>} komunikat sukcesu lub obiekt błędu
+ */
 async function login(username, password){
     if(isLoggedIn()){
         return new Error('Użytkownik jest już zalogowany')
@@ -49,7 +67,7 @@ async function login(username, password){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ username, password}),
-            credentials: 'include' // automatically stores cookies send by server
+            credentials: 'include'
         });
         const data = await response.json();
         if(response.ok){
@@ -64,6 +82,10 @@ async function login(username, password){
     }
 }
 
+/**
+ * Wylogowuje użytkownika, usuwa token oraz rozłącza socket
+ * @returns {Promise<string|Error>} komunikat sukcesu lub obiekt błędu
+ */
 async function logout() {
     const url = `${window.location.origin}/api/logout`;
     localStorage.removeItem('accessToken');
@@ -76,7 +98,7 @@ async function logout() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: 'include' // automatically sends cookies send by server
+            credentials: 'include'
         });
         const data = await response.text();
         if(response.ok){
@@ -89,6 +111,10 @@ async function logout() {
     }
 }
 
+/**
+ * Testuje poprawność access tokena próbując uzyskać dostęp do chronionego zasobu
+ * @returns {Promise<string|Error>} dane lub błąd
+ */
 async function testAccessToken(){
     const url = `${window.location.origin}/protected`;
     const accessToken = localStorage.getItem('accessToken');
@@ -116,6 +142,10 @@ async function testAccessToken(){
     }
 }
 
+/**
+ * Odświeża access token na podstawie cookie
+ * @returns {Promise<string|Error>} komunikat sukcesu lub błąd
+ */
 async function refreshToken() {
     const url = `${window.location.origin}/api/token`;
     try {
@@ -136,11 +166,11 @@ async function refreshToken() {
     }
 }
 
-// TODO:
-// Zamienić wszystkie console.error na throw error -- 50/50 zrobione? 
-
 let socket;
 
+/**
+ * Inicjuje połączenie socket.io i ustawia nasłuch zdarzeń
+ */
 function startSocket() {
     const accessToken = localStorage.getItem('accessToken');
     socket = io(`${window.location.origin}`, {
@@ -178,20 +208,33 @@ function startSocket() {
     });
 }
 
-// ADD SOCKET CLASS / HANDLER
-
+/**
+ * Wysyła wiadomość do innego użytkownika
+ * @param {string} receiverId - ID odbiorcy
+ * @param {string} content - treść wiadomości
+ */
 function sendMessage(receiverId, content){
     socket.emit('message', { receiverId, content });
 }
 
+/**
+ * Pobiera historię czatu z wybranym użytkownikiem
+ * @param {string} withUserId - ID użytkownika, z którym prowadzona jest rozmowa
+ */
 function getChatHistory(withUserId){
     socket.emit('getMessages', {withUserId});
 }
 
+/**
+ * Pobiera listę wszystkich rozmów użytkownika
+ */
 function getAllChats(){
     socket.emit('getChats');
 }
 
+/**
+ * Pobiera listę wszystkich użytkowników
+ */
 function getUserList(){
     socket.emit('getAllUsers');
 }
