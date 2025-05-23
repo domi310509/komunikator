@@ -1,6 +1,6 @@
 /**
  * Sprawdza, czy użytkownik jest zalogowany na podstawie obecności tokenu w localStorage
- * @returns {boolean} true, jeśli accessToken istnieje; false w przeciwnym razie
+ * @returns {boolean} true, jeśli accessToken istnieje; false w przeciwnym razie 
  */
 
 function isLoggedIn(){
