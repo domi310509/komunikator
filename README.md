@@ -39,3 +39,10 @@ Jeśli żaden błąd nie wyjdzie to działa. Jeśli wyjdzie to do Wiesława
 
 
 W przypadku jakichkolwiek błędów prosze zrobić nowy issue na githubie albo zwrócić się do Wiesława
+
+Todo:
+github actions
+serwer
+docker
+ssh do serwera
+revoke refresh token
