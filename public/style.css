@@ -1,32 +1,35 @@
-body{
+body {
     margin: 0;
     padding: 0;
     background-color: rgb(59, 59, 59);
 }
 
-h1{
+h1 {
     color: lightgray;
     font-size: 3vh;
 }
-.flexPoziom, .flexPion{
+
+.flexPoziom,
+.flexPion {
     display: flex;
     align-items: center;
 }
 
-.flexPoziom{
+.flexPoziom {
     flex-direction: row;
     height: 100vh;
     justify-content: center;
 }
 
-.flexPion{
+.flexPion {
     flex-direction: column;
     height: 50vh;
 }
 
-#ekranLogowania,#ekranRejestrowania{
+#ekranLogowania,
+#ekranRejestrowania {
     background-color: rgb(31, 124, 85);
-    height: 35vh;
+    height: 30vh;
     width: 40vh;
     margin: 10vh;
     border-style: solid;
@@ -35,7 +38,7 @@ h1{
     border-radius: 2vh;
 }
 
-input{
+input {
     height: 3vh;
     width: 30vh;
     margin: 0.5vh;
@@ -47,7 +50,7 @@ input{
     font-size: 1.5vh;
 }
 
-button{
+button {
     height: 3vh;
     width: 15vh;
     margin: 0.5vh;
@@ -58,6 +61,12 @@ button{
     color: white;
     font-size: 1.5vh;
 }
+
+
+.podajDane::placeholder {
+    color: rgb(217, 117, 99);
+}
+
 /*
 #ekran_główny{
     display: flex;
