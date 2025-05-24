@@ -1,30 +1,41 @@
-function validacjaLogowania(){
-    let login = document.getElementById('logowanieLogin');
+console.log("frontend.js się wczytuje");
+
+function walidacjaLogowania(){
+    let loginU = document.getElementById('logowanieLogin');
     let haslo = document.getElementById('logowanieHaslo');
-    if(login.value==null){
+    if(loginU.value==''){
         alert('Musisz podać login');
         return 0;
     }
-    if(haslo.value==null){
+    if(haslo.value==''){
         alert('Musisz podać hasło');
         return 0;
     }
-    login(login, haslo);
 }
 
-function validacjaRejestracji(){
-    let login = document.getElementById('rejestracjaLogin');
+function walidacjaRejestracji(){
+    let loginU = document.getElementById('rejestracjaLogin');
     let haslo = document.getElementById('rejestracjaHaslo');
     let haslo2 = document.getElementById('rejestracjaHaslo2');
     let imie = document.getElementById('rejestracjaImie');
     let nazwisko = document.getElementById('rejestracjaNazwisko');
-    if(login.value==null){
+    if(imie.value==''){
+        alert('Musisz podać imie');
+        return 0;
+    }
+    if(loginU.value==''){
         alert('Musisz podać login');
         return 0;
     }
-    if(haslo.value==null){
+    if(haslo.value==''){
         alert('Musisz podać hasło');
         return 0;
     }
-    login(login, haslo);
+
+
+    if(haslo.value!=haslo2.value){
+        alert("Podane hasła nie zgadzają się");
+        return 0;
+    }
+    register(loginU, haslo);
 }
