@@ -1,8 +1,36 @@
-h1{
+body{
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+}
+
+.flexPoziom, .flexPion{
     display: flex;
     justify-content: center;
-    text-align: center;
+    align-items: center;
 }
+
+.flexPoziom{
+    flex-direction: row;
+    height: 100vh;
+}
+
+.flexPion{
+    flex-direction: column;
+    height: 50vh;
+}
+
+#ekranLogowania,#ekranRejestrowania{
+    background-color: rgb(224, 255, 255);
+    height: 50vh;
+    width: 40vh;
+    margin: 10vh;
+    border-style: solid;
+    border-width: 0.3vh;
+    border-color: rgb(171, 255, 255);
+    border-radius: 2vh;
+}
+/*
 #ekran_główny{
     display: flex;
     justify-content: center;
@@ -18,3 +46,4 @@ h1{
     height: 92vh;
     width: 23vw;
 }
+    */
