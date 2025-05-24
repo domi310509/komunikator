@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Komunikator</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!--<h1>Test zdany</h1>-->
     <div id="ekran_główny">
@@ -13,11 +15,21 @@
             <div id="ekranLogowania">
                 <div class="flexPion">
                     <h1>Zaloguj się</h1>
+                    <input type="text" id="logowanieLogin" placeholder="Login">
+                    <input type="password" id="logowanieHaslo" placeholder="Hasło">
+                    <button id="zaloguj" onclick="validacjaLogowania()">Zaloguj</button>
                 </div>
             </div>
             <div id="ekranRejestrowania">
                 <div class="flexPion">
                     <h1>Zarejestruj się</h1>
+                    <input type="text" id="rejestracjaImie" placeholder="Login">
+                    <input type="text" id="rejestracjaNazwisko" placeholder="Login">
+                    
+                    <input type="text" id="rejestracjaLogin" placeholder="Login">
+                    <input type="password" id="rejestracjaHaslo" placeholder="Hasło">
+                    <input type="password" id="rejestracjaHaslo2" placeholder="Powtórz hasło">
+                    <button id="zarejestruj" onclick="validacjaRejestracji()">Zarejestruj</button>
                 </div>
             </div>
         </div>
@@ -27,4 +39,5 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="backend.js"></script>
 </body>
+
 </html>
