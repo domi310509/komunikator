@@ -10,7 +10,7 @@
 
 <body>
     <!--<h1>Test zdany</h1>-->
-    <div id="ekran_główny">
+    <div id="ekranWstepny">
         <div class="flexPoziom">
             <div id="ekranLogowania">
                 <div class="flexPion">
@@ -23,8 +23,8 @@
             <div id="ekranRejestrowania">
                 <div class="flexPion">
                     <h1>Zarejestruj się</h1>
-                    <input type="text" id="rejestracjaImie" placeholder="Login">
-                    <input type="text" id="rejestracjaNazwisko" placeholder="Login">
+                    <input type="text" id="rejestracjaImie" placeholder="Imie">
+                    <input type="text" id="rejestracjaNazwisko" placeholder="Nazwisko">
                     
                     <input type="text" id="rejestracjaLogin" placeholder="Login">
                     <input type="password" id="rejestracjaHaslo" placeholder="Hasło">
@@ -34,6 +34,11 @@
             </div>
         </div>
         <!--<div id="lista_ludzi" style="margin-left: -76%;"></div>-->
+    </div>
+    
+    <div id="ekran_główny" style="display: none;">
+
+
     </div>
     <script src="frontend.js"></script>
     <script src="/socket.io/socket.io.js"></script>

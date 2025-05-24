@@ -1,18 +1,22 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: lightgrey;
+    background-color: rgb(59, 59, 59);
 }
 
+h1{
+    color: lightgray;
+    font-size: 3vh;
+}
 .flexPoziom, .flexPion{
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 .flexPoziom{
     flex-direction: row;
     height: 100vh;
+    justify-content: center;
 }
 
 .flexPion{
@@ -21,14 +25,38 @@ body{
 }
 
 #ekranLogowania,#ekranRejestrowania{
-    background-color: rgb(224, 255, 255);
-    height: 50vh;
+    background-color: rgb(31, 124, 85);
+    height: 35vh;
     width: 40vh;
     margin: 10vh;
     border-style: solid;
-    border-width: 0.3vh;
-    border-color: rgb(171, 255, 255);
+    border-width: 0.5vh;
+    border-color: rgb(0, 78, 45);
     border-radius: 2vh;
+}
+
+input{
+    height: 3vh;
+    width: 30vh;
+    margin: 0.5vh;
+    background-color: rgb(59, 59, 59);
+    border: solid;
+    border-color: rgb(39, 39, 39);
+    border-radius: 1.5vh;
+    color: white;
+    font-size: 1.5vh;
+}
+
+button{
+    height: 3vh;
+    width: 15vh;
+    margin: 0.5vh;
+    background-color: rgb(59, 59, 59);
+    border: solid;
+    border-color: rgb(39, 39, 39);
+    border-radius: 1.5vh;
+    color: white;
+    font-size: 1.5vh;
 }
 /*
 #ekran_główny{
