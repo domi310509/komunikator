@@ -12,27 +12,48 @@
 <body>
     <!--<h1>Test zdany</h1>-->
     <div id="ekranWstepny">
+        <div id="logo"></div>
+        <div class="flexPoziom" style="position: absolute; top: 2vh; right: 2vh; height: 0;">
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="pomoc"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="politykaPrywatnosci"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="cele"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="tworcy"></button>
+        </div>
         <div class="flexPoziom">
-            <div id="ekranLogowania">
-                <div class="flexPion">
-                    <h1 data-i18n="zalogujsie"></h1>
-                    <input type="text" id="logowanieLogin" data-i18n-placeholder="login">
-                    <input type="password" id="logowanieHaslo" data-i18n-placeholder="haslo">
-                    <button id="zaloguj" onclick="walidacjaLogowania()" data-i18n="zalogujsie"></button>
+            <div class="flexPion">
+                <div id="hosloPrzewodnie">
+                    <h1 data-i18n="hasloprzewodnie"></h1>
+                </div>
+                <div id="ekranLogowania">
+                    <div class="flexPion">
+                        <h1 data-i18n="zalogujsie"></h1>
+                        <input type="text" id="logowanieLogin" class="inputEkranLogowania" data-i18n-placeholder="login">
+                        <input type="password" id="logowanieHaslo" class="inputEkranLogowania" data-i18n-placeholder="haslo">
+                        <button id="zaloguj" onclick="walidacjaLogowania()" class="buttonEkranLogowania" data-i18n="zalogujsie"></button>
+                    </div>
+                    <div class="flexPoziom" style="height: 15vh;">
+                        <button class="buttonEkranLogowaniaTransparent" data-i18n="stworzKonto"></button>
+                        <button class="buttonEkranLogowaniaTransparent" data-i18n="skillIssue"></button>
+                    </div>
                 </div>
             </div>
-            <div id="ekranRejestrowania">
+            <div id="ekranRejestrowania" style="display: none;">
                 <div class="flexPion">
                     <h1 data-i18n="zarejestrujsie"></h1>
-                    <input type="text" id="rejestracjaLogin" data-i18n-placeholder="login">
-                    <input type="password" id="rejestracjaHaslo" data-i18n-placeholder="haslo">
-                    <input type="password" id="rejestracjaHaslo2" data-i18n-placeholder="powtorzhaslo">
+                    <input type="text" id="rejestracjaLogin" class="inputEkranLogowania" data-i18n-placeholder="login">
+                    <input type="password" id="rejestracjaHaslo" class="inputEkranLogowania" data-i18n-placeholder="haslo">
+                    <input type="password" id="rejestracjaHaslo2" class="inputEkranLogowania" data-i18n-placeholder="powtorzhaslo">
                     <span id="rozneHasla" data-i18n="roznehasla" style="color: rgb(217, 117, 99); display: none;"></span>
-                    <button id="zarejestruj" onclick="walidacjaRejestracji()" data-i18n="zarejestrujsie"></button>
+                    <button id="zarejestruj" onclick="walidacjaRejestracji()" class="buttonEkranLogowania" data-i18n="zarejestrujsie"></button>
+                </div>
+                <div class="flexPoziom" style="height: 15vh;">
+                    <button class="buttonEkranLogowaniaTransparent" data-i18n="mamJuzKonto"></button>
                 </div>
             </div>
+            <div id="zdjeciePoczatkowe"></div>
         </div>
         <!--<div id="lista_ludzi" style="margin-left: -76%;"></div>-->
+        <div id="copyright" data-i18n="copyright"></div>
     </div>
     
     <div id="ekran_główny" style="display: none;">

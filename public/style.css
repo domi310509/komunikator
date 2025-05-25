@@ -23,7 +23,35 @@ h1 {
 
 .flexPion {
     flex-direction: column;
+    height: auto;
+}
+
+#copyright{
+    position: absolute;
+    bottom: 2vh;
+    left: 5vh;
+    color:white;
+}
+
+
+
+#logo{
+    position: absolute;
+    top: 2vh;
+    left: 2vh;
+    height: 10vh;
+    width: 10vh;
+    background-image: url("placeholder.png");
+    background-size: cover;
+}
+
+#zdjeciePoczatkowe{
+    display: flex;
     height: 50vh;
+    width: 50vh;
+    background-image: url("placeholder.png");
+    background-size: cover;
+    border-radius: 2vh;
 }
 
 #ekranLogowania,
@@ -34,11 +62,11 @@ h1 {
     margin: 10vh;
     border-style: solid;
     border-width: 0.5vh;
-    border-color: rgb(0, 78, 45);
+    border-color: rgb(0, 78, 46);
     border-radius: 2vh;
 }
 
-input {
+.inputEkranLogowania {
     height: 3vh;
     width: 30vh;
     margin: 0.5vh;
@@ -50,7 +78,7 @@ input {
     font-size: 1.5vh;
 }
 
-button {
+.buttonEkranLogowania {
     height: 3vh;
     width: 15vh;
     margin: 0.5vh;
@@ -62,6 +90,19 @@ button {
     font-size: 1.5vh;
 }
 
+.buttonEkranLogowaniaTransparent{
+    position: relative;
+    background-color: transparent;
+    bottom: 0%;
+    border:none;
+    color:white;
+    margin: 2vh;
+    font-size: 1.3vh;
+}
+
+.buttonEkranLogowaniaTransparent:hover, .buttonEkranLogowania:hover{
+    color: lightgray;
+}
 
 .podajDane::placeholder {
     color: rgb(217, 117, 99);
