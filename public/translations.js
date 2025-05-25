@@ -6,7 +6,7 @@ window.translations = {
     powtorzhaslo: "Powtórz hasło",
     zarejestrujsie: "Zarejestruj się",
     roznehasla: "Podane hasła nie zgadzają się",
-    hasloprzewodnie: "JAKIEŚ BZDURY CZY COŚ",
+    hasloprzewodnie: "Najnowszy i naj(nie)bezpieczniejszy komunikator!!!",
     stworzKonto: "Stwórz konto",
     mamJuzKonto: "Mam już konto",
     skillIssue: "Nie pamiętasz hasła?",
@@ -15,6 +15,8 @@ window.translations = {
     politykaPrywatnosci: "Polityka Prywatnosci",
     cele: "Cele",
     tworcy: "Tworcy",
+    przypominanieHasla: "Przypomnij Hasło",
+    jednakPamietamHaslo: "Jednak pamiętasz hasło?"
   },
   en: {
     zalogujsie: "Log in",

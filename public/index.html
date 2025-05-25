@@ -14,40 +14,57 @@
     <div id="ekranWstepny">
         <div id="logo"></div>
         <div class="flexPoziom" style="position: absolute; top: 2vh; right: 2vh; height: 0;">
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="pomoc"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="pomoc" onclick=""></button>
             <button class="buttonEkranLogowaniaTransparent" data-i18n="politykaPrywatnosci"></button>
             <button class="buttonEkranLogowaniaTransparent" data-i18n="cele"></button>
             <button class="buttonEkranLogowaniaTransparent" data-i18n="tworcy"></button>
         </div>
         <div class="flexPoziom">
-            <div class="flexPion">
-                <div id="hosloPrzewodnie">
-                    <h1 data-i18n="hasloprzewodnie"></h1>
+            <div class="flexPion" style='margin-right: 10vh;'>
+                <div id="hasloPrzewodnie">
+                    <h1 data-i18n="hasloprzewodnie" style="width: 40vh; overflow:auto; text-align: center;" ></h1>
                 </div>
-                <div id="ekranLogowania">
-                    <div class="flexPion">
-                        <h1 data-i18n="zalogujsie"></h1>
-                        <input type="text" id="logowanieLogin" class="inputEkranLogowania" data-i18n-placeholder="login">
-                        <input type="password" id="logowanieHaslo" class="inputEkranLogowania" data-i18n-placeholder="haslo">
-                        <button id="zaloguj" onclick="walidacjaLogowania()" class="buttonEkranLogowania" data-i18n="zalogujsie"></button>
-                    </div>
-                    <div class="flexPoziom" style="height: 15vh;">
-                        <button class="buttonEkranLogowaniaTransparent" data-i18n="stworzKonto"></button>
-                        <button class="buttonEkranLogowaniaTransparent" data-i18n="skillIssue"></button>
+                <div id="ekranLogowania" class="flexPion">
+                    <h1 data-i18n="zalogujsie"></h1>
+                    <input type="text" id="logowanieLogin" class="inputEkranLogowania" data-i18n-placeholder="login">
+                    <input type="password" id="logowanieHaslo" class="inputEkranLogowania"
+                        data-i18n-placeholder="haslo">
+                    <button id="zaloguj" onclick="walidacjaLogowania()" class="buttonEkranLogowania"
+                        data-i18n="zalogujsie"></button>
+
+                    <div class="flexPoziom" style="height: 5vh;">
+                        <button class="buttonEkranLogowaniaTransparent" data-i18n="stworzKonto"
+                            onclick="zmianaEkranuLogowanie('ekranLogowania', 'ekranRejestracji')"></button>
+                        <button class="buttonEkranLogowaniaTransparent" data-i18n="skillIssue"
+                            onclick="zmianaEkranuLogowanie('ekranLogowania', 'ekranZmianyHasla')"></button>
                     </div>
                 </div>
-            </div>
-            <div id="ekranRejestrowania" style="display: none;">
-                <div class="flexPion">
+                <div id="ekranRejestracji" class="flexPion" style="display: none;">
                     <h1 data-i18n="zarejestrujsie"></h1>
                     <input type="text" id="rejestracjaLogin" class="inputEkranLogowania" data-i18n-placeholder="login">
-                    <input type="password" id="rejestracjaHaslo" class="inputEkranLogowania" data-i18n-placeholder="haslo">
-                    <input type="password" id="rejestracjaHaslo2" class="inputEkranLogowania" data-i18n-placeholder="powtorzhaslo">
-                    <span id="rozneHasla" data-i18n="roznehasla" style="color: rgb(217, 117, 99); display: none;"></span>
-                    <button id="zarejestruj" onclick="walidacjaRejestracji()" class="buttonEkranLogowania" data-i18n="zarejestrujsie"></button>
+                    <input type="password" id="rejestracjaHaslo" class="inputEkranLogowania"
+                        data-i18n-placeholder="haslo">
+                    <input type="password" id="rejestracjaHaslo2" class="inputEkranLogowania"
+                        data-i18n-placeholder="powtorzhaslo">
+                    <span id="rozneHasla" data-i18n="roznehasla"
+                        style="color: rgb(217, 117, 99); display: none;"></span>
+                    <button id="zarejestruj" onclick="walidacjaRejestracji()" class="buttonEkranLogowania"
+                        data-i18n="zarejestrujsie"></button>
+                    <button class="buttonEkranLogowaniaTransparent" data-i18n="mamJuzKonto"
+                        onclick="zmianaEkranuLogowanie('ekranRejestracji', 'ekranLogowania')"></button>
                 </div>
-                <div class="flexPoziom" style="height: 15vh;">
-                    <button class="buttonEkranLogowaniaTransparent" data-i18n="mamJuzKonto"></button>
+                <div id="ekranZmianyHasla" class="flexPion" style="display: none;">
+                    <h1 data-i18n="przypominanieHasla"></h1>
+                    <input type="text" id="przypominanieLogin" class="inputEkranLogowania"
+                        data-i18n-placeholder="login">
+                    <button id="przypomnijHaslo" onclick="" class="buttonEkranLogowania"
+                        data-i18n="przypominanieHasla"></button>
+                    <div class="flexPoziom" style="height: 5vh;">
+                        <button class="buttonEkranLogowaniaTransparent" data-i18n="jednakPamietamHaslo"
+                            onclick="zmianaEkranuLogowanie('ekranZmianyHasla', 'ekranLogowania')"></button>
+                        <button class="buttonEkranLogowaniaTransparent" data-i18n="stworzKonto"
+                            onclick="zmianaEkranuLogowanie('ekranZmianyHasla', 'ekranRejestracji')"></button>
+                    </div>
                 </div>
             </div>
             <div id="zdjeciePoczatkowe"></div>
@@ -55,7 +72,7 @@
         <!--<div id="lista_ludzi" style="margin-left: -76%;"></div>-->
         <div id="copyright" data-i18n="copyright"></div>
     </div>
-    
+
     <div id="ekran_główny" style="display: none;">
 
 

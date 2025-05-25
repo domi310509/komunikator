@@ -56,3 +56,29 @@ let inputy = document.querySelectorAll('input');
 for (let i of inputy) {
     i.addEventListener('click', () => zresetujStyleInputow(i));
 }
+function zmianaEkranuLogowanie(idZnikajace, idPojawiajace){
+    ekranZnikajacy=document.getElementById(idZnikajace);
+    ekranPojawiajacy=document.getElementById(idPojawiajace);
+    ekranPojawiajacy.style.display='flex';
+    ekranZnikajacy.style.display='none';
+}
+function stworzKontoPrzycisk(){
+    ekranLogowania = document.getElementById('ekranLogowania');
+    ekranRejestracji= document.getElementById('ekranRejestracji');
+    ekranLogowania.style.display='none';
+    ekranRejestracji.style.display='flex';
+}
+
+function mamJuzKontoPrzycisk(){
+    ekranLogowania = document.getElementById('ekranLogowania');
+    ekranRejestracji= document.getElementById('ekranRejestracji');
+    ekranLogowania.style.display='flex';
+    ekranRejestracji.style.display='none';
+}
+
+function skillIssuePrzycisk(){
+    ekranLogowania = document.getElementById('ekranLogowania');
+    ekranRejestracji = document.getElementById('ekranRejestracji');
+    ekranLogowania.style.display='none';
+    ekranRejestracji.style.display='flex';
+}
