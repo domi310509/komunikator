@@ -8,7 +8,15 @@
     <script src="translations.js"></script>
 </head>
 <body>
-    
+    <div class="flexPoziom">
+            <div id="pasekBoczny" class="flexPion"></div>
+            <div id="czat" class="flexPion">
+                <div id="poleDoPisania" class="flexPoziom">
+                    <input type="text" data-i18n-placeholder="Wyslij wiadomosc..." style="width: 50vw;">
+                    <button type="button" data-i18n="Wyslij"></button>
+                </div>
+            </div>
+    </div>
     <script src="frontend.js"></script>
     <script src="chatsLogic.js"></script>
     <script src="/socket.io/socket.io.js"></script>
