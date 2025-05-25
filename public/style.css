@@ -133,6 +133,10 @@ h1 {
     height: 5vh;
     width: 100%;
 }
+
+.przyciskiPomociczePrzyLogowaniu{
+    margin-top: auto;
+}
 /*
 #ekran_główny{
     display: flex;
