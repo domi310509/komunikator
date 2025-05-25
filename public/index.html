@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Komunikator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="translations.js"></script>
 </head>
 
 <body>
@@ -14,20 +15,20 @@
         <div class="flexPoziom">
             <div id="ekranLogowania">
                 <div class="flexPion">
-                    <h1>Zaloguj się</h1>
-                    <input type="text" id="logowanieLogin" placeholder="Login">
-                    <input type="password" id="logowanieHaslo" placeholder="Hasło">
-                    <button id="zaloguj" onclick="walidacjaLogowania()">Zaloguj</button>
+                    <h1 data-i18n="zalogujsie"></h1>
+                    <input type="text" id="logowanieLogin" data-i18n-placeholder="login">
+                    <input type="password" id="logowanieHaslo" data-i18n-placeholder="haslo">
+                    <button id="zaloguj" onclick="walidacjaLogowania()" data-i18n="zalogujsie"></button>
                 </div>
             </div>
             <div id="ekranRejestrowania">
                 <div class="flexPion">
-                    <h1>Zarejestruj się</h1>
-                    <input type="text" id="rejestracjaLogin" placeholder="Login">
-                    <input type="password" id="rejestracjaHaslo" placeholder="Hasło">
-                    <input type="password" id="rejestracjaHaslo2" placeholder="Powtórz hasło">
-                    <span id="rozneHasla" style="color: rgb(217, 117, 99); display: none;">Podane hasła nie zgadzają się</span>
-                    <button id="zarejestruj" onclick="walidacjaRejestracji()">Zarejestruj</button>
+                    <h1 data-i18n="zarejestrujsie"></h1>
+                    <input type="text" id="rejestracjaLogin" data-i18n-placeholder="login">
+                    <input type="password" id="rejestracjaHaslo" data-i18n-placeholder="haslo">
+                    <input type="password" id="rejestracjaHaslo2" data-i18n-placeholder="powtorzhaslo">
+                    <span id="rozneHasla" data-i18n="roznehasla" style="color: rgb(217, 117, 99); display: none;"></span>
+                    <button id="zarejestruj" onclick="walidacjaRejestracji()" data-i18n="zarejestrujsie"></button>
                 </div>
             </div>
         </div>
@@ -38,7 +39,9 @@
 
 
     </div>
+
     <script src="frontend.js"></script>
+    <script src="loginPageLogic.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="backend.js"></script>
 </body>
