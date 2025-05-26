@@ -4,13 +4,11 @@ function walidacjaLogowania() {
     let czyPoprawneDane = true;
     if (loginU.value == '') {
         loginU.style.borderColor = '#ff8274';
-        if (!loginU.classList.toggle("podajDane")) loginU.classList.toggle("podajDane");
         loginU.placeholder = 'Podaj login';
         czyPoprawneDane = false;
     }
     if (haslo.value == '') {
         haslo.style.borderColor = '#ff8274';
-        if (!haslo.classList.toggle("podajDane")) haslo.classList.toggle("podajDane");
         haslo.placeholder = 'Podaj haslo';
         czyPoprawneDane = false;
     }
@@ -26,21 +24,17 @@ function walidacjaRejestracji() {
 
     if (loginU.value == '') {
         loginU.style.borderColor = '#ff8274';
-        if (!loginU.classList.toggle("podajDane")) loginU.classList.toggle("podajDane");
-
         loginU.placeholder = 'Podaj login';
         czyPoprawneDane = false;
     }
     if (haslo.value == '') {
         haslo.style.borderColor = '#ff8274';
-        if (!haslo.classList.toggle("podajDane")) haslo.classList.toggle("podajDane");
         haslo.placeholder = 'Podaj haslo';
         czyPoprawneDane = false;
     }
-
+    rozneHasla.style.display = 'none';
     if (haslo.value != haslo2.value) {
         haslo2.style.borderColor = '#ff8274';
-        if (!haslo2.classList.toggle("podajDane")) haslo2.classList.toggle("podajDane");
         rozneHasla.style.display = 'block';
         czyPoprawneDane = false;
     }
@@ -48,7 +42,7 @@ function walidacjaRejestracji() {
 }
 function zresetujStyleInputow(input) {
     if (input.style.borderColor == 'rgb(255, 130, 116)') input.style.borderColor = '#7c183c';
-    if (input.classList.toggle("podajDane")) input.classList.toggle("podajDane");
+    input.placeholder='';
     if (input.placeholder == 'Powtórz hasło') document.getElementById('rozneHasla').style.display = 'none';
 }
 
@@ -56,29 +50,10 @@ let inputy = document.querySelectorAll('input');
 for (let i of inputy) {
     i.addEventListener('click', () => zresetujStyleInputow(i));
 }
+
 function zmianaEkranuLogowanie(idZnikajace, idPojawiajace){
     ekranZnikajacy=document.getElementById(idZnikajace);
     ekranPojawiajacy=document.getElementById(idPojawiajace);
     ekranPojawiajacy.style.display='flex';
     ekranZnikajacy.style.display='none';
-}
-function stworzKontoPrzycisk(){
-    ekranLogowania = document.getElementById('ekranLogowania');
-    ekranRejestracji= document.getElementById('ekranRejestracji');
-    ekranLogowania.style.display='none';
-    ekranRejestracji.style.display='flex';
-}
-
-function mamJuzKontoPrzycisk(){
-    ekranLogowania = document.getElementById('ekranLogowania');
-    ekranRejestracji= document.getElementById('ekranRejestracji');
-    ekranLogowania.style.display='flex';
-    ekranRejestracji.style.display='none';
-}
-
-function skillIssuePrzycisk(){
-    ekranLogowania = document.getElementById('ekranLogowania');
-    ekranRejestracji = document.getElementById('ekranRejestracji');
-    ekranLogowania.style.display='none';
-    ekranRejestracji.style.display='flex';
 }
