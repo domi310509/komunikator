@@ -6,7 +6,7 @@ const pool = require('./db');
 
 const app = express();
 const PORT = 80;
-const server = app.listen(PORT, () => {console.log(`Serwer nasłuchuje na http://localhost:${PORT}`);});
+const server = app.listen(PORT, '0.0.0.0', () => {console.log(`Serwer nasłuchuje na http://localhost:${PORT}`);});
 
 // Middleware do obsługi statycznych plików
 app.use(express.static('public'));
