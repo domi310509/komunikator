@@ -16,7 +16,8 @@ window.translations = {
     cele: "Cele",
     tworcy: "Tworcy",
     przypominanieHasla: "Przypomnij Hasło",
-    jednakPamietamHaslo: "Jednak pamiętasz hasło?"
+    jednakPamietamHaslo: "Jednak pamiętasz hasło?",
+    stronaGlowna: "Strona Glowna"
   },
   en: {
     zalogujsie: "Log in",
