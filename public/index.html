@@ -14,22 +14,28 @@
     <div id="ekranWstepny">
         <div id="logo"></div>
         <div class="flexPoziom" style="position: absolute; top: 2vh; right: 2vh; height: 0;">
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="pomoc" onclick=""></button>
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="politykaPrywatnosci"></button>
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="cele"></button>
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="tworcy"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="pomoc" onclick="window.location.href='Pomoc.html'"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="politykaPrywatnosci" onclick="window.location.href='Polityka Prywatnosci.html'"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="cele" onclick="window.location.href='Cele.html'"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="tworcy" onclick="window.location.href='Tworcy.html'"></button>
         </div>
         <div class="flexPoziom">
             <div class="flexPion" style='margin-right: 10vh;'>
                 <div id="hasloPrzewodnie">
-                    <h1 data-i18n="hasloprzewodnie" style="width: 40vh; overflow:auto; text-align: center;" ></h1>
+                    <h1 data-i18n="hasloprzewodnie" style="width: 40vh; overflow:auto; text-align: center;"></h1>
                 </div>
                 <div id="ekranLogowania" class="flexPion">
                     <h1 data-i18n="zalogujsie"></h1>
-                    <label for="logowanieLogin" data-i18n="login"></label>
-                    <input type="text" id="logowanieLogin" class="inputEkranLogowania" data-i18n-placeholder="login">
-                    <input type="password" id="logowanieHaslo" class="inputEkranLogowania"
-                        data-i18n-placeholder="haslo">
+                    <span class="zleDaneKomunikat" id="nieUdaloSieZalogowac"></span>
+
+                    <div class="polaZLabelami">
+                        <label for="logowanieLogin" data-i18n="login" class="labelPrzyLogowaniu"></label>
+                        <input type="text" id="logowanieLogin" class="inputEkranLogowania">
+                    </div>
+                    <div class="polaZLabelami">
+                        <label for="logowanieHaslo" data-i18n="haslo" class="labelPrzyLogowaniu"></label>
+                        <input type="password" id="logowanieHaslo" class="inputEkranLogowania">
+                    </div>
                     <button id="zaloguj" onclick="walidacjaLogowania()" class="buttonEkranLogowania"
                         data-i18n="zalogujsie"></button>
 
@@ -42,22 +48,33 @@
                 </div>
                 <div id="ekranRejestracji" class="flexPion" style="display: none;">
                     <h1 data-i18n="zarejestrujsie"></h1>
-                    <input type="text" id="rejestracjaLogin" class="inputEkranLogowania" data-i18n-placeholder="login">
-                    <input type="password" id="rejestracjaHaslo" class="inputEkranLogowania"
-                        data-i18n-placeholder="haslo">
-                    <input type="password" id="rejestracjaHaslo2" class="inputEkranLogowania"
-                        data-i18n-placeholder="powtorzhaslo">
-                    <span id="rozneHasla" data-i18n="roznehasla"
-                        style="color: rgb(217, 117, 99); display: none;"></span>
+                    <span class="zleDaneKomunikat" id="nieUdaloSieZarejestrowac"></span>
+                    <div class="polaZLabelami">
+                        <label for="rejestracjaLogin" data-i18n="login" class="labelPrzyLogowaniu"></label>
+                        <input type="text" id="rejestracjaLogin" class="inputEkranLogowania">
+                    </div>
+                    <span data-i18n="zajetyLogin" class="zleDaneKomunikat" id="zajetyLogin"></span>
+                    <div class="polaZLabelami">
+                        <label for="rejestracjaHaslo" data-i18n="haslo" class="labelPrzyLogowaniu"></label>
+                        <input type="password" id="rejestracjaHaslo" class="inputEkranLogowania">
+                    </div>
+                    <div class="polaZLabelami">
+                        <label for="rejestracjaHaslo2" data-i18n="powtorzhaslo" class="labelPrzyLogowaniu"></label>
+                        <input type="password" id="rejestracjaHaslo2" class="inputEkranLogowania">
+                    </div>
+                    <span class="zleDaneKomunikat" data-i18n="roznehasla" id="rozneHasla"></span>
                     <button id="zarejestruj" onclick="walidacjaRejestracji()" class="buttonEkranLogowania"
                         data-i18n="zarejestrujsie"></button>
-                    <button class="przyciskiPomociczePrzyLogowaniu buttonEkranLogowaniaTransparent" data-i18n="mamJuzKonto"
+                    <button class="przyciskiPomociczePrzyLogowaniu buttonEkranLogowaniaTransparent"
+                        data-i18n="mamJuzKonto"
                         onclick="zmianaEkranuLogowanie('ekranRejestracji', 'ekranLogowania')"></button>
                 </div>
                 <div id="ekranZmianyHasla" class="flexPion" style="display: none;">
                     <h1 data-i18n="przypominanieHasla"></h1>
-                    <input type="text" id="przypominanieLogin" class="inputEkranLogowania"
-                        data-i18n-placeholder="login">
+                    <div class="polaZLabelami">
+                        <label for="logowanieLogin" data-i18n="login" class="labelPrzyLogowaniu"></label>
+                        <input type="text" id="logowanieLogin" class="inputEkranLogowania">
+                    </div>
                     <button id="przypomnijHaslo" onclick="" class="buttonEkranLogowania"
                         data-i18n="przypominanieHasla"></button>
                     <div class="przyciskiPomociczePrzyLogowaniu flexPoziom" style="height: 5vh;">
@@ -70,7 +87,6 @@
             </div>
             <div id="zdjeciePoczatkowe"></div>
         </div>
-        <!--<div id="lista_ludzi" style="margin-left: -76%;"></div>-->
         <div id="copyright" data-i18n="copyright"></div>
     </div>
 

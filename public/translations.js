@@ -1,9 +1,9 @@
 window.translations = {
   pl: {
     zalogujsie: "Zaloguj się",
-    login: "Login",
-    haslo: "Hasło",
-    powtorzhaslo: "Powtórz hasło",
+    login: "Login:",
+    haslo: "Hasło:",
+    powtorzhaslo: "Powtórz hasło:",
     zarejestrujsie: "Zarejestruj się",
     roznehasla: "Podane hasła nie zgadzają się",
     hasloprzewodnie: "Najnowszy i naj(nie)bezpieczniejszy komunikator!!!",
@@ -14,11 +14,15 @@ window.translations = {
     pomoc: "Pomoc",
     politykaPrywatnosci: "Polityka Prywatnosci",
     cele: "Cele",
-    tworcy: "Tworcy",
+    tworcy: "Twórcy",
     przypominanieHasla: "Przypomnij Hasło",
     jednakPamietamHaslo: "Jednak pamiętasz hasło?",
     Wyslij: "Wyślij",
     poleWiadomosci: "Sas",
+    zajetyLogin: "Podany login jest już używany. Wybierz inny.",
+    stronaGlowna: "Strona Glowna",
+    daneLogowaniaNieZgadzajaSie: "Dane logowania nie zgadzają się. Spróbuj ponownie.",
+    nieUdaloSieZarejestrowac: "Nie udało się zarejestrować. Spróbuj ponownie."
   },
   en: {
     zalogujsie: "Log in",

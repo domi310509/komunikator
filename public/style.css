@@ -1,16 +1,24 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #130208;
+    background-color: var(--kolorTla);
 }
 
 h1 {
-    color: #ff8274;
+    color: var(--kolorTekstu);
     font-size: 3vh;
 }
 
 #hasloPrzewodnie *{
-    color: #d53c6a;
+    color: var(--kolorTekstuCiemniejszy);
+}
+
+:root {
+  --kolorTla: #130208;
+  --kolorTlaJasniejszy: #460e2b;
+  --kolorBorderow: #7c183c;
+  --kolorTekstu: #ff8274;
+  --kolorTekstuCiemniejszy: #d53c6a;
 }
 
 .flexPoziom,
@@ -34,7 +42,15 @@ h1 {
     position: absolute;
     bottom: 2vh;
     left: 5vh;
-    color:#ff8274;
+    color:var(--kolorTekstu);
+}
+
+.zleDaneKomunikat{
+    color: var(--kolorTekstu);
+    font-family: 'Segoe UI';
+    font-size: 1.5vh;
+    margin-bottom: 0.5vh;
+    display: none;
 }
 
 #logo{
@@ -49,8 +65,8 @@ h1 {
 
 #zdjeciePoczatkowe{
     display: flex;
-    height: 50vh;
-    width: 50vh;
+    height: 60vh;
+    width: 60vh;
     background-image: url("placeholder.png");
     background-size: cover;
     border-radius: 2vh;
@@ -125,12 +141,12 @@ h1 {
 #ekranLogowania,
 #ekranRejestracji,
 #ekranZmianyHasla {
-    background-color: #460e2b    ;
-    height: 35vh;
+    background-color: var(--kolorTlaJasniejszy);
+    height: 43vh;
     width: 40vh;
     border-style: solid;
     border-width: 0.5vh;
-    border-color: #7c183c;
+    border-color: var(--kolorBorderow);
     border-radius: 2vh;
 }
 
@@ -140,21 +156,23 @@ h1 {
     margin: 0.5vh;
     background-color: #1f0510 ;
     border: solid;
-    border-color: #7c183c;
+    border-color: var(--kolorBorderow);
     border-radius: 1.5vh;
-    color: #ff8274;
+    color: var(--kolorTekstu);
     font-size: 1.5vh;
 }
-
+.inputEkranLogowania::placeholder {
+    color: var(--kolorTekstu);
+}
 .buttonEkranLogowania {
     height: 3vh;
     width: 15vh;
     margin: 0.5vh;
     background-color: #1f0510    ;
     border: solid;
-    border-color: #7c183c;
+    border-color: var(--kolorBorderow);
     border-radius: 1.5vh;
-    color: #ff8274;
+    color: var(--kolorTekstu);
     font-size: 1.5vh;
 }
 
@@ -163,18 +181,16 @@ h1 {
     background-color: transparent;
     bottom: 0%;
     border:none;
-    color:#ff8274;
+    color:var(--kolorTekstu);
     margin: 2vh;
     font-size: 1.3vh;
 }
 
 .buttonEkranLogowaniaTransparent:hover, .buttonEkranLogowania:hover{
-    color: #ff8274;
+    color: var(--kolorTekstu);
 }
 
-.podajDane::placeholder {
-    color: #ff8274;
-}
+
 
 #pasekBoczny{
     height: 95vh;
@@ -233,6 +249,17 @@ h1 {
 
 .przyciskiPomociczePrzyLogowaniu{
     margin-top: auto;
+}
+
+.polaZLabelami{
+    display: flex;
+    flex-direction: column;
+}
+.labelPrzyLogowaniu{
+    translate: 1vh;
+    color: var(--kolorTekstu);
+    font-family: 'Segoe UI';
+    font-size: 1.7vh;
 }
 /*
 #ekran_główny{
