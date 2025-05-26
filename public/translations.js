@@ -17,7 +17,9 @@ window.translations = {
     tworcy: "Twórcy",
     przypominanieHasla: "Przypomnij Hasło",
     jednakPamietamHaslo: "Jednak pamiętasz hasło?",
-    stronaGlowna: "Strona Glowna"
+        zajetyLogin: "Podany login jest już używany. Wybierz inny.",
+    stronaGlowna: "Strona Glowna",
+    daneLogowaniaNieZgadzajaSie: "Dane logowania nie zgadzają się. Spróbuj ponownie."
   },
   en: {
     zalogujsie: "Log in",
