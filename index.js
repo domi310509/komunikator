@@ -5,7 +5,7 @@ const { Server } = require('socket.io');
 const pool = require('./db');
 
 const app = express();
-const PORT = 80;
+const PORT = 3000;
 const server = app.listen(PORT, '0.0.0.0', () => {console.log(`Serwer nasłuchuje na http://localhost:${PORT}`);});
 
 // Middleware do obsługi statycznych plików
