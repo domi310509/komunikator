@@ -12,7 +12,14 @@ function walidacjaLogowania() {
         haslo.placeholder = 'Podaj haslo';
         czyPoprawneDane = false;
     }
-    if (czyPoprawneDane) login(loginU, haslo);
+
+    if (czyPoprawneDane) {
+        let error = login(loginU, haslo);
+        if(error instanceof Error){
+            document.getElementById('nieUdaloSieZalogowac').style.display='block';
+            document.getElementById('nieUdaloSieZalogowac').innerText=error.message;
+        }    
+    }
 }
 
 function walidacjaRejestracji() {
@@ -38,11 +45,17 @@ function walidacjaRejestracji() {
         rozneHasla.style.display = 'block';
         czyPoprawneDane = false;
     }
-    if (czyPoprawneDane) register(loginU, haslo);
+    if (czyPoprawneDane) {
+        let error = register(loginU, haslo);
+        if(error instanceof Error){
+            document.getElementById('nieUdaloSieZarejestrowac').style.display='block';
+            document.getElementById('nieUdaloSieZarejestrowac').innerText=error.message;
+        }    
+    }
 }
 function zresetujStyleInputow(input) {
     if (input.style.borderColor == 'rgb(255, 130, 116)') input.style.borderColor = '#7c183c';
-    input.placeholder='';
+    input.placeholder = '';
     if (input.placeholder == 'Powtórz hasło') document.getElementById('rozneHasla').style.display = 'none';
 }
 
@@ -51,9 +64,10 @@ for (let i of inputy) {
     i.addEventListener('click', () => zresetujStyleInputow(i));
 }
 
-function zmianaEkranuLogowanie(idZnikajace, idPojawiajace){
-    ekranZnikajacy=document.getElementById(idZnikajace);
-    ekranPojawiajacy=document.getElementById(idPojawiajace);
-    ekranPojawiajacy.style.display='flex';
-    ekranZnikajacy.style.display='none';
+function zmianaEkranuLogowanie(idZnikajace, idPojawiajace) {
+    ekranZnikajacy = document.getElementById(idZnikajace);
+    ekranPojawiajacy = document.getElementById(idPojawiajace);
+    ekranPojawiajacy.style.display = 'flex';
+    ekranZnikajacy.style.display = 'none';
 }
+
