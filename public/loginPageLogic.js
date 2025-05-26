@@ -3,13 +3,13 @@ function walidacjaLogowania() {
     let haslo = document.getElementById('logowanieHaslo');
     let czyPoprawneDane = true;
     if (loginU.value == '') {
-        loginU.style.borderColor = 'red';
+        loginU.style.borderColor = '#ff8274';
         if (!loginU.classList.toggle("podajDane")) loginU.classList.toggle("podajDane");
         loginU.placeholder = 'Podaj login';
         czyPoprawneDane = false;
     }
     if (haslo.value == '') {
-        haslo.style.borderColor = 'red';
+        haslo.style.borderColor = '#ff8274';
         if (!haslo.classList.toggle("podajDane")) haslo.classList.toggle("podajDane");
         haslo.placeholder = 'Podaj haslo';
         czyPoprawneDane = false;
@@ -25,21 +25,21 @@ function walidacjaRejestracji() {
     let czyPoprawneDane = true;
 
     if (loginU.value == '') {
-        loginU.style.borderColor = 'red';
+        loginU.style.borderColor = '#ff8274';
         if (!loginU.classList.toggle("podajDane")) loginU.classList.toggle("podajDane");
 
         loginU.placeholder = 'Podaj login';
         czyPoprawneDane = false;
     }
     if (haslo.value == '') {
-        haslo.style.borderColor = 'red';
+        haslo.style.borderColor = '#ff8274';
         if (!haslo.classList.toggle("podajDane")) haslo.classList.toggle("podajDane");
         haslo.placeholder = 'Podaj haslo';
         czyPoprawneDane = false;
     }
 
     if (haslo.value != haslo2.value) {
-        haslo2.style.borderColor = 'red';
+        haslo2.style.borderColor = '#ff8274';
         if (!haslo2.classList.toggle("podajDane")) haslo2.classList.toggle("podajDane");
         rozneHasla.style.display = 'block';
         czyPoprawneDane = false;
@@ -47,7 +47,7 @@ function walidacjaRejestracji() {
     if (czyPoprawneDane) register(loginU, haslo);
 }
 function zresetujStyleInputow(input) {
-    if (input.style.borderColor == 'red') input.style.borderColor = 'rgb(39, 39, 39)';
+    if (input.style.borderColor == 'rgb(255, 130, 116)') input.style.borderColor = '#7c183c';
     if (input.classList.toggle("podajDane")) input.classList.toggle("podajDane");
     if (input.placeholder == 'Powtórz hasło') document.getElementById('rozneHasla').style.display = 'none';
 }
