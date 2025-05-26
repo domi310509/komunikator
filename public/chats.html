@@ -9,13 +9,29 @@
 </head>
 <body>
     <div class="flexPoziom">
-            <div id="pasekBoczny" class="flexPion"></div>
+            <div id="pasekBoczny" class="flexPion">
+                <div id="niechemisie" class="flexPion">
+                    <div class="flexPoziom">
+                        <button id="ustawieniaPasekBoczny">ustawienia</button>
+                        <button id="wyloguj">wyloguj</button>
+                    </div>
+                    <input type="text" id="wyszukajOsobe" placeholder="agsjdgsajg">
+                </div>
+                <div class="okienkoOsoby flexPoziom" style="justify-content: left;">
+                    <img src="placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">
+                    <div class="nazwaUzytkownikaPaskeBoczny">Tak bydzie siem wyświetlać nazwa</div>
+                </div>
+            </div>
             <div id="czat" class="flexPion">
-                <div id="daneZdjecieUstawienia"></div>
+                <div id="daneZdjecieUstawienia" class="flexPoziom" style="justify-content: left;">
+                    <img src="placeholder.png" alt="Ni ma profilowego T-T" class="profiloweCzat">
+                    <div class="nazwaUzytkownikaCzat">Tak bydzie siem wyświetlać nazwa</div>
+                    <button class="ustawieniaCzat"></button>
+                </div>
                 <div id="wiadomosci"></div>
                 <div id="wiadomoscPisana" class="flexPoziom">
-                    <input type="text" data-i18n-placeholder="poleWiadomosci" style="width: 90%;">
-                    <button type="button" data-i18n="Wyslij" style="width: 10%;"></button>
+                    <input type="text" id="polePisania" data-i18n-placeholder="poleWiadomosci" >
+                    <button type="button" id="wyslij" data-i18n="Wyslij" ></button>
                 </div>
             </div>
     </div>
