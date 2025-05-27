@@ -14,12 +14,13 @@ function walidacjaLogowania() {
     }
 
     if (czyPoprawneDane) {
-        let error = login(loginU, haslo);
+        let error = login(loginU.value, haslo.value);
         if(error instanceof Error){
             document.getElementById('nieUdaloSieZalogowac').style.display='block';
             document.getElementById('nieUdaloSieZalogowac').innerText=error.message;
         }    
         else{
+            
             przejdzDoCzatow();
         }
     }
@@ -49,11 +50,15 @@ function walidacjaRejestracji() {
         czyPoprawneDane = false;
     }
     if (czyPoprawneDane) {
-        let error = register(loginU, haslo);
+        let error = register(loginU.value, haslo.value);
         if(error instanceof Error){
             document.getElementById('nieUdaloSieZarejestrowac').style.display='block';
             document.getElementById('nieUdaloSieZarejestrowac').innerText=error.message;
         }    
+        else{
+            login(loginU.value, haslo.value);
+            przejdzDoCzatow();
+        }
     }
 }
 function zresetujStyleInputow(input) {
@@ -73,4 +78,6 @@ function zmianaEkranuLogowanie(idZnikajace, idPojawiajace) {
     ekranPojawiajacy.style.display = 'flex';
     ekranZnikajacy.style.display = 'none';
 }
-
+function przejdzDoCzatow() {
+    window.location.href = 'chats.html';
+}

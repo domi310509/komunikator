@@ -168,6 +168,7 @@ async function refreshToken() {
 
 let socket;
 
+
 /**
  * Inicjuje połączenie socket.io i ustawia nasłuch zdarzeń
  */
@@ -204,6 +205,7 @@ function startSocket() {
     });
 
     socket.on('chatHistory', (listOfChats) => {
+        wyswietlanieCzatow(listOfChats);
         console.log(listOfChats);
     });
 }

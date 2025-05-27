@@ -1,5 +1,7 @@
 //Nie mam pojęcia jak funkcje z backendu przekazują dane do frontendu, jak się dowiem to zrobię żeby działało
-
+testAccessToken();
+startSocket();
+getAllChats();
 class Osoba {
     constructor(nazwa, id) {
         this.nazwa = nazwa;
@@ -7,13 +9,10 @@ class Osoba {
     }
 };
 
-function przejdzDoCzatow() {
-    window.location.href = 'chats.html';
-    wyswietlanieCzatow();
-}
+
 
 function wyloguj() {
-    //logout();
+    logout();
     alert('Pomyuślnie wylogowano');
 }
 
@@ -48,21 +47,21 @@ function pokazCzat(id) {
 
 }
 
-function wyswietlanieCzatow() {
-    let osoby// = getAllChats();
-    osoby = [
+function wyswietlanieCzatow(osoby) {    
+    /*   osoby = [
         new Osoba('Janek', 1),
         new Osoba('Kasia', 2),
         new Osoba('Marek', 3),
         new Osoba('Ania', 4),
         new Osoba('Tomek', 5)
     ];
-    for (let i of osoby) {
+    */
+    for (let chatId in osoby) {
         let osoba = document.createElement('div');
         osoba.className = 'okienkoOsoby flexPoziom';
-        osoba.onclick = () => pokazCzat(i.id);
+        osoba.onclick = () => pokazCzat(chatId);
         osoba.innerHTML = '<img src="placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">' +
-            '<div class="nazwaUzytkownikaPaskeBoczny">' + i.nazwa + '</div>';
+            '<div class="nazwaUzytkownikaPaskeBoczny">' + chatId + '</div>';
         document.getElementById('osoby').appendChild(osoba);
     }
 }
