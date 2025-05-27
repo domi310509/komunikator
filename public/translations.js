@@ -24,6 +24,7 @@ window.translations = {
     daneLogowaniaNieZgadzajaSie: "Dane logowania nie zgadzają się. Spróbuj ponownie.",
     nieUdaloSieZarejestrowac: "Nie udało się zarejestrować. Spróbuj ponownie.",
     wyloguj: "Wyloguj",
+    ustawienia: "Ustawienia",
   },
   en: {
     zalogujsie: "Log in",

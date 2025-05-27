@@ -82,6 +82,14 @@ h1 {
     font-size: 2vh;
 }
 
+#polePisania:focus{
+    outline: 0.2vh solid #d53c6a;
+}
+
+#polePisania::placeholder{
+    color: #d53c6a;
+}
+
 #wyslij{
     background-color:#7c183c;
     height: 3vh;
@@ -286,6 +294,25 @@ h1 {
 }
 .dymekMoj{
     margin-left: auto;
+}
+
+::-webkit-scrollbar {
+  width: 12px;         
+  height: 12px;         
+}
+
+::-webkit-scrollbar-track {
+    background:#460e2b;
+    border-radius: 0.5vh;
+}
+
+::-webkit-scrollbar-thumb {
+  background:#7c183c;    
+  border-radius: 0.5vh;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:#d53c6a;    
 }
 /*
 #ekran_główny{
