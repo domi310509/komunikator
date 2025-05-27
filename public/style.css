@@ -96,8 +96,17 @@ h1 {
     height: 13vh;
     width: 100%;
 }
+.osoby{
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 
 .okienkoOsoby{
+    justify-content: left;
     height: 8vh;
     width: 100%;
     background-color:#7c183c;
@@ -114,7 +123,8 @@ h1 {
 
 .nazwaUzytkownikaPaskeBoczny{
     color: #ff8274;
-    font-size: 2vh;
+    font-size: 3vh;
+    font-family: 'Segoe UI';
 }
 
 #ustawieniaPasekBoczny, #wyloguj{
@@ -235,6 +245,7 @@ h1 {
 #wiadomosci{
     height: 85vh;
     width: 100%;
+    overflow-y: scroll;
 }
 
 #daneZdjecieUstawienia{
@@ -260,6 +271,21 @@ h1 {
     color: var(--kolorTekstu);
     font-family: 'Segoe UI';
     font-size: 1.7vh;
+}
+.dymekZnajomego, 
+.dymekMoj{
+    background-color: var(--kolorBorderow);
+    color: var(--kolorTekstu);
+    border-radius: 1vh;
+    padding: 0.5vh;
+    font-size: 2vh;
+    margin: 2vh;
+    height: auto;
+    min-height: 2.5vh;
+    max-width: 60%;
+}
+.dymekMoj{
+    margin-left: auto;
 }
 /*
 #ekran_główny{

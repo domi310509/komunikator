@@ -22,7 +22,8 @@ window.translations = {
     zajetyLogin: "Podany login jest już używany. Wybierz inny.",
     stronaGlowna: "Strona Glowna",
     daneLogowaniaNieZgadzajaSie: "Dane logowania nie zgadzają się. Spróbuj ponownie.",
-    nieUdaloSieZarejestrowac: "Nie udało się zarejestrować. Spróbuj ponownie."
+    nieUdaloSieZarejestrowac: "Nie udało się zarejestrować. Spróbuj ponownie.",
+    wyloguj: "Wyloguj",
   },
   en: {
     zalogujsie: "Log in",

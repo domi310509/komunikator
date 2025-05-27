@@ -19,6 +19,9 @@ function walidacjaLogowania() {
             document.getElementById('nieUdaloSieZalogowac').style.display='block';
             document.getElementById('nieUdaloSieZalogowac').innerText=error.message;
         }    
+        else{
+            przejdzDoCzatow();
+        }
     }
 }
 
