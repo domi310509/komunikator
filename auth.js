@@ -33,6 +33,7 @@ async function register(req, res){
         // Generowanie tokenów
         const accessToken = generateAccessToken(userRepaired);
         const refreshToken = generateRefreshToken(userRepaired);
+        await pool.query("INSERT INTO refresh_tokens (token, user_id) VALUES (?, ?)", [refreshToken, user.insertId]);
 
         // Ustawienie tokenów w ciasteczkach
         res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: true, sameSite: 'Strict' });
@@ -66,6 +67,7 @@ async function login(req, res) {
         // Generowanie tokenów
         const accessToken = generateAccessToken(user[0]);
         const refreshToken = generateRefreshToken(user[0]);
+        await pool.query("INSERT INTO refresh_tokens (token, user_id) VALUES (?, ?)", [refreshToken, user[0].id]);
 
         // Ustawienie tokenów w ciasteczkach
         res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: true, sameSite: 'Strict' });
@@ -80,15 +82,25 @@ async function refresh(req, res) {
     const token = req.cookies.refreshToken;
     if (!token) return res.sendStatus(401);
 
+    const found = await pool.query("SELECT * FROM refresh_tokens WHERE token = ?", [token]);
+    if (!found.length) return res.sendStatus(403);
+
     jwt.verify(token, process.env.JWT_REFRESH_SECRET, (err, user) => {
         if (err) return res.sendStatus(403);
 
-        const accessToken = generateAccessToken({ id: user.id });
-        return res.json({ accessToken });
+        pool.query("DELETE FROM refresh_tokens WHERE token = ?", [token]); // Usuwanie starego refresh_tokenu
+
+        const newRefreshToken = generateRefreshToken(user); // Generowanie nowego
+        pool.query("INSERT INTO refresh_tokens (token, user_id) VALUES (?, ?)", [newRefreshToken, user.id]);
+
+        res.cookie('refreshToken', newRefreshToken, { httpOnly: true });
+        return res.json({ accessToken: generateAccessToken({ id: user.id })});
     });
 }
 
 async function logout(req, res) {
+    const refreshToken = req.cookies.refreshToken;
+    pool.query("DELETE FROM refresh_tokens WHERE token = ?", [refreshToken]); // Usuwanie starego refresh_tokenu
     res.clearCookie('refreshToken');
     res.sendStatus(204);
 }

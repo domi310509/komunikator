@@ -1,7 +1,7 @@
 //Nie mam pojęcia jak funkcje z backendu przekazują dane do frontendu, jak się dowiem to zrobię żeby działało
-testAccessToken();
-startSocket();
-getAllChats();
+// testAccessToken();
+// startSocket();
+// getAllChats();
 class Osoba {
     constructor(nazwa, id) {
         this.nazwa = nazwa;
@@ -13,7 +13,8 @@ class Osoba {
 
 function wyloguj() {
     logout();
-    alert('Pomyuślnie wylogowano');
+    //alert('Pomyślnie wylogowano');
+    window.location.href = "index.html"; // wyjdz po wylogowaniu
 }
 
 class Wiadomosc {

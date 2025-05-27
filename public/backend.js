@@ -20,6 +20,10 @@ function isLoggedIn(){
  */
 
 async function register(username, password){
+    if(!(typeof username === 'string') || !(typeof password === 'string')){
+        console.error("Błędne dane wejściowe");
+        return new Error("Dane wejściowe nie są tekstem");
+    }
     if(isLoggedIn()){
         return new Error('Użytkownik jest już zalogowany')
     }
@@ -54,9 +58,12 @@ async function register(username, password){
  * @returns {Promise<string|Error>} komunikat sukcesu lub obiekt błędu
  */
 async function login(username, password){
+    if(!(typeof username === 'string') || !(typeof password === 'string')){
+        console.error("Błędne dane wejściowe");
+        return new Error("Dane wejściowe nie są tekstem");
+    }
     if(isLoggedIn()){
-        return new Error('Użytkownik jest już zalogowany')
-        return;
+        return new Error('Użytkownik jest już zalogowany');
     }
 
     const url = `${window.location.origin}/api/login`;
@@ -121,7 +128,6 @@ async function testAccessToken(){
 
     if (!accessToken) {
         return new Error('Access token is missing');
-        return;
     }
     try {
         const response = await fetch(url, {

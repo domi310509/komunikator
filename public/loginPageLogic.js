@@ -15,12 +15,12 @@ function walidacjaLogowania() {
 
     if (czyPoprawneDane) {
         let error = login(loginU.value, haslo.value);
-        if(error instanceof Error){
+        if(error instanceof Error || typeof error === Error){
             document.getElementById('nieUdaloSieZalogowac').style.display='block';
             document.getElementById('nieUdaloSieZalogowac').innerText=error.message;
         }    
         else{
-            
+            login(loginU.value, haslo.value);
             przejdzDoCzatow();
         }
     }
@@ -51,12 +51,10 @@ function walidacjaRejestracji() {
     }
     if (czyPoprawneDane) {
         let error = register(loginU.value, haslo.value);
-        if(error instanceof Error){
+        if(error instanceof Error || typeof error === Error){
             document.getElementById('nieUdaloSieZarejestrowac').style.display='block';
             document.getElementById('nieUdaloSieZarejestrowac').innerText=error.message;
-        }    
-        else{
-            login(loginU.value, haslo.value);
+        }else{
             przejdzDoCzatow();
         }
     }
