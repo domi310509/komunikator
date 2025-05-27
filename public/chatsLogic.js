@@ -27,7 +27,7 @@ class Wiadomosc {
 }
 function pokazCzat(id) {
     let nazwa//Muszę dowiedzieć jak pobrać nazwę użytkownika z id
-    document.getElementById('wiadomosci').innerHTML = '';
+    //document.getElementById('wiadomosci').innerHTML = '';
     //getChatHistory(id);
     let wiadomosci = [
         new Wiadomosc('Janek', 'Skibidi', '2023-10-01 12:00', 0),
@@ -49,14 +49,14 @@ function pokazCzat(id) {
 }
 
 function wyswietlanieCzatow(osoby) {    
-    /*   osoby = [
+       osoby = [
         new Osoba('Janek', 1),
         new Osoba('Kasia', 2),
         new Osoba('Marek', 3),
         new Osoba('Ania', 4),
         new Osoba('Tomek', 5)
     ];
-    */
+    
     for (let chatId in osoby) {
         let osoba = document.createElement('div');
         osoba.className = 'okienkoOsoby flexPoziom';
