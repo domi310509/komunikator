@@ -1,11 +1,18 @@
 //Nie mam pojęcia jak funkcje z backendu przekazują dane do frontendu, jak się dowiem to zrobię żeby działało
 const uzytkownik = { id: null, nazwa: null };
-const otwartyChat={id: null, nazwa: null};
+const otwartyChat = { id: null, nazwa: null };
+let wszyscyUzytkownicy = [];
+let znajomeChaty = [];
 function startStrony() {
-    testAccessToken();
     startSocket();
-    fetchId();
-    getAllChats();
+
+
+    socket.on('connect', () => {
+        testAccessToken();
+        getUserList();
+        fetchId();
+        getAllChats();
+    });
 
     socket.on('message', (message) => {
         console.log('Received message from server:', message);
@@ -18,7 +25,7 @@ function startStrony() {
     });
 
     socket.on('chatHistory', (listOfChats) => {
-        wyswietlanieCzatow(listOfChats); 
+        wyswietlanieCzatow(listOfChats);
         console.log("Lista czatów:", listOfChats);
     });
 
@@ -29,17 +36,20 @@ function startStrony() {
     });
     socket.on('listOfAllUsers', (listOfAllUsers) => {
         console.table(listOfAllUsers);
-        for(let i of listOfAllUsers) {
-            if(i.id == otwartyChat.id) {
-                otwartyChat.nazwa = i.username;
-                break;
-            }
-        }
+        wszyscyUzytkownicy = listOfAllUsers;
     });
+
 }
 
 
-
+function nazwaUzytkownika() {
+    for (let i of wszyscyUzytkownicy) {
+        if (i.id == otwartyChat.id) {
+            otwartyChat.nazwa = i.username;
+            break;
+        }
+    }
+}
 
 
 function wyloguj() {
@@ -50,22 +60,21 @@ function wyloguj() {
 
 
 function pokazCzat(wiadomosci) {
-    let nazwa;
-    console.log("Wiadomosci: ", wiadomosci);
-    if(wiadomosci[0].sender_id == uzytkownik.id)nazwa = wiadomosci[0].receiver_id;
-    else nazwa = wiadomosci[0].sender_id;
-    otwartyChat.id = nazwa;
-    getUserList();
-    document.getElementById('wiadomosci').innerHTML = '';
 
-    for (let i of wiadomosci) {
-        let wiadomosc = document.createElement('div');
-        if (i.receiver_id == uzytkownik.id) wiadomosc.className = 'dymekZnajomego';
-        else wiadomosc.className = 'dymekMoj';
-        wiadomosc.innerText = i.content;
-        document.getElementById('wiadomosci').appendChild(wiadomosc);
+
+    document.getElementById('wiadomosci').innerHTML = '';
+    nazwaUzytkownika();
+    if (wiadomosci.length != 0) {
+        for (let i of wiadomosci) {
+            let wiadomosc = document.createElement('div');
+            if (i.receiver_id == uzytkownik.id) wiadomosc.className = 'dymekZnajomego';
+            else wiadomosc.className = 'dymekMoj';
+            wiadomosc.innerText = i.content;
+            document.getElementById('wiadomosci').appendChild(wiadomosc);
+        }
     }
     document.getElementById('nazwaUzytkownikaCzat').innerText = otwartyChat.nazwa;
+    document.getElementById('wiadomosci').scrollBy(0, document.body.scrollHeight);
 
 }
 
@@ -77,21 +86,48 @@ function wyswietlanieCzatow(osoby) {
         osoba.className = 'okienkoOsoby flexPoziom';
         const chat = osoby[chatId];
         let idChatu;
-        if(chat[0].sender_id == uzytkownik.id)idChatu = chat[0].receiver_id;
+        if (chat[0].sender_id == uzytkownik.id) idChatu = chat[0].receiver_id;
         else idChatu = chat[0].sender_id;
         otwartyChat.id = idChatu;
-        osoba.onclick = () => getChatHistory(idChatu);
-        getUserList();
+        znajomeChaty.push(idChatu);
+        osoba.onclick = () => {
+            otwartyChat.id = idChatu;
+            nazwaUzytkownika();
+            getChatHistory(idChatu);
+        };
+
+        nazwaUzytkownika();
+
+        console.log("Chat ID: ", otwartyChat.nazwa);
         osoba.innerHTML = '<img src="/images/placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">' +
-            '<div class="nazwaUzytkownikaPaskeBoczny">' + idChatu + '</div>';
+            '<div class="nazwaUzytkownikaPaskeBoczny">' + otwartyChat.nazwa + '</div>';
+        document.getElementById('osoby').appendChild(osoba);
+    }
+    wyswietlanieWszystkichUzytkownikow();
+}
+function wyswietlanieWszystkichUzytkownikow() {
+    for (let chat of wszyscyUzytkownicy) {
+        if (chat.id == uzytkownik.id) continue; // Nie pokazuj samego siebie
+        if (znajomeChaty.includes(chat.id)) continue; // Nie pokazuj znajomych z czatów
+        let osoba = document.createElement('div');
+        osoba.className = 'okienkoOsoby2 flexPoziom';
+        otwartyChat.id = chat.id;
+        osoba.onclick = () => {
+            otwartyChat.id = chat.id;
+            nazwaUzytkownika();
+            getChatHistory(chat.id);
+        };
+        console.log("Chat ID: ", chat.username);
+        osoba.innerHTML = '<img src="/images/placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">' +
+            '<div class="nazwaUzytkownikaPaskeBoczny">' + chat.username + '</div>';
         document.getElementById('osoby').appendChild(osoba);
     }
 }
 
 function wyslijWiadomosc() {
+    document.getElementById('wiadomosci').scrollBy(0, document.body.scrollHeight);
     let wiadomosc = document.getElementById('polePisania').value.trim();
     if (wiadomosc == '') {
-        alert('Nie możesz wysłać pustej wiadomości!');
         return;
     }
     console.log("wyslij wiadomosc");
@@ -101,10 +137,35 @@ function wyslijWiadomosc() {
 }
 
 function szukajOsoby() {
-    zawartosc = document.getElementById('wyszukajOsobe').value.toUpperCase();
+    
+    let zawartosc = document.getElementById('wyszukajOsobe').value;
+    let lista= document.getElementsByClassName('nazwaUzytkownikaPaskeBoczny');
+    if(zawartosc == '') {
+        for(let i of lista){
+            i.parentElement.style.display = "";
+        }
+        return;
+    }
+    zawartosc = zawartosc.toUpperCase();
+
+    for(let i of lista){
+        if(i.innerText.toUpperCase().indexOf(zawartosc) > -1) {
+            i.parentElement.style.display = "";
+        }
+        else {
+            i.parentElement.style.display = "none";
+        }
+    }
 }
+document.getElementById('wyszukajOsobe').addEventListener('input',()=> szukajOsoby());
 
 
+document.getElementById("polePisania").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("wyslij").click();
+  }
+});
 /*
 function myFunction() {
   // Declare variables
