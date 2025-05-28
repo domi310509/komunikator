@@ -228,12 +228,12 @@ function startSocket() {
 
     socket.on('message', (message) => {
         console.log('Received message from server:', message);
-        getChatHistory(otwartyChat.id);
+        //getChatHistory(otwartyChat.id);
     });
 
     socket.on('messageHistory', (messages) => {
         console.log('Otrzymano historię wiadomości:', messages);
-        pokazCzat(messages);
+        //pokazCzat(messages);
     });
 
     socket.on('listOfAllUsers', (listOfAllUsers) => {
@@ -241,12 +241,13 @@ function startSocket() {
     });
 
     socket.on('chatHistory', (listOfChats) => {
-        wyswietlanieCzatow(listOfChats);//Dlaczego lista czatów nie jest listą tylko obiektem? :(
+        //wyswietlanieCzatow(listOfChats); //Dlaczego lista czatów nie jest listą tylko obiektem? :(
         console.log("Lista czatów:", listOfChats);
     });
+
     socket.on('idReturn', (id) => {
         console.log("Moje ID: ", id);
-        uzytkownik.id = id;
+        //uzytkownik.id = id;
     });
 }
 

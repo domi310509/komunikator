@@ -62,7 +62,7 @@ function wyswietlanieCzatow(osoby) {
         else idChatu = chat[0].sender_id;
         otwartyChat.id = idChatu;
         osoba.onclick = () => getChatHistory(idChatu);
-        osoba.innerHTML = '<img src="images/placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">' +
+        osoba.innerHTML = '<img src="/images/placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">' +
             '<div class="nazwaUzytkownikaPaskeBoczny">' + idChatu + '</div>';
         document.getElementById('osoby').appendChild(osoba);
     }

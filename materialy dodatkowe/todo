@@ -1,14 +1,19 @@
 Osadzanie zdjęć z linków
 Zmiana języka na stronie
-Emotikony
 Status przeczytania wiadomości
 Komunikaty (Nie masz połączenia z internetem itp)
 Automatyczne wyrzucanie do strony głównej jeśli nie jesteś zalogowany
 Dodać czas do generowania tokenów (by tokeny nie były tak podobne)
+Error id i tłumaczenia
+
+Zrób własne handlery dla socket @Emix999
+
+Naprawić bycie zalogowanym i niemożność przejścia dalej
 
 
 ✅ Revoke refresh token (wylogowanie globalne po userId)
 ✅ Walidacja wejścia dla register i login
+✅ Emotikony
 
 
 ❌ Dodawanie do znajomych | Reason: na razie czatować można z każdym 
