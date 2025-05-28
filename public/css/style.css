@@ -76,6 +76,12 @@ h1 {
     box-shadow: 0 0 10px rgba(255, 130, 116, 0.4); /* opcjonalny efekt świecenia */
 }
 
+#ustawienia{
+    width: 10vw;
+    height: 25vh;
+    background-color: #7c183c;
+    display: none;
+}
 
 /*
 #logo{
