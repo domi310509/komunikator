@@ -123,13 +123,14 @@ h1 {
 }
 
 #wyslij{
-    background-color:#7c183c;
-    height: 3vh;
+    background-color:transparent;
+    height: 5vh;
     width: 5vh;
     margin: 2vh;
-    border: 0.3vh solid #d53c6a;
-    color: #ff8274;
-    border-radius: 1vh;
+    border-radius: 100%;
+    background-image: url(/images/przycisk\ wysylania\ wiadomosci.svg);
+    background-size: cover;
+    border: none;
 }
 
 #niechemisie{
