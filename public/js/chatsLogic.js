@@ -1,6 +1,6 @@
 //Nie mam pojęcia jak funkcje z backendu przekazują dane do frontendu, jak się dowiem to zrobię żeby działało
 const uzytkownik = { id: null, nazwa: null };
-
+const otwartyChat={id: null};
 function startStrony() {
     testAccessToken();
     startSocket();
@@ -32,7 +32,11 @@ class Wiadomosc {
     }
 }
 function pokazCzat(wiadomosci) {
-    let nazwa = uzytkownik.id;
+    let nazwa;
+    console.log("Wiadomosci: ", wiadomosci);
+    if(wiadomosci[0].sender_id == uzytkownik.id)nazwa = wiadomosci[0].receiver_id;
+    else nazwa = wiadomosci[0].sender_id;
+    otwartyChat.id = nazwa;
     document.getElementById('wiadomosci').innerHTML = '';
 
     for (let i of wiadomosci) {
@@ -48,8 +52,7 @@ function pokazCzat(wiadomosci) {
 
 
 function wyswietlanieCzatow(osoby) {
-    console.log("Wyświetlanie czatów:", osoby);
-    //document.getElementById('osoby').innerHTML = ''; // Czyści listę osób
+    document.getElementById('osoby').innerHTML = '';
     for (let chatId in osoby) {
         let osoba = document.createElement('div');
         osoba.className = 'okienkoOsoby flexPoziom';
@@ -57,6 +60,7 @@ function wyswietlanieCzatow(osoby) {
         let idChatu;
         if(chat[0].sender_id == uzytkownik.id)idChatu = chat[0].receiver_id;
         else idChatu = chat[0].sender_id;
+        otwartyChat.id = idChatu;
         osoba.onclick = () => getChatHistory(idChatu);
         osoba.innerHTML = '<img src="images/placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">' +
             '<div class="nazwaUzytkownikaPaskeBoczny">' + idChatu + '</div>';
@@ -64,15 +68,16 @@ function wyswietlanieCzatow(osoby) {
     }
 }
 
-function wyslijWiadomosc(idOdbiorcy) {
+function wyslijWiadomosc() {
     let wiadomosc = document.getElementById('polePisania').value.trim();
     if (wiadomosc == '') {
         alert('Nie możesz wysłać pustej wiadomości!');
         return;
     }
-    //sendMessage(idOdbiorcy, wiadomosc);
+    console.log("wyslij wiadomosc");
+    sendMessage(otwartyChat.id, wiadomosc);
     document.getElementById('polePisania').value = '';
-    pokazCzat(idOdbiorcy);
+    console.log("Wysłano wiadomość do: ", otwartyChat.id);
 }
 
 function szukajOsoby() {

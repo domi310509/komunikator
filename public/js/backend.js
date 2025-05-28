@@ -228,6 +228,7 @@ function startSocket() {
 
     socket.on('message', (message) => {
         console.log('Received message from server:', message);
+        getChatHistory(otwartyChat.id);
     });
 
     socket.on('messageHistory', (messages) => {
@@ -256,6 +257,7 @@ function startSocket() {
  */
 function sendMessage(receiverId, content){
     socket.emit('message', { receiverId, content });
+    console.log('send message');
 }
 
 /**
