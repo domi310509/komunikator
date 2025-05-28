@@ -79,12 +79,7 @@ h1 {
     /* opcjonalny efekt świecenia */
 }
 
-#ustawienia{
-    width: 10vw;
-    height: 25vh;
-    background-color: #7c183c;
-    display: none;
-}
+
 
 /*
 #logo{
@@ -102,6 +97,11 @@ h1 {
 */
 #logo:hover {
     background-color: var(--kolorTlaJasniejszy);
+}
+.tekstPodstron{
+    color: var(--kolorTekstu);
+    font-family: 'Segoe UI';
+    font-size: 2vh;
 }
 
 #zdjeciePoczatkowe {
@@ -282,12 +282,18 @@ h1 {
 }
 
 
-#czat {
+#czat,
+#ustawienia,
+#pusto {
     height: 95vh;
     width: 70vw;
     background-color: #1f0510;
     border-radius: 1vh;
     margin: 1.5vw;
+}
+#ustawienia,
+#pusto {
+    display: none;
 }
 
 .profiloweCzat {

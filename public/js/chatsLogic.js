@@ -12,6 +12,9 @@ function startStrony() {
         getUserList();
         fetchId();
         getAllChats();
+        document.getElementById("czat").style.display = 'none';
+        document.getElementById("pusto").style.display = 'block';
+
     });
 
     socket.on('message', (message) => {
@@ -60,8 +63,6 @@ function wyloguj() {
 
 
 function pokazCzat(wiadomosci) {
-
-
     document.getElementById('wiadomosci').innerHTML = '';
     nazwaUzytkownika();
     if (wiadomosci.length != 0) {
@@ -91,6 +92,10 @@ function wyswietlanieCzatow(osoby) {
         otwartyChat.id = idChatu;
         znajomeChaty.push(idChatu);
         osoba.onclick = () => {
+            if(document.getElementById("czat").style.display == 'none'){
+                document.getElementById("czat").style.display = 'flex';
+                document.getElementById("pusto").style.display = 'none';
+            }
             otwartyChat.id = idChatu;
             nazwaUzytkownika();
             getChatHistory(idChatu);
@@ -99,7 +104,7 @@ function wyswietlanieCzatow(osoby) {
         nazwaUzytkownika();
 
         console.log("Chat ID: ", otwartyChat.nazwa);
-        osoba.innerHTML = '<img src="/images/placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">' +
+        osoba.innerHTML = '<img src="/images/domyslna ikona uzytkownika.svg" alt="Zdjęcie profilowe" class="profilowePasekBoczny">' +
             '<div class="nazwaUzytkownikaPaskeBoczny">' + otwartyChat.nazwa + '</div>';
         document.getElementById('osoby').appendChild(osoba);
     }
@@ -113,12 +118,16 @@ function wyswietlanieWszystkichUzytkownikow() {
         osoba.className = 'okienkoOsoby2 flexPoziom';
         otwartyChat.id = chat.id;
         osoba.onclick = () => {
+            if(document.getElementById("czat").style.display == 'none'){
+                document.getElementById("czat").style.display = 'flex';
+                document.getElementById("pusto").style.display = 'none';
+            }
             otwartyChat.id = chat.id;
             nazwaUzytkownika();
             getChatHistory(chat.id);
         };
         console.log("Chat ID: ", chat.username);
-        osoba.innerHTML = '<img src="/images/placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">' +
+        osoba.innerHTML = '<img src="/images/domyslna ikona uzytkownika.svg" alt="Zdjęcie profilowe" class="profilowePasekBoczny">' +
             '<div class="nazwaUzytkownikaPaskeBoczny">' + chat.username + '</div>';
         document.getElementById('osoby').appendChild(osoba);
     }
@@ -137,19 +146,19 @@ function wyslijWiadomosc() {
 }
 
 function szukajOsoby() {
-    
+
     let zawartosc = document.getElementById('wyszukajOsobe').value;
-    let lista= document.getElementsByClassName('nazwaUzytkownikaPaskeBoczny');
-    if(zawartosc == '') {
-        for(let i of lista){
+    let lista = document.getElementsByClassName('nazwaUzytkownikaPaskeBoczny');
+    if (zawartosc == '') {
+        for (let i of lista) {
             i.parentElement.style.display = "";
         }
         return;
     }
     zawartosc = zawartosc.toUpperCase();
 
-    for(let i of lista){
-        if(i.innerText.toUpperCase().indexOf(zawartosc) > -1) {
+    for (let i of lista) {
+        if (i.innerText.toUpperCase().indexOf(zawartosc) > -1) {
             i.parentElement.style.display = "";
         }
         else {
@@ -157,32 +166,23 @@ function szukajOsoby() {
         }
     }
 }
-document.getElementById('wyszukajOsobe').addEventListener('input',()=> szukajOsoby());
+document.getElementById('wyszukajOsobe').addEventListener('input', () => szukajOsoby());
 
 
-document.getElementById("polePisania").addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    document.getElementById("wyslij").click();
-  }
-});
-/*
-function myFunction() {
-  // Declare variables
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("mySearch");
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("myMenu");
-  li = ul.getElementsByTagName("li");
-
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
+document.getElementById("polePisania").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("wyslij").click();
     }
-  }
-}
-*/
+});
+
+document.getElementById("ustawieniaPasekBoczny").addEventListener('click', () => {
+    if (document.getElementById("ustawienia").style.display == 'none') {
+
+        document.getElementById("czat").style.display = 'none';
+        document.getElementById("ustawienia").style.display = 'block';
+    } else {
+        document.getElementById("ustawienia").style.display = 'none';
+        document.getElementById("czat").style.display = '';
+    }
+});
