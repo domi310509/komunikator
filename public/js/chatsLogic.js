@@ -4,7 +4,8 @@ const uzytkownik = { id: null, nazwa: null };
 function startStrony() {
     testAccessToken();
     startSocket();
-    dajId();
+    fetchId();
+    getAllChats();
 }
 
 class Osoba {
@@ -57,7 +58,7 @@ function wyswietlanieCzatow(osoby) {
         if(chat[0].sender_id == uzytkownik.id)idChatu = chat[0].receiver_id;
         else idChatu = chat[0].sender_id;
         osoba.onclick = () => getChatHistory(idChatu);
-        osoba.innerHTML = '<img src="placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">' +
+        osoba.innerHTML = '<img src="images/placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">' +
             '<div class="nazwaUzytkownikaPaskeBoczny">' + idChatu + '</div>';
         document.getElementById('osoby').appendChild(osoba);
     }

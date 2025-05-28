@@ -15,7 +15,7 @@ async function walidacjaLogowania() {
 
     if (czyPoprawneDane) {
         let error = await login(loginU.value, haslo.value);
-        if(isLoggedIn())przejdzDoCzatow();
+        //if(isLoggedIn())przejdzDoCzatow(); może tworzyć błędy
         if(error instanceof Error || typeof error === Error){
             document.getElementById('nieUdaloSieZalogowac').style.display='block';
             document.getElementById('nieUdaloSieZalogowac').innerText=error.message;
@@ -52,7 +52,7 @@ async function walidacjaRejestracji() {
     }
     if (czyPoprawneDane) {
         let error = await register(loginU.value, haslo.value);
-        if(isLoggedIn())przejdzDoCzatow();
+        //if(isLoggedIn())przejdzDoCzatow(); Może tworzyć błędy
         if(error instanceof Error || typeof error === Error){
             document.getElementById('nieUdaloSieZarejestrowac').style.display='block';
             document.getElementById('nieUdaloSieZarejestrowac').innerText=error.message;
@@ -80,5 +80,5 @@ function zmianaEkranuLogowanie(idZnikajace, idPojawiajace) {
     ekranZnikajacy.style.display = 'none';
 }
 function przejdzDoCzatow() {
-    window.location.href = 'chats.html';
+    window.location.href = 'html/chats.html';
 }

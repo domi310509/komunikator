@@ -1,0 +1,333 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--kolorTla);
+}
+
+h1 {
+    color: var(--kolorTekstu);
+    font-size: 3vh;
+}
+
+#hasloPrzewodnie *{
+    color: var(--kolorTekstuCiemniejszy);
+}
+
+:root {
+  --kolorTla: #130208;
+  --kolorTlaJasniejszy: #460e2b;
+  --kolorBorderow: #7c183c;
+  --kolorTekstu: #ff8274;
+  --kolorTekstuCiemniejszy: #d53c6a;
+}
+
+.flexPoziom,
+.flexPion {
+    display: flex;
+    align-items: center;
+}
+
+.flexPoziom {
+    flex-direction: row;
+    height: 100vh;
+    justify-content: center;
+}
+
+.flexPion {
+    flex-direction: column;
+    height: auto;
+}
+
+#copyright{
+    position: absolute;
+    bottom: 2vh;
+    left: 5vh;
+    color:var(--kolorTekstu);
+}
+
+.zleDaneKomunikat{
+    color: var(--kolorTekstu);
+    font-family: 'Segoe UI';
+    font-size: 1.5vh;
+    margin-bottom: 0.5vh;
+    display: none;
+}
+
+#logo{
+    position: absolute;
+    top: 2vh;
+    left: 2vh;
+    height: 10vh;
+    width: 10vh;
+    background-image: url("images/placeholder.png");
+    background-size: cover;
+}
+
+#zdjeciePoczatkowe{
+    display: flex;
+    height: 60vh;
+    width: 60vh;
+    background-image: url("images/placeholder.png");
+    background-size: cover;
+    border-radius: 2vh;
+}
+
+#polePisania{
+    background-color: #7c183c;
+    height: 3vh;
+    width: 85%;
+    border-radius: 3vh;
+    border: none;
+    color: #ff8274;
+    font-size: 2vh;
+}
+
+#polePisania:focus{
+    outline: 0.2vh solid #d53c6a;
+}
+
+#polePisania::placeholder{
+    color: #d53c6a;
+}
+
+#wyslij{
+    background-color:#7c183c;
+    height: 3vh;
+    width: 5vh;
+    margin: 2vh;
+    border: 0.3vh solid #d53c6a;
+    color: #ff8274;
+    border-radius: 1vh;
+}
+
+#niechemisie{
+    height: 13vh;
+    width: 100%;
+}
+.osoby{
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.okienkoOsoby{
+    justify-content: left;
+    height: 8vh;
+    width: 100%;
+    background-color:#7c183c;
+    margin: 1vh;
+    border-radius: 2vh;
+}
+
+.profilowePasekBoczny{
+    height: 6vh;
+    width: 6vh;
+    border-radius: 6vh;
+    margin: 2vh;
+}
+
+.nazwaUzytkownikaPaskeBoczny{
+    color: #ff8274;
+    font-size: 3vh;
+    font-family: 'Segoe UI';
+}
+
+#ustawieniaPasekBoczny, #wyloguj{
+    height: 5vh;
+    width: 15vh;
+    background-color:#7c183c;
+    border: 0.3vh solid #d53c6a;
+    border-radius: 1vh;
+    color: #ff8274;
+    margin: 2vh;
+    font-size: 2.5vh;
+}
+
+#wyszukajOsobe{
+    height: 5vh;
+    width: 60%;
+    background-color:#d53c6a;
+    border: none;
+    border-radius: 1vh;
+    color: #ff8274;
+    margin: 2vh;
+}
+
+#ekranLogowania,
+#ekranRejestracji,
+#ekranZmianyHasla {
+    background-color: var(--kolorTlaJasniejszy);
+    height: 43vh;
+    width: 40vh;
+    border-style: solid;
+    border-width: 0.5vh;
+    border-color: var(--kolorBorderow);
+    border-radius: 2vh;
+}
+
+.inputEkranLogowania {
+    height: 3vh;
+    width: 30vh;
+    margin: 0.5vh;
+    background-color: #1f0510 ;
+    border: solid;
+    border-color: var(--kolorBorderow);
+    border-radius: 1.5vh;
+    color: var(--kolorTekstu);
+    font-size: 1.5vh;
+}
+.inputEkranLogowania::placeholder {
+    color: var(--kolorTekstu);
+}
+.buttonEkranLogowania {
+    height: 3vh;
+    width: 15vh;
+    margin: 0.5vh;
+    background-color: #1f0510    ;
+    border: solid;
+    border-color: var(--kolorBorderow);
+    border-radius: 1.5vh;
+    color: var(--kolorTekstu);
+    font-size: 1.5vh;
+}
+
+.buttonEkranLogowaniaTransparent{
+    position: relative;
+    background-color: transparent;
+    bottom: 0%;
+    border:none;
+    color:var(--kolorTekstu);
+    margin: 2vh;
+    font-size: 1.3vh;
+}
+
+.buttonEkranLogowaniaTransparent:hover, .buttonEkranLogowania:hover{
+    color: var(--kolorTekstu);
+}
+
+
+
+#pasekBoczny{
+    height: 95vh;
+    width: 30vw;
+    background-color: #1f0510;
+    border-radius: 1vh;
+    margin-left: 1.5vw;
+}
+
+
+#czat{
+    height: 95vh;
+    width: 100vw;
+    background-color: #1f0510;
+    border-radius: 1vh;
+    margin: 1.5vw;
+}
+
+.profiloweCzat{
+    border-radius: 100%;
+    height: 8vh;
+    width: 8vh;
+    margin: 1vh;
+}
+
+.nazwaUzytkownikaCzat{
+    color:#ff8274;
+    font-size: 3vh;
+    margin: 1vh;
+}
+
+.ustawieniaCzat{
+    position: absolute;
+    right: 5vh;
+    height: 5vh;
+    width: 5vh;
+    border-radius: 0.5vh;
+    background-image: url("images/placeholder.png");
+    border: none;
+}
+
+#wiadomosci{
+    height: 85vh;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+#daneZdjecieUstawienia{
+    height: 10vh;
+    width: 100%;
+}
+
+#wiadomoscPisana{
+    height: 5vh;
+    width: 100%;
+}
+
+.przyciskiPomociczePrzyLogowaniu{
+    margin-top: auto;
+}
+
+.polaZLabelami{
+    display: flex;
+    flex-direction: column;
+}
+.labelPrzyLogowaniu{
+    translate: 1vh;
+    color: var(--kolorTekstu);
+    font-family: 'Segoe UI';
+    font-size: 1.7vh;
+}
+.dymekZnajomego, 
+.dymekMoj{
+    background-color: var(--kolorBorderow);
+    color: var(--kolorTekstu);
+    border-radius: 1vh;
+    padding: 0.5vh;
+    font-size: 2vh;
+    margin: 2vh;
+    height: auto;
+    min-height: 2.5vh;
+    max-width: 60%;
+}
+.dymekMoj{
+    margin-left: auto;
+}
+
+::-webkit-scrollbar {
+  width: 12px;         
+  height: 12px;         
+}
+
+::-webkit-scrollbar-track {
+    background:#460e2b;
+    border-radius: 0.5vh;
+}
+
+::-webkit-scrollbar-thumb {
+  background:#7c183c;    
+  border-radius: 0.5vh;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:#d53c6a;    
+}
+/*
+#ekran_główny{
+    display: flex;
+    justify-content: center;
+    border: 30px solid black;
+    margin: 10px;
+    width: 96vw;
+    height: 93vh;
+}
+#lista_ludzi{
+    display: flex;
+    justify-content: center;
+    border: 10px solid black;
+    height: 92vh;
+    width: 23vw;
+}
+    */

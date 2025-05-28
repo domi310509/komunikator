@@ -105,6 +105,13 @@ async function logout(req, res) {
     res.sendStatus(204);
 }
 
+async function logoutById(req, res) {
+    const id = req.user.id;
+    pool.query("DELETE FROM refresh_tokens WHERE user_id = ?", [id]); // Usuwanie starego refresh_tokenu
+    res.clearCookie('refreshToken');
+    res.sendStatus(204);
+}
+
 function authenticateAccessToken(req, res, next){
     const authHeader = req.headers['authorization'];
 
@@ -145,4 +152,4 @@ function authenticateSocketToken(socket, next){
     })
 }
 
-module.exports = { register, login, refresh, logout, authenticateAccessToken, authenticateSocketToken };
+module.exports = { register, login, refresh, logout, authenticateAccessToken, authenticateSocketToken, logoutById };

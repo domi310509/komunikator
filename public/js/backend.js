@@ -118,6 +118,34 @@ async function logout() {
     }
 }
 
+async function logoutFromAllDevices(){
+    const url = `${window.location.origin}/api/logoutAll`;
+    const accessToken = localStorage.getItem('accessToken');
+    
+    if(!!socket){
+        socket.disconnect();
+    }
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+        });
+        const data = await response.text();
+        if(response.ok){
+            localStorage.removeItem('accessToken');
+            return 'Wylogowano pomyślnie';
+        } else {
+            return new Error(`Błąd wylogowywania: ${data}`);
+        }
+    } catch(error){
+        return new Error('Błąd połączenia z serwerem: ' + error);
+    }
+}
+
 /**
  * Testuje poprawność access tokena próbując uzyskać dostęp do chronionego zasobu
  * @returns {Promise<string|Error>} dane lub błąd
@@ -213,14 +241,11 @@ function startSocket() {
 
     socket.on('chatHistory', (listOfChats) => {
         wyswietlanieCzatow(listOfChats);//Dlaczego lista czatów nie jest listą tylko obiektem? :(
-        console.log("Lista czatów:",listOfChats);
+        console.log("Lista czatów:", listOfChats);
     });
-    socket.on('proszeOtoId', (mojeId) => {
-        console.log("Moje ID: ", mojeId);
-        uzytkownik.id = mojeId;
-
-
-        getAllChats();
+    socket.on('idReturn', (id) => {
+        console.log("Moje ID: ", id);
+        uzytkownik.id = id;
     });
 }
 
@@ -247,8 +272,8 @@ function getChatHistory(withUserId){
 function getAllChats(){
     socket.emit('getChats');
 }
-function dajId(){
-    socket.emit('dajId');
+function fetchId(){
+    socket.emit('fetchId');
 }
 /**
  * Pobiera listę wszystkich użytkowników

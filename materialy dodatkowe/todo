@@ -1,12 +1,21 @@
 Osadzanie zdjęć z linków
 Zmiana języka na stronie
-Revoke refresh token
 Emotikony
-Dodawanie do znajomych
-Blokowanie
 Status przeczytania wiadomości
 Komunikaty (Nie masz połączenia z internetem itp)
-Przebudować bazę danych
-Cookies
+Automatyczne wyrzucanie do strony głównej jeśli nie jesteś zalogowany
+Dodać czas do generowania tokenów (by tokeny nie były tak podobne)
 
+
+✅ Revoke refresh token (wylogowanie globalne po userId)
 ✅ Walidacja wejścia dla register i login
+
+
+❌ Dodawanie do znajomych | Reason: na razie czatować można z każdym 
+❌ Blokowanie | -||-
+
+
+❓ Cookies | Na razie nie potrzebuje
+
+
+🔁 Przebudować bazę danych

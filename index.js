@@ -1,6 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const { register, login, refresh, logout, authenticateAccessToken, authenticateSocketToken } = require('./auth');
+const { register, login, refresh, logout, authenticateAccessToken, authenticateSocketToken, logoutById } = require('./auth');
 const { Server } = require('socket.io');
 const pool = require('./db');
 
@@ -10,7 +10,7 @@ const server = app.listen(PORT, '0.0.0.0', () => { console.log(`Serwer nasłuchu
 
 // Middleware do obsługi statycznych plików
 app.use(express.static('public'));
-app.use('/socket.io', express.static('node_modules/socket.io-client/dist')); // bibliotkea socket.io dla klienta
+app.use('/socket.io', express.static('node_modules/socket.io-client/dist')); // biblioteka socket.io dla klienta
 
 // Middleware do parsowania JSON
 app.use(express.json());
@@ -27,6 +27,7 @@ app.post('/api/register', register);
 app.post('/api/login', login);
 app.post('/api/token', refresh);
 app.post('/api/logout', logout);
+app.post('/api/logoutAll', authenticateAccessToken, logoutById);
 
 // Endpoint, który wymaga tokenu w ciasteczku
 app.get('/protected', authenticateAccessToken, (req, res) => {
@@ -50,7 +51,7 @@ io.on('connection', (socket) => {
     // Connect all devices with the same user.id together
     if (socket.user?.id) {
         socket.join(`user_${socket.user.id}`);
-    }
+    };
 
     // Obsługuje wiadomości
     socket.on('message', async ({ receiverId, content }) => {
@@ -95,16 +96,16 @@ io.on('connection', (socket) => {
         } catch (error) {
             console.error('Error when retrieving chat history: ', error);
         }
-    })
+    });
 
-    socket.on('dajId', async () => {
+    socket.on('fetchId', async () => {
         try {
             const mojeId = socket.user.id;
-            socket.emit('proszeOtoId', mojeId);
+            socket.emit('idReturn', mojeId);
         } catch (error) {
-            console.error('Error when pobieralem id', error);
+            console.error('Error fetching id', error);
         }
-    })
+    });
 
     socket.on('getChats', async () => {
         try {

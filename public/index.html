@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Komunikator</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="translations.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/translations.js"></script>
 </head>
 
 <body>
     <div id="ekranWstepny">
         <div id="logo"></div>
         <div class="flexPoziom" style="position: absolute; top: 2vh; right: 2vh; height: 0;">
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="pomoc" onclick="window.location.href='Pomoc.html'"></button>
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="politykaPrywatnosci" onclick="window.location.href='Polityka Prywatnosci.html'"></button>
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="cele" onclick="window.location.href='Cele.html'"></button>
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="tworcy" onclick="window.location.href='Tworcy.html'"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="pomoc" onclick="window.location.href='html/Pomoc.html'"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="politykaPrywatnosci" onclick="window.location.href='html/Polityka prywatnosci.html'"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="cele" onclick="window.location.href='html/Cele.html'"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="tworcy" onclick="window.location.href='html/Tworcy.html'"></button>
         </div>
         <div class="flexPoziom">
             <div class="flexPion" style='margin-right: 10vh;'>
@@ -94,10 +94,10 @@
 
     </div>
 
-    <script src="frontend.js"></script>
-    <script src="loginPageLogic.js"></script>
+    <script src="js/frontend.js"></script>
+    <script src="js/loginPageLogic.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="backend.js"></script>
+    <script src="js/backend.js"></script>
 </body>
 
 </html>

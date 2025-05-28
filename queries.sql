@@ -1,7 +1,8 @@
 create table users(
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    profile_image_url varchar(1024),
 );
 
 CREATE TABLE messages (
