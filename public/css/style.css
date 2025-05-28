@@ -59,7 +59,7 @@ h1 {
     left: 2vh;
     height: 10vh;
     width: 10vh;
-    background-image: url("images/placeholder.png");
+    background-image: url("/images/placeholder.png");
     background-size: cover;
 }
 
@@ -67,7 +67,7 @@ h1 {
     display: flex;
     height: 60vh;
     width: 60vh;
-    background-image: url("images/placeholder.png");
+    background-image: url("/images/placeholder.png");
     background-size: cover;
     border-radius: 2vh;
 }
@@ -246,7 +246,7 @@ h1 {
     height: 5vh;
     width: 5vh;
     border-radius: 0.5vh;
-    background-image: url("images/placeholder.png");
+    background-image: url("/images/placeholder.png");
     border: none;
 }
 
