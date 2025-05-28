@@ -203,7 +203,8 @@ function startSocket() {
     });
 
     socket.on('messageHistory', (messages) => {
-        console.log(messages);
+        console.log('Otrzymano historię wiadomości:', messages);
+        pokazCzat(messages);
     });
 
     socket.on('listOfAllUsers', (listOfAllUsers) => {
@@ -211,8 +212,15 @@ function startSocket() {
     });
 
     socket.on('chatHistory', (listOfChats) => {
-        wyswietlanieCzatow(listOfChats);
-        console.log(listOfChats);
+        wyswietlanieCzatow(listOfChats);//Dlaczego lista czatów nie jest listą tylko obiektem? :(
+        console.log("Lista czatów:",listOfChats);
+    });
+    socket.on('proszeOtoId', (mojeId) => {
+        console.log("Moje ID: ", mojeId);
+        uzytkownik.id = mojeId;
+
+
+        getAllChats();
     });
 }
 
@@ -239,7 +247,9 @@ function getChatHistory(withUserId){
 function getAllChats(){
     socket.emit('getChats');
 }
-
+function dajId(){
+    socket.emit('dajId');
+}
 /**
  * Pobiera listę wszystkich użytkowników
  */

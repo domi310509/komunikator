@@ -1,4 +1,4 @@
-function walidacjaLogowania() {
+async function walidacjaLogowania() {
     let loginU = document.getElementById('logowanieLogin');
     let haslo = document.getElementById('logowanieHaslo');
     let czyPoprawneDane = true;
@@ -14,19 +14,20 @@ function walidacjaLogowania() {
     }
 
     if (czyPoprawneDane) {
-        let error = login(loginU.value, haslo.value);
+        let error = await login(loginU.value, haslo.value);
+        if(isLoggedIn())przejdzDoCzatow();
         if(error instanceof Error || typeof error === Error){
             document.getElementById('nieUdaloSieZalogowac').style.display='block';
             document.getElementById('nieUdaloSieZalogowac').innerText=error.message;
         }    
         else{
-            login(loginU.value, haslo.value);
+            await login(loginU.value, haslo.value);
             przejdzDoCzatow();
         }
     }
 }
 
-function walidacjaRejestracji() {
+async function walidacjaRejestracji() {
     let loginU = document.getElementById('rejestracjaLogin');
     let haslo = document.getElementById('rejestracjaHaslo');
     let haslo2 = document.getElementById('rejestracjaHaslo2');
@@ -50,11 +51,13 @@ function walidacjaRejestracji() {
         czyPoprawneDane = false;
     }
     if (czyPoprawneDane) {
-        let error = register(loginU.value, haslo.value);
+        let error = await register(loginU.value, haslo.value);
+        if(isLoggedIn())przejdzDoCzatow();
         if(error instanceof Error || typeof error === Error){
             document.getElementById('nieUdaloSieZarejestrowac').style.display='block';
             document.getElementById('nieUdaloSieZarejestrowac').innerText=error.message;
         }else{
+            login(loginU.value, haslo.value);
             przejdzDoCzatow();
         }
     }

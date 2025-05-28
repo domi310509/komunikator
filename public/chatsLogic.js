@@ -1,7 +1,12 @@
 //Nie mam pojęcia jak funkcje z backendu przekazują dane do frontendu, jak się dowiem to zrobię żeby działało
-// testAccessToken();
-// startSocket();
-// getAllChats();
+const uzytkownik = { id: null, nazwa: null };
+
+function startStrony() {
+    testAccessToken();
+    startSocket();
+    dajId();
+}
+
 class Osoba {
     constructor(nazwa, id) {
         this.nazwa = nazwa;
@@ -25,44 +30,35 @@ class Wiadomosc {
         this.nadawcaId = nadawcaId;
     }
 }
-function pokazCzat(id) {
-    let nazwa//Muszę dowiedzieć jak pobrać nazwę użytkownika z id
-    //document.getElementById('wiadomosci').innerHTML = '';
-    //getChatHistory(id);
-    let wiadomosci = [
-        new Wiadomosc('Janek', 'Skibidi', '2023-10-01 12:00', 0),
-        new Wiadomosc('Kasia', 'Skibidi Toaleta', '2023-10-01 12:01', 1),
-        new Wiadomosc('Kasia', 'Sigma', '2023-10-01 12:02', 1),
-        new Wiadomosc('Janek', 'SASASASASASASASASASASASASA', '2023-10-01 12:03', 0),
-        new Wiadomosc('Kasia', 'SKIBIDI!', '2023-10-01 12:04', 1)
-    ]
+function pokazCzat(wiadomosci) {
+    let nazwa = uzytkownik.id;
+    document.getElementById('wiadomosci').innerHTML = '';
 
     for (let i of wiadomosci) {
         let wiadomosc = document.createElement('div');
-        if (i.nadawcaId == id) wiadomosc.className = 'dymekZnajomego';
+        if (i.receiver_id == uzytkownik.id) wiadomosc.className = 'dymekZnajomego';
         else wiadomosc.className = 'dymekMoj';
-        wiadomosc.innerText = i.tresc;
+        wiadomosc.innerText = i.content;
         document.getElementById('wiadomosci').appendChild(wiadomosc);
     }
     document.getElementById('nazwaUzytkownikaCzat').innerText = nazwa;
 
 }
 
-function wyswietlanieCzatow(osoby) {    
-       osoby = [
-        new Osoba('Janek', 1),
-        new Osoba('Kasia', 2),
-        new Osoba('Marek', 3),
-        new Osoba('Ania', 4),
-        new Osoba('Tomek', 5)
-    ];
-    
+
+function wyswietlanieCzatow(osoby) {
+    console.log("Wyświetlanie czatów:", osoby);
+    //document.getElementById('osoby').innerHTML = ''; // Czyści listę osób
     for (let chatId in osoby) {
         let osoba = document.createElement('div');
         osoba.className = 'okienkoOsoby flexPoziom';
-        osoba.onclick = () => pokazCzat(chatId);
+        const chat = osoby[chatId];
+        let idChatu;
+        if(chat[0].sender_id == uzytkownik.id)idChatu = chat[0].receiver_id;
+        else idChatu = chat[0].sender_id;
+        osoba.onclick = () => getChatHistory(idChatu);
         osoba.innerHTML = '<img src="placeholder.png" alt="Ni ma profilowego T-T" class="profilowePasekBoczny">' +
-            '<div class="nazwaUzytkownikaPaskeBoczny">' + chatId + '</div>';
+            '<div class="nazwaUzytkownikaPaskeBoczny">' + idChatu + '</div>';
         document.getElementById('osoby').appendChild(osoba);
     }
 }
@@ -79,7 +75,7 @@ function wyslijWiadomosc(idOdbiorcy) {
 }
 
 function szukajOsoby() {
-    zawartosc=document.getElementById('wyszukajOsobe').value.toUpperCase();
+    zawartosc = document.getElementById('wyszukajOsobe').value.toUpperCase();
 }
 
 
