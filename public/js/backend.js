@@ -63,7 +63,7 @@ async function login(username, password){
         return new Error("Dane wejściowe nie są tekstem");
     }
     if(isLoggedIn()){
-        return new Error('Użytkownik jest już zalogowany');
+        return 'Użytkownik jest już zalogowany';
     }
 
     const url = `${window.location.origin}/api/login`;

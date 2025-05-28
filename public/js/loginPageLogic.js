@@ -16,7 +16,8 @@ async function walidacjaLogowania() {
     if (czyPoprawneDane) {
         let error = await login(loginU.value, haslo.value);
         //if(isLoggedIn())przejdzDoCzatow(); może tworzyć błędy
-        if(error instanceof Error || typeof error === Error){
+        if(error=='Użytkownik jest już zalogowany')przejdzDoCzatow();
+        else if(error instanceof Error || typeof error === Error){
             document.getElementById('nieUdaloSieZalogowac').style.display='block';
             document.getElementById('nieUdaloSieZalogowac').innerText=error.message;
         }    

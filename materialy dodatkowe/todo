@@ -7,10 +7,10 @@ Dodać czas do generowania tokenów (by tokeny nie były tak podobne)
 Error id i tłumaczenia
 Zmienić onclick w buttony lub coś podobnego
 Walidacja wejść w bazie danych
+kitlock
+✅Zrób własne handlery dla socket @Emix999
 
-Zrób własne handlery dla socket @Emix999
-
-Naprawić bycie zalogowanym i niemożność przejścia dalej
+✅Naprawić bycie zalogowanym i niemożność przejścia dalej
 
 
 ✅ Revoke refresh token (wylogowanie globalne po userId)
