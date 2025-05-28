@@ -91,7 +91,6 @@ function wyswietlanieCzatow(osoby) {
 function wyslijWiadomosc() {
     let wiadomosc = document.getElementById('polePisania').value.trim();
     if (wiadomosc == '') {
-        alert('Nie możesz wysłać pustej wiadomości!');
         return;
     }
     console.log("wyslij wiadomosc");
