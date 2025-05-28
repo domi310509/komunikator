@@ -137,7 +137,12 @@ function szukajOsoby() {
     zawartosc = document.getElementById('wyszukajOsobe').value.toUpperCase();
 }
 
-
+document.getElementById("polePisania").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("wyslij").click();
+  }
+});
 /*
 function myFunction() {
   // Declare variables
