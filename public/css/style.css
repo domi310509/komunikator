@@ -105,31 +105,32 @@ h1 {
 }
 
 #polePisania{
-    background-color: #7c183c;
+    background-color: var(--kolorBorderow);
     height: 3vh;
     width: 85%;
     border-radius: 3vh;
     border: none;
-    color: #ff8274;
+    color: var(--kolorTekstu);
     font-size: 2vh;
 }
 
 #polePisania:focus{
-    outline: 0.2vh solid #d53c6a;
+    outline: 0.2vh solid var(--kolorTekstuCiemniejszy);
 }
 
 #polePisania::placeholder{
-    color: #d53c6a;
+    color: var(--kolorTekstuCiemniejszy);
 }
 
 #wyslij{
-    background-color:#7c183c;
-    height: 3vh;
+    background-color:transparent;
+    height: 5vh;
     width: 5vh;
     margin: 2vh;
-    border: 0.3vh solid #d53c6a;
-    color: #ff8274;
-    border-radius: 1vh;
+    border-radius: 100%;
+    background-image: url(/images/przycisk\ wysylania\ wiadomosci.svg);
+    background-size: cover;
+    border: none;
 }
 
 #niechemisie{
@@ -150,7 +151,7 @@ h1 {
     justify-content: left;
     height: 8vh;
     width: 100%;
-    background-color:#7c183c;
+    background-color:var(--kolorBorderow);
     margin: 1vh;
     border-radius: 2vh;
 }
@@ -167,7 +168,7 @@ h1 {
 }
 
 .nazwaUzytkownikaPaskeBoczny{
-    color: #ff8274;
+    color: var(--kolorTekstu);
     font-size: 3vh;
     font-family: 'Segoe UI';
 }
@@ -175,23 +176,33 @@ h1 {
 #ustawieniaPasekBoczny, #wyloguj{
     height: 5vh;
     width: 15vh;
-    background-color:#7c183c;
-    border: 0.3vh solid #d53c6a;
+    background-color:var(--kolorBorderow);
+    border: 0.3vh solid var(--kolorTekstuCiemniejszy);
     border-radius: 1vh;
-    color: #ff8274;
+    color: var(--kolorTekstu);
     margin: 2vh;
     font-size: 2.5vh;
 }
 
 #wyszukajOsobe{
-    height: 5vh;
-    width: 60%;
-    background-color:#d53c6a;
+    position: absolute; /*przepraszam, próbowałem po dobroci. ja wiem, że to herezja, ale jak ktoś umie inaczej, to proszę bardzo ja mam dość*/
+    top: 13vh;
+    height: 2vh;
+    width: 30vh;
+    background-color:var(--kolorBorderow);
     border: none;
     border-radius: 1vh;
-    color: #ff8274;
-    margin: 2vh;
+    color: var(--kolorTekstu);
 }
+
+#wyszukajOsobe:focus{
+    outline: 0.2vh solid var(--kolorTekstuCiemniejszy);
+}
+
+#wyszukajOsobe::placeholder{
+    color: var(--kolorTekstuCiemniejszy);
+}
+
 
 #ekranLogowania,
 #ekranRejestracji,
@@ -272,7 +283,7 @@ h1 {
 }
 
 .nazwaUzytkownikaCzat{
-    color:#ff8274;
+    color:var(--kolorTekstu);
     font-size: 3vh;
     margin: 1vh;
 }
@@ -327,7 +338,7 @@ h1 {
     margin: 2vh;
     height: auto;
     min-height: 2.5vh;
-    max-width: 60%;
+    text-wrap: wrap;
 }
 .dymekMoj{
     margin-left: auto;
@@ -339,17 +350,17 @@ h1 {
 }
 
 ::-webkit-scrollbar-track {
-    background:#460e2b;
+    background:var(--kolorTlaJasniejszy);
     border-radius: 0.5vh;
 }
 
 ::-webkit-scrollbar-thumb {
-  background:#7c183c;    
+  background:var(--kolorBorderow);    
   border-radius: 0.5vh;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background:#d53c6a;    
+  background:var(--kolorTekstuCiemniejszy);    
 }
 /*
 #ekran_główny{
