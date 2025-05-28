@@ -6,7 +6,7 @@ window.translations = {
     powtorzhaslo: "Powtórz hasło:",
     zarejestrujsie: "Zarejestruj się",
     roznehasla: "Podane hasła nie zgadzają się",
-    hasloprzewodnie: "Najnowszy i naj(nie)bezpieczniejszy komunikator!!!",
+    hasloprzewodnie: "SkrzydLink",
     stworzKonto: "Stwórz konto",
     mamJuzKonto: "Mam już konto",
     skillIssue: "Nie pamiętasz hasła?",
@@ -25,6 +25,7 @@ window.translations = {
     nieUdaloSieZarejestrowac: "Nie udało się zarejestrować. Spróbuj ponownie.",
     wyloguj: "Wyloguj",
     ustawienia: "Ustawienia",
+    krotkiOpis: "Nowy komunikator, łączący ludzi.",
   },
   en: {
     zalogujsie: "Log in",
