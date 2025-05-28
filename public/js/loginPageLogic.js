@@ -80,5 +80,5 @@ function zmianaEkranuLogowanie(idZnikajace, idPojawiajace) {
     ekranZnikajacy.style.display = 'none';
 }
 function przejdzDoCzatow() {
-    window.location.href = 'html/chats.html';
+    window.location.href = '/html/chats.html';
 }

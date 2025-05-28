@@ -6,21 +6,36 @@ function startStrony() {
     startSocket();
     fetchId();
     getAllChats();
+
+    socket.on('message', (message) => {
+        console.log('Received message from server:', message);
+        getChatHistory(otwartyChat.id);
+    });
+
+    socket.on('messageHistory', (messages) => {
+        console.log('Otrzymano historię wiadomości:', messages);
+        pokazCzat(messages);
+    });
+
+    socket.on('chatHistory', (listOfChats) => {
+        wyswietlanieCzatow(listOfChats); 
+        console.log("Lista czatów:", listOfChats);
+    });
+
+    socket.on('idReturn', (id) => {
+        console.log("Moje ID: ", id);
+        uzytkownik.id = id;
+    });
 }
 
-class Osoba {
-    constructor(nazwa, id) {
-        this.nazwa = nazwa;
-        this.id = id;
-    }
-};
+
 
 
 
 function wyloguj() {
     logout();
     //alert('Pomyślnie wylogowano');
-    window.location.href = "index.html"; // wyjdz po wylogowaniu
+    window.location.href = "/index.html"; // wyjdz po wylogowaniu
 }
 
 class Wiadomosc {
