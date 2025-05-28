@@ -145,13 +145,18 @@ h1 {
     overflow-x: hidden;
 }
 
-.okienkoOsoby{
+.okienkoOsoby,
+.okienkoOsoby2{
     justify-content: left;
     height: 8vh;
     width: 100%;
     background-color:#7c183c;
     margin: 1vh;
     border-radius: 2vh;
+}
+
+.okienkoOsoby2{
+    background-color:#4d1026;
 }
 
 .profilowePasekBoczny{
