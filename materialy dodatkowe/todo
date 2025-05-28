@@ -5,6 +5,8 @@ Komunikaty (Nie masz połączenia z internetem itp)
 Automatyczne wyrzucanie do strony głównej jeśli nie jesteś zalogowany
 Dodać czas do generowania tokenów (by tokeny nie były tak podobne)
 Error id i tłumaczenia
+Zmienić onclick w buttony lub coś podobnego
+Walidacja wejść w bazie danych
 
 Zrób własne handlery dla socket @Emix999
 

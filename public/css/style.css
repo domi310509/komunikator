@@ -53,21 +53,53 @@ h1 {
     display: none;
 }
 
+#logo {
+    position: absolute;
+    top: 2vh;
+    left: 2vh;
+    height: 10vh;
+    width: 10vh;
+    
+    background-color: var(--kolorTla); /* tło dla zaokrąglenia */
+    background-image: url("/images/logo.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border-radius: 100%; /* zaokrąglenie rogów */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#logo:hover {
+    background-color: var(--kolorTlaJasniejszy);
+    box-shadow: 0 0 10px rgba(255, 130, 116, 0.4); /* opcjonalny efekt świecenia */
+}
+
+
+/*
 #logo{
     position: absolute;
     top: 2vh;
     left: 2vh;
     height: 10vh;
     width: 10vh;
-    background-image: url("/images/placeholder.png");
+    background-image: url("/images/logo.svg");
     background-size: cover;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+*/
+#logo:hover {
+  background-color: var(--kolorTlaJasniejszy);
 }
 
 #zdjeciePoczatkowe{
     display: flex;
     height: 60vh;
     width: 60vh;
-    background-image: url("/images/placeholder.png");
+    background-image: url("/images/obrazek na srodek.svg");
     background-size: cover;
     border-radius: 2vh;
 }
@@ -160,7 +192,7 @@ h1 {
 #ekranRejestracji,
 #ekranZmianyHasla {
     background-color: var(--kolorTlaJasniejszy);
-    height: 43vh;
+    height: auto;
     width: 40vh;
     border-style: solid;
     border-width: 0.5vh;
@@ -246,7 +278,7 @@ h1 {
     height: 5vh;
     width: 5vh;
     border-radius: 0.5vh;
-    background-image: url("/images/placeholder.png");
+    background-image: url("/images/ikonka_ustawień.png");
     border: none;
 }
 
