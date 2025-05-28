@@ -289,8 +289,10 @@ h1 {
     height: 5vh;
     width: 5vh;
     border-radius: 0.5vh;
-    background-image: url("/images/ikonka_ustawień.png");
+    background-image: url("/images/ustawiena.svg");
+    background-size: cover;
     border: none;
+    background-color: transparent;
 }
 
 #wiadomosci{
