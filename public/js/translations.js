@@ -18,7 +18,7 @@ window.translations = {
     przypominanieHasla: "Przypomnij Hasło",
     jednakPamietamHaslo: "Jednak pamiętasz hasło?",
     Wyslij: "Wyślij",
-    poleWiadomosci: "Sas",
+    poleWiadomosci: "Napisz wiadomość",
     zajetyLogin: "Podany login jest już używany. Wybierz inny.",
     stronaGlowna: "Strona Glowna",
     daneLogowaniaNieZgadzajaSie: "Dane logowania nie zgadzają się. Spróbuj ponownie.",
