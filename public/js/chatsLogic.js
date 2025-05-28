@@ -61,6 +61,7 @@ function wyloguj() {
 
 function pokazCzat(wiadomosci) {
 
+
     document.getElementById('wiadomosci').innerHTML = '';
     nazwaUzytkownika();
     if (wiadomosci.length != 0) {
@@ -73,6 +74,7 @@ function pokazCzat(wiadomosci) {
         }
     }
     document.getElementById('nazwaUzytkownikaCzat').innerText = otwartyChat.nazwa;
+    document.getElementById('wiadomosci').scrollBy(0, document.body.scrollHeight);
 
 }
 
@@ -123,6 +125,7 @@ function wyswietlanieWszystkichUzytkownikow() {
 }
 
 function wyslijWiadomosc() {
+    document.getElementById('wiadomosci').scrollBy(0, document.body.scrollHeight);
     let wiadomosc = document.getElementById('polePisania').value.trim();
     if (wiadomosc == '') {
         return;
@@ -134,8 +137,28 @@ function wyslijWiadomosc() {
 }
 
 function szukajOsoby() {
-    zawartosc = document.getElementById('wyszukajOsobe').value.toUpperCase();
+    
+    let zawartosc = document.getElementById('wyszukajOsobe').value;
+    let lista= document.getElementsByClassName('nazwaUzytkownikaPaskeBoczny');
+    if(zawartosc == '') {
+        for(let i of lista){
+            i.parentElement.style.display = "";
+        }
+        return;
+    }
+    zawartosc = zawartosc.toUpperCase();
+
+    for(let i of lista){
+        if(i.innerText.toUpperCase().indexOf(zawartosc) > -1) {
+            i.parentElement.style.display = "";
+        }
+        else {
+            i.parentElement.style.display = "none";
+        }
+    }
 }
+document.getElementById('wyszukajOsobe').addEventListener('input',()=> szukajOsoby());
+
 
 document.getElementById("polePisania").addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
