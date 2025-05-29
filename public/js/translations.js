@@ -10,7 +10,7 @@ window.translations = {
     stworzKonto: "Stwórz konto",
     mamJuzKonto: "Mam już konto",
     skillIssue: "Nie pamiętasz hasła?",
-    copyright: "copyright itp.",
+    copyright: "© 2025 Skrzydlink. Wszelkie prawa zastrzeżone.",
     pomoc: "Pomoc",
     politykaPrywatnosci: "Polityka Prywatnosci",
     cele: "Cele",
