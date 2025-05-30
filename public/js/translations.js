@@ -26,11 +26,42 @@ window.translations = {
     wyloguj: "Wyloguj",
     ustawienia: "Ustawienia",
     krotkiOpis: "Nowy komunikator, łączący ludzi.",
+    errors: {
+        //Błędy kodu
+        NETWORK_ERROR: "Błąd połączenia z serwerem. Spróbuj ponownie później.",
+        INVALID_INPUT: "Błędne dane wejściowe.",
+        REGISTRATION_ERROR: "Błąd rejestracji.",
+        LOGIN_ERROR: "Błąd logowania.",
+        DB_CONSTRAINT_FAILED: "Błąd bazy danych.",
+        SERVER_ERROR: "Wystąpił błąd serwera.",
+        LOGOUT_ERROR: "Błąd wylogowywania",
+        
+        //Błędy użytkownika
+        INVALID_CREDENTIALS: "Nieprawidłowy login lub hasło.",
+        LOGIN_EMPTY: "Nie podano danych wejściowych.",
+        PASSWORDS_DIFFERENT: "Hasła nie są identyczne.",
+        LOGIN_TAKEN: "Login jest już zajęty.",
+        USER_NOT_FOUND: "Nie znaleziono użytkownika.",
+        MESSAGE_EMPTY: "Wiadomość nie może być pusta.",
+        MESSAGE_TOO_LONG: "Wiadomość jest za długa.",
+        NOT_AUTHENTICATED: "Musisz być zalogowany.",
+        ALREADY_AUTHENTICATED: "Jesteś już zalogowany.",
+
+        // Tokeny
+        MISSING_ACCESS_TOKEN: "Brak tokenu uwierzytelniającego.",
+        INVALID_ACCESS_TOKEN: "Token uwierzytelniający jest nieprawidłowy.",
+        EXPIRED_ACCESS_TOKEN: "Token uwierzytelniający jest wygasły.",
+        MISSING_REFRESH_TOKEN: "Brak tokenu odnowienia.",
+        INVALID_REFRESH_TOKEN: "Token odnowienia jest nieprawidłowy.",
+    },
   },
   en: {
     zalogujsie: "Log in",
     login: "Login",
     haslo: "Password",
+    errors: {
+        
+    },
   }
 };
 

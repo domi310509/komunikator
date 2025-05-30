@@ -3,47 +3,69 @@ const uzytkownik = { id: null, nazwa: null };
 const otwartyChat = { id: null, nazwa: null };
 let wszyscyUzytkownicy = [];
 let znajomeChaty = [];
+
 function startStrony() {
     startSocket();
 
-
     socket.on('connect', () => {
-        testAccessToken();
+        console.log("Started and connected")
         getUserList();
         fetchId();
         getAllChats();
         document.getElementById("czat").style.display = 'none';
         document.getElementById("pusto").style.display = 'block';
+    });
 
+    socket.on('connect_error', (err) => {
+        console.error(err.message)
+        handleLoginError(err.message).then((wasSuccessfull) => {
+            if(wasSuccessfull){startStrony();}
+            else{
+
+            }
+        });
+    });
+
+    socket.on('pong', () => {
+        console.log("pong");
     });
 
     socket.on('message', (message) => {
+        message = sanitize(message);
         console.log('Received message from server:', message);
         getChatHistory(otwartyChat.id);
     });
 
     socket.on('messageHistory', (messages) => {
+        messages = sanitize(messages);
         console.log('Otrzymano historię wiadomości:', messages);
         pokazCzat(messages);
     });
 
     socket.on('chatHistory', (listOfChats) => {
+        listOfChats = sanitize(listOfChats);
         wyswietlanieCzatow(listOfChats);
         console.log("Lista czatów:", listOfChats);
     });
 
     socket.on('idReturn', (id) => {
+        id = sanitize(id);
         console.log("Moje ID: ", id);
         uzytkownik.id = id;
         getUserList();
     });
     socket.on('listOfAllUsers', (listOfAllUsers) => {
-        console.table(listOfAllUsers);
+        listOfAllUsers = sanitize(listOfAllUsers);
+        console.log(listOfAllUsers);
         wszyscyUzytkownicy = listOfAllUsers;
     });
 
 }
 
+function ping(){
+    console.log("ping");
+    socket.emit("ping");
+}
 
 function nazwaUzytkownika() {
     for (let i of wszyscyUzytkownicy) {
@@ -82,6 +104,7 @@ function pokazCzat(wiadomosci) {
 
 function wyswietlanieCzatow(osoby) {
     document.getElementById('osoby').innerHTML = '';
+    console.log(osoby)
     for (let chatId in osoby) {
         let osoba = document.createElement('div');
         osoba.className = 'okienkoOsoby flexPoziom';
