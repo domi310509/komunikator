@@ -33,6 +33,21 @@ h1 {
     justify-content: center;
 }
 
+.bladChaty{
+    line-height: 8vh;
+    padding: 1vh;
+    width: auto;
+    background-color: var(--kolorTlaJasniejszy);
+    border-radius: 2vh;
+    color: var(--kolorTekstu);
+    text-align: center;
+    font-family: 'Segoe UI';
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vh;
+    display: none;
+}
+
 .flexPion {
     flex-direction: column;
     height: auto;
@@ -80,6 +95,7 @@ h1 {
 }
 
 
+
 /*
 #logo{
     position: absolute;
@@ -96,6 +112,11 @@ h1 {
 */
 #logo:hover {
     background-color: var(--kolorTlaJasniejszy);
+}
+.tekstPodstron{
+    color: var(--kolorTekstu);
+    font-family: 'Segoe UI';
+    font-size: 2vh;
 }
 
 #zdjeciePoczatkowe {
@@ -275,12 +296,18 @@ h1 {
 }
 
 
-#czat {
+#czat,
+#ustawienia,
+#pusto {
     height: 95vh;
     width: 70vw;
     background-color: #1f0510;
     border-radius: 1vh;
     margin: 1.5vw;
+}
+#ustawienia,
+#pusto {
+    display: none;
 }
 
 .profiloweCzat {
