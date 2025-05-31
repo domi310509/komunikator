@@ -18,8 +18,8 @@ async function walidacjaLogowania() {
         //if(isLoggedIn())przejdzDoCzatow(); może tworzyć błędy
         if(error=='Użytkownik jest już zalogowany')przejdzDoCzatow();
         else if(error instanceof Error || typeof error === Error){
-            document.getElementById('nieUdaloSieZalogowac').style.display='block';
-            document.getElementById('nieUdaloSieZalogowac').innerText=error.message;
+            document.getElementById('blad').style.display='block';
+            document.getElementById('blad').innerText=error.message;
         }    
         else{
             await login(loginU.value, haslo.value);
