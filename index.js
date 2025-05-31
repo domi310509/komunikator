@@ -18,6 +18,10 @@ app.use(express.json());
 // Middleware do autentykacji
 app.use(cookieParser());
 
+app.get('/', (req, res) => {
+    res.send('Serwer działa!');
+});
+
 // api endpoints
 app.post('/api/register', register);
 app.post('/api/login', login);
@@ -66,7 +70,7 @@ io.on('connection', (socket) => {
             io.to(`user_${receiverId}`).emit('message', message);
             socket.emit('message', message);
         } catch (error) {
-            console.error("Error when saving message: ", error);
+            console.error("Error with saving message: ", error);
         }
     });
 
@@ -99,7 +103,7 @@ io.on('connection', (socket) => {
             const mojeId = socket.user.id;
             socket.emit('idReturn', mojeId);
         } catch (error) {
-            console.error('Error when fetching id', error);
+            console.error('Error fetching id', error);
         }
     });
 
@@ -126,12 +130,8 @@ io.on('connection', (socket) => {
             // Skoro wiadomości są pogrupowane, możemy je wysłać do klienta
             socket.emit('chatHistory', chats);
         } catch (error) {
-            console.error('Error when fetching chat history:', error);
+            console.error('Error fetching chat history:', error);
         }
-    });
-
-    socket.on("ping", () => {
-        socket.emit("pong");
     });
 
     socket.on('disconnect', () => {

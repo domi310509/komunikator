@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkrzydLink</title>
-    <link rel="icon" type="image/x-icon" href="/images/logo.svg">
+    <title>Komunikator</title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/translations.js"></script>
 </head>
@@ -22,12 +21,11 @@
         <div class="flexPoziom">
             <div class="flexPion" style='margin-right: 10vh;'>
                 <div id="hasloPrzewodnie">
-                    <h1 data-i18n="hasloprzewodnie" style="width: 40vh; overflow:auto; text-align: center; font-size: 4vh;"></h1>
-                    <h2 data-i18n="krotkiOpis" style="width: 40vh; overflow:auto; text-align: center;"></h2>
+                    <h1 data-i18n="hasloprzewodnie" style="width: 40vh; overflow:auto; text-align: center;"></h1>
                 </div>
                 <div id="ekranLogowania" class="flexPion">
                     <h1 data-i18n="zalogujsie"></h1>
-                    <div id="blad" class="zleDaneKomunikat"></div>
+                    <span class="zleDaneKomunikat" id="nieUdaloSieZalogowac"></span>
 
                     <div class="polaZLabelami">
                         <label for="logowanieLogin" data-i18n="login" class="labelPrzyLogowaniu"></label>

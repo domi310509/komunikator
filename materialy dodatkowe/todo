@@ -4,20 +4,19 @@ Status przeczytania wiadomości
 Komunikaty (Nie masz połączenia z internetem itp)
 Automatyczne wyrzucanie do strony głównej jeśli nie jesteś zalogowany
 Dodać czas do generowania tokenów (by tokeny nie były tak podobne)
-Error -id (nie potrzebne) i tłumaczenia
-Dodać popupy dla jakichkolwiek błędów
+Error id i tłumaczenia
 Zmienić onclick w buttony lub coś podobnego
+Walidacja wejść w bazie danych
 kitlock
-
-
-✅❌❓ Zabezpieczenie każdego tekstu z serwera
-
 ✅Zrób własne handlery dla socket @Emix999
+
 ✅Naprawić bycie zalogowanym i niemożność przejścia dalej
+
+
 ✅ Revoke refresh token (wylogowanie globalne po userId)
 ✅ Walidacja wejścia dla register i login
 ✅ Emotikony
-✅ Walidacja wejść w bazie danych
+
 
 ❌ Dodawanie do znajomych | Reason: na razie czatować można z każdym 
 ❌ Blokowanie | -||-
