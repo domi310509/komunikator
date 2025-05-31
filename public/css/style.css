@@ -9,6 +9,11 @@ h1 {
     font-size: 3vh;
 }
 
+h2 {
+    color: var(--kolorTekstu);
+    font-size: 3vh;
+}
+
 #hasloPrzewodnie * {
     color: var(--kolorTekstuCiemniejszy);
 }

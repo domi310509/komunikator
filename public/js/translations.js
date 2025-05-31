@@ -26,6 +26,11 @@ window.translations = {
     wyloguj: "Wyloguj",
     ustawienia: "Ustawienia",
     krotkiOpis: "Nowy komunikator, łączący ludzi.",
+    Czerwony: "Czerwony",
+    Zielony: "Zielony",
+    Niebieski: "Niebieski",
+    Polski: "Polski",
+    Angielski: "Angielski",
     errors: {
         //Błędy kodu
         NETWORK_ERROR: "Błąd połączenia z serwerem. Spróbuj ponownie później.",
