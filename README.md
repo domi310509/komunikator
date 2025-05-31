@@ -18,8 +18,6 @@ DB_PASSWORD=""
 DB_NAME=(dbName)
 
 #Access tokens
-JWT_SECRET=(128 losowych znakow i cyferek (wszystko zmalej bez znakow specjalnych))
-JWT_REFRESH_SECRET=(inne 128 losowych znakow i cyferek (wszystko zmalej bez znakow specjalnych))
 ```
 
 Odpal xampa i stwórz bazę danych z pliku queries o nazwie (dbName)
