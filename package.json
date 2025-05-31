@@ -16,9 +16,11 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.1",
-    "nodemon": "^3.1.10",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
     "socketio": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }

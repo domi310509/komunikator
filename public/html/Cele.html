@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Komunikator</title>
+    <title>SkrzydLink</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo.svg">
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/translations.js"></script>
 </head>
@@ -12,29 +13,39 @@
 <body>
     <!--<h1>Test zdany</h1>-->
     <div id="ekranWstepny">
-        <div id="logo" onclick="window.location.href='index.html'"></div>
+        <div id="logo" onclick="window.location.href='/index.html'"></div>
         <div class="flexPoziom" style="position: absolute; top: 2vh; right: 2vh; height: 0;">
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="pomoc" onclick="window.location.href='html/Pomoc.html'"></button>
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="politykaPrywatnosci" onclick="window.location.href='html/Polityka prywatnosci.html'"></button>
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="stronaGlowna" onclick="window.location.href='index.html'"></button>
-            <button class="buttonEkranLogowaniaTransparent" data-i18n="tworcy" onclick="window.location.href='html/Tworcy.html'"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="pomoc"
+                onclick="window.location.href='Pomoc.html'"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="politykaPrywatnosci"
+                onclick="window.location.href='Polityka prywatnosci.html'"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="stronaGlowna"
+                onclick="window.location.href='/index.html'"></button>
+            <button class="buttonEkranLogowaniaTransparent" data-i18n="tworcy"
+                onclick="window.location.href='Tworcy.html'"></button>
         </div>
-        <div class="flexPoziom" style="text-align: center;">
-            <div class="" style="height: 90vh; width: 60vw;"><p><h1>Cele</h1></p></div>
-        
-        <!--<div id="lista_ludzi" style="margin-left: -76%;"></div>-->
-        <div id="copyright" data-i18n="copyright"></div>
-    </div>
-
-    <div id="ekran_główny" style="display: none;">
+        <div class="flexPion" style="text-align: center;">
+            <div class="flexPion" style="height: 90vh; width: 60vw;">
+            <h1>Cele</h1>
+            <p class="tekstPodstron">
+                Celem projektu było stworzenie prostego, działającego komunikatora internetowego, który umożliwia logowanie, wysyłanie wiadomości w czasie rzeczywistym i wygodne korzystanie z aplikacji przez przeglądarkę. Postawiliśmy na funkcjonalność, estetykę i pracę zespołową.
 
 
-    </div>
+            </p>
+                </div>
+            <!--<div id="lista_ludzi" style="margin-left: -76%;"></div>-->
+            <div id="copyright" data-i18n="copyright"></div>
+        </div>
 
-    <script src="/js/frontend.js"></script>
-    <script src="/js/loginPageLogic.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/backend.js"></script>
+        <div id="ekran_główny" style="display: none;">
+
+
+        </div>
+
+        <script src="/js/frontend.js"></script>
+        <script src="/js/loginPageLogic.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/backend.js"></script>
 </body>
 
 </html>
