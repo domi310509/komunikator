@@ -128,7 +128,7 @@ h1 {
     border-radius: 2vh;
 }
 
-#polePisania{
+#polePisania {
     background-color: var(--kolorBorderow);
     height: 3vh;
     width: 85%;
@@ -136,25 +136,25 @@ h1 {
     border: none;
     color: var(--kolorTekstu);
     font-size: 2vh;
-    padding-left: 1vh;
 }
 
-#polePisania:focus{
+#polePisania:focus {
     outline: 0.2vh solid var(--kolorTekstuCiemniejszy);
 }
 
-#polePisania::placeholder{
+#polePisania::placeholder {
     color: var(--kolorTekstuCiemniejszy);
 }
 
-#wyslij{
-    background-color:var(--kolorBorderow);
-    height: 3vh;
+#wyslij {
+    background-color: transparent;
+    height: 5vh;
     width: 5vh;
     margin: 2vh;
-    border: 0.3vh solid var(--kolorTekstuCiemniejszy);
-    color: var(--kolorTekstu);
-    border-radius: 1vh;
+    border-radius: 100%;
+    background-image: url(/images/przycisk\ wysylania\ wiadomosci.svg);
+    background-size: cover;
+    border: none;
 }
 
 #niechemisie {
@@ -167,7 +167,7 @@ h1 {
     flex-direction: column;
     height: 85vh;
     width: 100%;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 
@@ -176,8 +176,8 @@ h1 {
     justify-content: left;
     height: 8vh;
     width: 100%;
-    background-color:var(--kolorBorderow);
-    margin: 2vh;
+    background-color: var(--kolorBorderow);
+    margin: 1vh;
     border-radius: 2vh;
 }
 
@@ -192,7 +192,7 @@ h1 {
     margin: 2vh;
 }
 
-.nazwaUzytkownikaPaskeBoczny{
+.nazwaUzytkownikaPaskeBoczny {
     color: var(--kolorTekstu);
     font-size: 3vh;
     font-family: 'Segoe UI';
@@ -202,7 +202,7 @@ h1 {
 #wyloguj {
     height: 5vh;
     width: 15vh;
-    background-color:var(--kolorBorderow);
+    background-color: var(--kolorBorderow);
     border: 0.3vh solid var(--kolorTekstuCiemniejszy);
     border-radius: 1vh;
     color: var(--kolorTekstu);
@@ -210,22 +210,23 @@ h1 {
     font-size: 2.5vh;
 }
 
-#wyszukajOsobe{
-    position: absolute; /*przepraszam, próbowałem po dobroci. ja wiem, że to herezja, ale jak ktoś umie inaczej, to proszę bardzo ja mam dość*/
+#wyszukajOsobe {
+    position: absolute;
+    /*przepraszam, próbowałem po dobroci. ja wiem, że to herezja, ale jak ktoś umie inaczej, to proszę bardzo ja mam dość*/
     top: 13vh;
     height: 2vh;
     width: 30vh;
-    background-color:var(--kolorBorderow);
+    background-color: var(--kolorBorderow);
     border: none;
     border-radius: 1vh;
     color: var(--kolorTekstu);
 }
 
-#wyszukajOsobe:focus{
+#wyszukajOsobe:focus {
     outline: 0.2vh solid var(--kolorTekstuCiemniejszy);
 }
 
-#wyszukajOsobe::placeholder{
+#wyszukajOsobe::placeholder {
     color: var(--kolorTekstuCiemniejszy);
 }
 
@@ -317,8 +318,8 @@ h1 {
     margin: 1vh;
 }
 
-.nazwaUzytkownikaCzat{
-    color:var(--kolorTekstu);
+.nazwaUzytkownikaCzat {
+    color: var(--kolorTekstu);
     font-size: 3vh;
     margin: 1vh;
 }
@@ -338,7 +339,7 @@ h1 {
 #wiadomosci {
     height: 85vh;
     width: 100%;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 #daneZdjecieUstawienia {
@@ -376,8 +377,12 @@ h1 {
     font-size: 2.5vh;
     margin: 2vh;
     height: auto;
-    min-height: 2.5vh;
+    min-height: 3vh;
     text-wrap: wrap;
+    word-wrap: break-word;
+    width: fit-content;
+    max-width: 60%;
+
 }
 
 .dymekMoj {
@@ -390,17 +395,17 @@ h1 {
 }
 
 ::-webkit-scrollbar-track {
-    background:var(--kolorTlaJasniejszy);
+    background: var(--kolorTlaJasniejszy);
     border-radius: 0.5vh;
 }
 
 ::-webkit-scrollbar-thumb {
-  background:var(--kolorBorderow);    
-  border-radius: 0.5vh;
+    background: var(--kolorBorderow);
+    border-radius: 0.5vh;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background:var(--kolorTekstuCiemniejszy);    
+    background: var(--kolorTekstuCiemniejszy);
 }
 
 /*
