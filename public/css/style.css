@@ -33,6 +33,21 @@ h1 {
     justify-content: center;
 }
 
+.bladChaty{
+    line-height: 8vh;
+    padding: 1vh;
+    width: auto;
+    background-color: var(--kolorTlaJasniejszy);
+    border-radius: 2vh;
+    color: var(--kolorTekstu);
+    text-align: center;
+    font-family: 'Segoe UI';
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vh;
+    display: none;
+}
+
 .flexPion {
     flex-direction: column;
     height: auto;

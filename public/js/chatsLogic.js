@@ -1,4 +1,3 @@
-//Nie mam pojęcia jak funkcje z backendu przekazują dane do frontendu, jak się dowiem to zrobię żeby działało
 const uzytkownik = { id: null, nazwa: null };
 const otwartyChat = { id: null, nazwa: null };
 let wszyscyUzytkownicy = [];
