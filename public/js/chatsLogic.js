@@ -92,21 +92,32 @@ function pokazCzat(wiadomosci) {
 
     if (wiadomosci.length != 0) {
         for (let i of wiadomosci) {
-            let kontener = document.createElement('div');
+            const kontener = document.createElement('div');
             kontener.style.display = 'flex';
-            kontener.style.alignItems = 'center';
+            kontener.style.alignItems = 'flex-start';
+            kontener.style.gap = '1vw';
             kontener.style.margin = '1vh 0';
-            let img = document.createElement('img');
+            kontener.style.maxWidth = '80vw';
+            const img = document.createElement('img');
             img.src = 'sciezka/do/zdjecia.jpg';
             img.alt = 'sas';
-            img.style.width = '3vw';
-            img.style.height = '3vh';
-            let wiadomosc = document.createElement('div');
-            if (i.receiver_id == uzytkownik.id) wiadomosc.className = 'dymekZnajomego';
-            else wiadomosc.className = 'dymekMoj';
-            wiadomosc.innerText = i.content;
+            img.style.width = '4vw';
+            img.style.height = '4vw';
+            img.style.borderRadius = '50%';
+            img.style.objectFit = 'cover';
+            const dymek = document.createElement('div');
+            dymek.innerText = i.content;
+            dymek.style.padding = '1vh 1.5vw';
+            dymek.style.borderRadius = '1.5vh';
+            dymek.style.maxWidth = 'calc(100% - 5vw)';
+            dymek.style.wordBreak = 'break-word';
+            if (i.receiver_id == uzytkownik.id) {
+                dymek.className = 'dymekZnajomego';
+            } else {
+                dymek.className = 'dymekMoj';
+            }
             kontener.appendChild(img);
-            kontener.appendChild(wiadomosc);
+            kontener.appendChild(dymek);
             document.getElementById('wiadomosci').appendChild(kontener);
         }
     }
