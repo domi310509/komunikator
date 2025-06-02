@@ -237,8 +237,8 @@ document.getElementById("ustawieniaPasekBoczny").addEventListener('click', () =>
         otwartyEkran.style.display = 'flex';
     }
 });
-
 /*
+
 for (let i of document.getElementsByClassName("usunWiadomosc")) {
     i.addEventListener('click', () => {
         console.log("Usuwanie wiadomości"+ i.innerText);
@@ -247,6 +247,12 @@ for (let i of document.getElementsByClassName("usunWiadomosc")) {
 
 document.getElementById("wylogujZeWyszystkichUrzadzen").addEventListener('click', () => {
     logoutFromAllDevices();
+    logout();
+    window.location.href = "/index.html";
+})
+
+document.getElementById("usunKonto").addEventListener('click', () => {
+    deleteAccount();
     window.location.href = "/index.html";
 })
 */
