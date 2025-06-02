@@ -84,21 +84,46 @@ function wyloguj() {
 
 
 function pokazCzat(wiadomosci) {
-    if(document.getElementById("ustawienia").style.display !='none'&&document.getElementById("ustawienia").style.display !='')document.getElementById("ustawienia").style.display ='none';
+    if (document.getElementById("ustawienia").style.display != 'none' && document.getElementById("ustawienia").style.display != '')
+        document.getElementById("ustawienia").style.display = 'none';
+
     document.getElementById('wiadomosci').innerHTML = '';
     nazwaUzytkownika();
+
     if (wiadomosci.length != 0) {
         for (let i of wiadomosci) {
-            let wiadomosc = document.createElement('div');
-            if (i.receiver_id == uzytkownik.id) wiadomosc.className = 'dymekZnajomego';
-            else wiadomosc.className = 'dymekMoj';
-            wiadomosc.innerText = i.content;
-            document.getElementById('wiadomosci').appendChild(wiadomosc);
+            const kontener = document.createElement('div');
+            kontener.style.display = 'flex';
+            kontener.style.alignItems = 'flex-start';
+            kontener.style.gap = '1vw';
+            kontener.style.margin = '1vh 0';
+            kontener.style.maxWidth = '80vw';
+            const img = document.createElement('img');
+            img.src = 'sciezka/do/zdjecia.jpg';
+            img.alt = 'sas';
+            img.style.width = '4vw';
+            img.style.height = '4vw';
+            img.style.borderRadius = '50%';
+            img.style.objectFit = 'cover';
+            const dymek = document.createElement('div');
+            dymek.innerText = i.content;
+            dymek.style.padding = '1vh 1.5vw';
+            dymek.style.borderRadius = '1.5vh';
+            dymek.style.maxWidth = 'calc(100% - 5vw)';
+            dymek.style.wordBreak = 'break-word';
+            if (i.receiver_id == uzytkownik.id) {
+                dymek.className = 'dymekZnajomego';
+            } else {
+                dymek.className = 'dymekMoj';
+            }
+            kontener.appendChild(img);
+            kontener.appendChild(dymek);
+            document.getElementById('wiadomosci').appendChild(kontener);
         }
     }
+
     document.getElementById('nazwaUzytkownikaCzat').innerText = otwartyChat.nazwa;
     document.getElementById('wiadomosci').scrollBy(0, document.body.scrollHeight);
-
 }
 
 
@@ -212,7 +237,7 @@ document.getElementById("ustawieniaPasekBoczny").addEventListener('click', () =>
 
     }
 
-    if (ustawienia.style.display == 'none'|| ustawienia.style.display == '') {
+    if (ustawienia.style.display == 'none' || ustawienia.style.display == '') {
         console.log("Ustawienia otwarte");
         otwartyEkran.style.display = 'none';
         ustawienia.style.display = 'block';
@@ -221,3 +246,16 @@ document.getElementById("ustawieniaPasekBoczny").addEventListener('click', () =>
         otwartyEkran.style.display = 'flex';
     }
 });
+
+/*
+for (let i of document.getElementsByClassName("usunWiadomosc")) {
+    i.addEventListener('click', () => {
+        console.log("Usuwanie wiadomości"+ i.innerText);
+    });
+}
+
+document.getElementById("wylogujZeWyszystkichUrzadzen").addEventListener('click', () => {
+    logoutFromAllDevices();
+    window.location.href = "/index.html";
+})
+*/
