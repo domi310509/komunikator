@@ -12,6 +12,7 @@ async function walidacjaLogowania() {
         haslo.placeholder = 'Podaj haslo';
         czyPoprawneDane = false;
     }
+    
 
     if (czyPoprawneDane) {
         let error = await login(loginU.value, haslo.value);

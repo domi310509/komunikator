@@ -2,7 +2,7 @@ const uzytkownik = { id: null, nazwa: null };
 const otwartyChat = { id: null, nazwa: null };
 let wszyscyUzytkownicy = [];
 let znajomeChaty = [];
-
+let otwartyEkran;
 function startStrony() {
     startSocket();
 
@@ -18,8 +18,8 @@ function startStrony() {
     socket.on('connect_error', (err) => {
         console.error(err.message)
         handleLoginError(err.message).then((wasSuccessfull) => {
-            if(wasSuccessfull){startStrony();}
-            else{
+            if (wasSuccessfull) { startStrony(); }
+            else {
 
             }
         });
@@ -61,7 +61,7 @@ function startStrony() {
 
 }
 
-function ping(){
+function ping() {
     console.log("ping");
     socket.emit("ping");
 }
@@ -84,6 +84,7 @@ function wyloguj() {
 
 
 function pokazCzat(wiadomosci) {
+    if(document.getElementById("ustawienia").style.display !='none'&&document.getElementById("ustawienia").style.display !='')document.getElementById("ustawienia").style.display ='none';
     document.getElementById('wiadomosci').innerHTML = '';
     nazwaUzytkownika();
     if (wiadomosci.length != 0) {
@@ -114,7 +115,7 @@ function wyswietlanieCzatow(osoby) {
         otwartyChat.id = idChatu;
         znajomeChaty.push(idChatu);
         osoba.onclick = () => {
-            if(document.getElementById("czat").style.display == 'none'){
+            if (document.getElementById("czat").style.display == 'none') {
                 document.getElementById("czat").style.display = 'flex';
                 document.getElementById("pusto").style.display = 'none';
             }
@@ -140,7 +141,7 @@ function wyswietlanieWszystkichUzytkownikow() {
         osoba.className = 'okienkoOsoby2 flexPoziom';
         otwartyChat.id = chat.id;
         osoba.onclick = () => {
-            if(document.getElementById("czat").style.display == 'none'){
+            if (document.getElementById("czat").style.display == 'none') {
                 document.getElementById("czat").style.display = 'flex';
                 document.getElementById("pusto").style.display = 'none';
             }
@@ -199,12 +200,24 @@ document.getElementById("polePisania").addEventListener("keydown", function (eve
 });
 
 document.getElementById("ustawieniaPasekBoczny").addEventListener('click', () => {
-    if (document.getElementById("ustawienia").style.display == 'none') {
+    let ustawienia = document.getElementById("ustawienia");
+    let ekrany = document.getElementsByClassName('ekranCzat');
+    for (let i of ekrany) {
+        if (i.id != 'ustawienia') {
+            if (i.style.display != 'none') {
+                otwartyEkran = i;
+                break;
+            }
+        }
 
-        document.getElementById("czat").style.display = 'none';
-        document.getElementById("ustawienia").style.display = 'block';
+    }
+
+    if (ustawienia.style.display == 'none'|| ustawienia.style.display == '') {
+        console.log("Ustawienia otwarte");
+        otwartyEkran.style.display = 'none';
+        ustawienia.style.display = 'block';
     } else {
-        document.getElementById("ustawienia").style.display = 'none';
-        document.getElementById("czat").style.display = '';
+        ustawienia.style.display = 'none';
+        otwartyEkran.style.display = 'flex';
     }
 });
