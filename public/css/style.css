@@ -217,6 +217,17 @@ h2 {
     color: var(--kolorTekstu);
     margin: 2vh;
     font-size: 2.5vh;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#ustawieniaPasekBoczny:hover {
+    background-color: var(--kolorTlaJasniejszy);
+    box-shadow: 0 0 10px rgba(255, 130, 116, 0.4);
+}
+
+#wyloguj:hover {
+    background-color: var(--kolorTlaJasniejszy);
+    box-shadow: 0 0 10px rgba(255, 130, 116, 0.4);
 }
 
 .wyborUstawienia{
@@ -277,10 +288,16 @@ h2 {
     border-radius: 1.5vh;
     color: var(--kolorTekstu);
     font-size: 1.5vh;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .inputEkranLogowania::placeholder {
     color: var(--kolorTekstu);
+}
+
+.inputEkranLogowania:hover {
+    background-color: var(--kolorTlaJasniejszy);
+    box-shadow: 0 0 10px rgba(255, 130, 116, 0.4);
 }
 
 .buttonEkranLogowania {
@@ -293,6 +310,12 @@ h2 {
     border-radius: 1.5vh;
     color: var(--kolorTekstu);
     font-size: 1.5vh;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buttonEkranLogowania:hover {
+    background-color: var(--kolorTlaJasniejszy);
+    box-shadow: 0 0 10px rgba(255, 130, 116, 0.4);
 }
 
 .buttonEkranLogowaniaTransparent {
