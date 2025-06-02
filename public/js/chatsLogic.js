@@ -235,7 +235,7 @@ document.getElementById("ustawieniaPasekBoczny").addEventListener('click', () =>
         otwartyEkran.style.display = 'flex';
     }
 });
-/*
+
 
 for (let i of document.getElementsByClassName("usunWiadomosc")) {
     i.addEventListener('click', () => {
@@ -253,4 +253,3 @@ document.getElementById("usunKonto").addEventListener('click', () => {
     deleteAccount();
     window.location.href = "/index.html";
 })
-*/
