@@ -84,7 +84,7 @@ function wyloguj() {
 
 
 function pokazCzat(wiadomosci) {
-    if(document.getElementById("ustawienia").style.display !='none'&&document.getElementById("ustawienia").style.display !='')document.getElementById("ustawienia").style.display ='none';
+    if (document.getElementById("ustawienia").style.display != 'none' && document.getElementById("ustawienia").style.display != '') document.getElementById("ustawienia").style.display = 'none';
     document.getElementById('wiadomosci').innerHTML = '';
     nazwaUzytkownika();
     if (wiadomosci.length != 0) {
@@ -212,7 +212,7 @@ document.getElementById("ustawieniaPasekBoczny").addEventListener('click', () =>
 
     }
 
-    if (ustawienia.style.display == 'none'|| ustawienia.style.display == '') {
+    if (ustawienia.style.display == 'none' || ustawienia.style.display == '') {
         console.log("Ustawienia otwarte");
         otwartyEkran.style.display = 'none';
         ustawienia.style.display = 'block';
@@ -221,3 +221,16 @@ document.getElementById("ustawieniaPasekBoczny").addEventListener('click', () =>
         otwartyEkran.style.display = 'flex';
     }
 });
+
+/*
+for (let i of document.getElementsByClassName("usunWiadomosc")) {
+    i.addEventListener('click', () => {
+        console.log("Usuwanie wiadomości"+ i.innerText);
+    });
+}
+
+document.getElementById("wylogujZeWyszystkichUrzadzen").addEventListener('click', () => {
+    logoutFromAllDevices();
+    window.location.href = "/index.html";
+})
+*/

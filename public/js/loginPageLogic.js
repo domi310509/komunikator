@@ -12,12 +12,11 @@ async function walidacjaLogowania() {
         haslo.placeholder = 'Podaj haslo';
         czyPoprawneDane = false;
     }
-    
+
 
     if (czyPoprawneDane) {
         let error = await login(loginU.value, haslo.value);
-        //if(isLoggedIn())przejdzDoCzatow(); może tworzyć błędy
-        if(error=='ALREADY_AUTHENTICATED')przejdzDoCzatow();
+        if(await isLoggedIn())przejdzDoCzatow();
         else if(error instanceof Error || typeof error === Error){
             document.getElementById('blad').style.display='block';
             document.getElementById('blad').innerText=error.message;
