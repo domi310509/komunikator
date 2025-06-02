@@ -82,7 +82,7 @@ function wyloguj() {
     window.location.href = "/index.html"; // wyjdz po wylogowaniu
 }
 
-
+/*
 function pokazCzat(wiadomosci) {
     if (document.getElementById("ustawienia").style.display != 'none' && document.getElementById("ustawienia").style.display != '')
         document.getElementById("ustawienia").style.display = 'none';
@@ -125,7 +125,43 @@ function pokazCzat(wiadomosci) {
     document.getElementById('nazwaUzytkownikaCzat').innerText = otwartyChat.nazwa;
     document.getElementById('wiadomosci').scrollBy(0, document.body.scrollHeight);
 }
+*/
 
+function pokazCzat(wiadomosci) {
+    if (document.getElementById("ustawienia").style.display != 'none' && document.getElementById("ustawienia").style.display != '') document.getElementById("ustawienia").style.display = 'none';
+    document.getElementById('wiadomosci').innerHTML = '';
+    nazwaUzytkownika();
+    if (wiadomosci.length != 0) {
+        for (let i of wiadomosci) {
+            let kontener = document.createElement('div');
+            let smietnik = document.createElement('div');
+            smietnik.className = 'usunWiadomosc';
+            smietnik.innerText = 'kosz';
+            let wiadomosc = document.createElement('div');
+            wiadomosc.className = 'dymek';
+            if (i.receiver_id == uzytkownik.id) {
+                kontener.className = 'wiadomoscKontenerZnajomego';
+                kontener.appendChild(wiadomosc);
+                kontener.appendChild(smietnik);
+            }
+            else {
+                kontener.className = 'wiadomoscKontenerMoj';
+                kontener.appendChild(smietnik);
+                kontener.appendChild(wiadomosc);
+            }
+            wiadomosc.innerText = i.content;
+            document.getElementById('wiadomosci').appendChild(kontener);
+        }
+    }
+    document.getElementById('nazwaUzytkownikaCzat').innerText = otwartyChat.nazwa;
+    document.getElementById('wiadomosci').scrollBy(0, document.body.scrollHeight);
+    for (let i of document.getElementsByClassName("usunWiadomosc")) {
+    i.addEventListener('click', () => {
+        console.log("Usuwanie wiadomości" + i.innerText);
+    });
+}
+
+}
 
 function wyswietlanieCzatow(osoby) {
     document.getElementById('osoby').innerHTML = '';
@@ -247,15 +283,16 @@ document.getElementById("ustawieniaPasekBoczny").addEventListener('click', () =>
     }
 });
 
-/*
-for (let i of document.getElementsByClassName("usunWiadomosc")) {
-    i.addEventListener('click', () => {
-        console.log("Usuwanie wiadomości"+ i.innerText);
-    });
-}
+
+
 
 document.getElementById("wylogujZeWyszystkichUrzadzen").addEventListener('click', () => {
     logoutFromAllDevices();
+    logout();
     window.location.href = "/index.html";
 })
-*/
+
+document.getElementById("usunKonto").addEventListener('click', () => {
+    deleteAccount();
+    window.location.href = "/index.html";
+})
