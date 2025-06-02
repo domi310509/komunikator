@@ -39,7 +39,8 @@ window.translations = {
         LOGIN_ERROR: "Błąd logowania.",
         DB_CONSTRAINT_FAILED: "Błąd bazy danych.",
         SERVER_ERROR: "Wystąpił błąd serwera.",
-        LOGOUT_ERROR: "Błąd wylogowywania",
+        LOGOUT_ERROR: "Błąd wylogowywania.",
+        ACCOUNT_DELETION_ERROR: "Błąd usuwania konta.",
         
         //Błędy użytkownika
         INVALID_CREDENTIALS: "Nieprawidłowy login lub hasło.",

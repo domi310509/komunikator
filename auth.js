@@ -135,21 +135,59 @@ function authenticateAccessToken(req, res, next){
     })
 }
 
-function authenticateSocketToken(socket, next){
+async function authenticateSocketToken(socket, next){
     const token = socket.handshake.auth.token;
 
     if (!token) {
         return next(new Error('MISSING_ACCESS_TOKEN'));
     }
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET, async (err, user) => {
         if(err){
             return next(new Error('INVALID_ACCESS_TOKEN'));
         }
         
+        const [result] = await pool.query('select id from users where id = ?', [user.id]);
+        
+        if(result.length != 1){
+            return next(new Error('DB_CONSTRAINT_FAILED'));
+        }
+
         socket.user = user;
         next();
     })
 }
 
-module.exports = { register, login, refresh, logout, authenticateAccessToken, authenticateSocketToken, logoutById };
+async function accountDeletion(req, res){
+    const {username, password} = req.body;
+
+    if(!username || !password) {
+        return res.status(400).json({error: "LOGIN_EMPTY"});
+    }
+
+    try {
+        const [user] = await pool.query('SELECT * FROM users WHERE username = ? and id = ?', [username, req.user.id]);
+
+        if(user.length === 0){
+            return res.status(400).json({error:'INVALID_CREDENTIALS'});
+        }
+
+        const isMatch = await bcrypt.compare(password, user[0].password);
+
+        if(!isMatch){
+            return res.status(400).json({error: 'INVALID_CREDENTIALS'});
+        }
+
+        logoutById(req, res);
+        await pool.query("DELETE FROM messages WHERE sender_id = ? or receiver_id = ?", [req.user.id, req.user.id]);
+        await pool.query("DELETE FROM users WHERE id = ?", [req.user.id]);
+
+        return res.status(201);
+    } catch (error){
+        console.error(error);
+        return res.status(500).json({error: 'SERVER_ERROR'});
+    }
+
+}
+
+module.exports = { register, login, refresh, logout, authenticateAccessToken, authenticateSocketToken, logoutById, accountDeletion };

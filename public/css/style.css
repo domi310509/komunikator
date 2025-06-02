@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--kolorTla);
+    font-family: 'Segoe UI';
 }
 
 h1 {
@@ -172,7 +173,7 @@ h2 {
     flex-direction: column;
     height: 85vh;
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 

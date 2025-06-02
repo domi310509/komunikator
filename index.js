@@ -1,6 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const { register, login, refresh, logout, authenticateAccessToken, authenticateSocketToken, logoutById } = require('./auth');
+const { register, login, refresh, logout, authenticateAccessToken, authenticateSocketToken, logoutById, accountDeletion } = require('./auth');
 const { Server } = require('socket.io');
 const pool = require('./db');
 
@@ -24,6 +24,7 @@ app.post('/api/login', login);
 app.post('/api/token', refresh);
 app.post('/api/logout', logout);
 app.post('/api/logoutAll', authenticateAccessToken, logoutById);
+app.post('/api/deleteAccount', authenticateAccessToken, accountDeletion);
 
 // Endpoint, który wymaga tokenu w ciasteczku
 app.get('/protected', authenticateAccessToken, (req, res) => {

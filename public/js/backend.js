@@ -215,7 +215,7 @@ async function logoutFromAllDevices(){
     const accessToken = localStorage.getItem('accessToken');
     
     if(!!socket){
-        socket.disconnect();
+		socket.disconnect();
     }
     try {
         const response = await fetch(url, {
@@ -236,6 +236,41 @@ async function logoutFromAllDevices(){
                 return logoutFromAllDevices();
             } else {
                 return new AppError("LOGOUT_ERROR", error);
+            }
+        }
+    } catch(error){
+        return new AppError("NETWORK_ERROR", error);
+    }
+}
+
+async function deleteAccount(username, password){
+    if(!(typeof username === 'string') || !(typeof password === 'string')){
+        console.error("Błędne dane wejściowe");
+        return new AppError("INVALID_INPUT", { field: "username/password" });
+    }
+
+    const url = `${window.location.origin}/api/deleteAccount`;
+    const accessToken = localStorage.getItem('accessToken');
+    try{
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+            },
+			body: JSON.stringify({ username, password}),
+			credentials: "include",
+        });
+        const data = await response;
+        if(response.ok){
+            localStorage.removeItem('accessToken');
+            return 'Wylogowano pomyślnie';
+        } else {
+            if(await handleLoginError(data.error)){
+                //Happy happy happy
+                return deleteAccount(username, password);
+            } else {
+                return new AppError("ACCOUNT_DELETION_ERROR", error);
             }
         }
     } catch(error){
