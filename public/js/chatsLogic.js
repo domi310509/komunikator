@@ -293,6 +293,18 @@ document.getElementById("wylogujZeWyszystkichUrzadzen").addEventListener('click'
 })
 
 document.getElementById("usunKonto").addEventListener('click', () => {
-    deleteAccount();
-    window.location.href = "/index.html";
+    document.getElementById("ustawienia").style.display = 'none';
+    document.getElementById("pusto").style.display = 'flex';
+    document.getElementById("ekranUsuwania").style.display = 'flex';
 })
+
+document.getElementById("nieusuwajKonta").addEventListener('click', () => {
+    document.getElementById("ustawienia").style.display = 'flex';
+    document.getElementById("ekranUsuwania").style.display = 'none';
+    document.getElementById("pusto").style.display = 'none';
+})
+function usunKonto(){
+    deleteAccount(document.getElementById("usunKontoLogin").value,document.getElementById("usunKontoHaslo").value);
+    logout();// to tu jest specjalnie, jakby użytkownik usunął nie to konto na którym jest obcenie zalogowany to zostanie wylogowany. Nie chce mi się robć wyjątku na taką sytuację
+    window.location.href = "/index.html";
+}
