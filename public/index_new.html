@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkrzydLink</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/translations.js"></script>
+</head>
+
+<body>
+    <header>
+        <img id="logo"/>
+        <nav>
+            <ul>
+                <li><a class="buttonEkranLogowaniaTransparent" data-i18n="pomoc" href='/html/Pomoc.html'></a></li>
+                <li><a class="buttonEkranLogowaniaTransparent" data-i18n="politykaPrywatnosci" href='/html/Polityka prywatnosci.html'></a></li>
+                <li><a class="buttonEkranLogowaniaTransparent" data-i18n="cele" href='/html/Cele.html'></a></li>
+                <li><a class="buttonEkranLogowaniaTransparent" data-i18n="tworcy" href='/html/Tworcy.html'></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <section>
+                <section id="hasloPrzewodnie">
+                    <h1 data-i18n="hasloprzewodnie" style="width: 40vh; overflow:auto; text-align: center; "></h1>
+                    <h2 data-i18n="krotkiOpis" style="width: 40vh; overflow:auto; text-align: center;"></h2>
+                </section>
+                <div id="ekranLogowania" class="flexPion">
+                    <h1 data-i18n="zalogujsie"></h1>
+                    <div id="blad" class="zleDaneKomunikat"></div>
+
+                    <div class="polaZLabelami">
+                        <label for="logowanieLogin" data-i18n="login" class="labelPrzyLogowaniu"></label>
+                        <input type="text" id="logowanieLogin" class="inputEkranLogowania">
+                    </div>
+                    <div class="polaZLabelami">
+                        <label for="logowanieHaslo" data-i18n="haslo" class="labelPrzyLogowaniu"></label>
+                        <input type="password" id="logowanieHaslo" class="inputEkranLogowania">
+                    </div>
+                    <button id="zaloguj" onclick="walidacjaLogowania()" class="buttonEkranLogowania"
+                        data-i18n="zalogujsie"></button>
+
+                    <div class="przyciskiPomociczePrzyLogowaniu flexPoziom" style="height: 5vh;">
+                        <button class="buttonEkranLogowaniaTransparent" data-i18n="stworzKonto"
+                            onclick="zmianaEkranuLogowanie('ekranLogowania', 'ekranRejestracji')"></button>
+                        <button class="buttonEkranLogowaniaTransparent" data-i18n="skillIssue"
+                            onclick="zmianaEkranuLogowanie('ekranLogowania', 'ekranZmianyHasla')"></button>
+                    </div>
+                </div>
+                <div id="ekranRejestracji" class="flexPion" style="display: none;">
+                    <h1 data-i18n="zarejestrujsie"></h1>
+                    <span class="zleDaneKomunikat" id="nieUdaloSieZarejestrowac"></span>
+                    <div class="polaZLabelami">
+                        <label for="rejestracjaLogin" data-i18n="login" class="labelPrzyLogowaniu"></label>
+                        <input type="text" id="rejestracjaLogin" class="inputEkranLogowania">
+                    </div>
+                    <span data-i18n="zajetyLogin" class="zleDaneKomunikat" id="zajetyLogin"></span>
+                    <div class="polaZLabelami">
+                        <label for="rejestracjaHaslo" data-i18n="haslo" class="labelPrzyLogowaniu"></label>
+                        <input type="password" id="rejestracjaHaslo" class="inputEkranLogowania">
+                    </div>
+                    <div class="polaZLabelami">
+                        <label for="rejestracjaHaslo2" data-i18n="powtorzhaslo" class="labelPrzyLogowaniu"></label>
+                        <input type="password" id="rejestracjaHaslo2" class="inputEkranLogowania">
+                    </div>
+                    <span class="zleDaneKomunikat" data-i18n="roznehasla" id="rozneHasla"></span>
+                    <button id="zarejestruj" onclick="walidacjaRejestracji()" class="buttonEkranLogowania"
+                        data-i18n="zarejestrujsie"></button>
+                    <button class="przyciskiPomociczePrzyLogowaniu buttonEkranLogowaniaTransparent"
+                        data-i18n="mamJuzKonto"
+                        onclick="zmianaEkranuLogowanie('ekranRejestracji', 'ekranLogowania')"></button>
+                </div>
+                <div id="ekranZmianyHasla" class="flexPion" style="display: none;">
+                    <h1 data-i18n="przypominanieHasla"></h1>
+                    <div class="polaZLabelami">
+                        <label for="zmianaHaslaLogin" data-i18n="login" class="labelPrzyLogowaniu"></label>
+                        <input type="text" id="zmianaHaslaLogin" class="inputEkranLogowania">
+                    </div>
+                    <button id="przypomnijHaslo" onclick="" class="buttonEkranLogowania"
+                        data-i18n="przypominanieHasla"></button>
+                    <div class="przyciskiPomociczePrzyLogowaniu flexPoziom" style="height: 5vh;">
+                        <button class="buttonEkranLogowaniaTransparent" data-i18n="jednakPamietamHaslo"
+                            onclick="zmianaEkranuLogowanie('ekranZmianyHasla', 'ekranLogowania')"></button>
+                        <button class="buttonEkranLogowaniaTransparent" data-i18n="stworzKonto"
+                            onclick="zmianaEkranuLogowanie('ekranZmianyHasla', 'ekranRejestracji')"></button>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!-- Dekoracyjne zdjęcie -->
+        <div id="zdjeciePoczatkowe"></div>
+        </main>
+
+    <footer>
+        <div id="copyright" data-i18n="copyright"></div>
+    </footer>
+
+    <script src="js/frontend.js"></script>
+    <script src="js/loginPageLogic.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/backend.js"></script>
+</body>
+
+</html>

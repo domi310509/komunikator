@@ -1,10 +1,115 @@
+:root {
+    --kolorTla: #130208;
+    --kolorTlaJasniejszy: #460e2b;
+    --kolorBorderow: #7c183c;
+    --kolorTekstu: #ff8274;
+    --kolorTekstuCiemniejszy: #d53c6a;
+    --kolorNawigacji: #5b1d3f;
+    --fontFamily: 'Segoe UI';
+}
+
 body {
     margin: 0;
     padding: 0;
     background-color: var(--kolorTla);
 }
 
-h1 {
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 12vh;
+    width: 100%;
+    background-color: black;
+}
+
+nav ul {
+    display: flex;
+    gap: 10vw; /* odstęp między elementami */
+    padding: 0;
+    margin: 0;
+    list-style: none; /* usuwa kropki */
+}
+
+nav ul li a{
+    background-color: transparent;
+    color: var(--kolorTekstu);
+    font-size: large;
+    font-family: var(--fontFamily);
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color: var(--kolorTekstuCiemniejszy);
+}
+
+#logo {
+    height: 10vh;
+    width: 10vh;
+    margin: 1vh;
+
+    background-color: var(--kolorTla);
+    /* tło dla zaokrąglenia */
+    background-image: url("/images/logo.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border-radius: 100%;
+    /* zaokrąglenie rogów */
+    cursor: pointer;
+    transition: background-color 0s ease, box-shadow 0s ease;
+}
+
+#logo:hover {
+    background-color: var(--kolorTlaJasniejszy);
+    box-shadow: 0 0 10px rgba(255, 130, 116, 0.4);
+    /* opcjonalny efekt świecenia */
+}
+
+/*
+.flexPion {
+    flex-direction: column;
+    height: auto;
+}
+
+.flexPoziom {
+    flex-direction: row;
+    height: 100vh;
+    justify-content: center;
+}
+*/
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10vh;
+    align-items: center;
+}
+
+main section{
+    display: flex;
+    flex-direction: column;
+}
+
+main section section{
+    margin-right: 10vh;
+}
+
+/* a {
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #007acc;
+} */
+
+/* h1 {
     color: var(--kolorTekstu);
     font-size: 3vh;
 }
@@ -12,24 +117,21 @@ h1 {
 h2 {
     color: var(--kolorTekstu);
     font-size: 3vh;
-}
+} */
 
 #hasloPrzewodnie * {
     color: var(--kolorTekstuCiemniejszy);
-}
-
-:root {
-    --kolorTla: #130208;
-    --kolorTlaJasniejszy: #460e2b;
-    --kolorBorderow: #7c183c;
-    --kolorTekstu: #ff8274;
-    --kolorTekstuCiemniejszy: #d53c6a;
 }
 
 .flexPoziom,
 .flexPion {
     display: flex;
     align-items: center;
+}
+
+.flexPion {
+    flex-direction: column;
+    height: auto;
 }
 
 .flexPoziom {
@@ -53,10 +155,7 @@ h2 {
     display: none;
 }
 
-.flexPion {
-    flex-direction: column;
-    height: auto;
-}
+
 
 #copyright {
     position: absolute;
@@ -73,51 +172,6 @@ h2 {
     display: none;
 }
 
-#logo {
-    position: absolute;
-    top: 2vh;
-    left: 2vh;
-    height: 10vh;
-    width: 10vh;
-
-    background-color: var(--kolorTla);
-    /* tło dla zaokrąglenia */
-    background-image: url("/images/logo.svg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    border-radius: 100%;
-    /* zaokrąglenie rogów */
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-#logo:hover {
-    background-color: var(--kolorTlaJasniejszy);
-    box-shadow: 0 0 10px rgba(255, 130, 116, 0.4);
-    /* opcjonalny efekt świecenia */
-}
-
-
-
-/*
-#logo{
-    position: absolute;
-    top: 2vh;
-    left: 2vh;
-    height: 10vh;
-    width: 10vh;
-    background-image: url("/images/logo.svg");
-    background-size: cover;
-
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-*/
-#logo:hover {
-    background-color: var(--kolorTlaJasniejszy);
-}
 .tekstPodstron{
     color: var(--kolorTekstu);
     font-family: 'Segoe UI';
@@ -275,23 +329,6 @@ h2 {
     color: var(--kolorTekstu);
     font-size: 1.5vh;
 }
-
-.buttonEkranLogowaniaTransparent {
-    position: relative;
-    background-color: transparent;
-    bottom: 0%;
-    border: none;
-    color: var(--kolorTekstu);
-    margin: 2vh;
-    font-size: 1.3vh;
-}
-
-.buttonEkranLogowaniaTransparent:hover,
-.buttonEkranLogowania:hover {
-    color: var(--kolorTekstu);
-}
-
-
 
 #pasekBoczny {
     height: 95vh;

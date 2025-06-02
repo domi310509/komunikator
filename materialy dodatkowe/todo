@@ -12,8 +12,8 @@ kitlock
 
 ✅❌❓ Zabezpieczenie każdego tekstu z serwera
 
-✅Zrób własne handlery dla socket @Emix999
-✅Naprawić bycie zalogowanym i niemożność przejścia dalej
+✅ Zrób własne handlery dla socket @Emix999
+✅ Naprawić bycie zalogowanym i niemożność przejścia dalej
 ✅ Revoke refresh token (wylogowanie globalne po userId)
 ✅ Walidacja wejścia dla register i login
 ✅ Emotikony
