@@ -227,7 +227,7 @@ document.getElementById("ustawieniaPasekBoczny").addEventListener('click', () =>
 
     }
 
-    if (ustawienia.style.display == 'none'|| ustawienia.style.display == '') {
+    if (ustawienia.style.display == 'none' || ustawienia.style.display == '') {
         console.log("Ustawienia otwarte");
         otwartyEkran.style.display = 'none';
         ustawienia.style.display = 'block';
@@ -236,3 +236,16 @@ document.getElementById("ustawieniaPasekBoczny").addEventListener('click', () =>
         otwartyEkran.style.display = 'flex';
     }
 });
+
+/*
+for (let i of document.getElementsByClassName("usunWiadomosc")) {
+    i.addEventListener('click', () => {
+        console.log("Usuwanie wiadomości"+ i.innerText);
+    });
+}
+
+document.getElementById("wylogujZeWyszystkichUrzadzen").addEventListener('click', () => {
+    logoutFromAllDevices();
+    window.location.href = "/index.html";
+})
+*/
