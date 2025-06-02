@@ -136,7 +136,6 @@ function pokazCzat(wiadomosci) {
             let kontener = document.createElement('div');
             let smietnik = document.createElement('div');
             smietnik.className = 'usunWiadomosc';
-            smietnik.innerText = 'kosz';
             let wiadomosc = document.createElement('div');
             wiadomosc.className = 'dymek';
             if (i.receiver_id == uzytkownik.id) {
