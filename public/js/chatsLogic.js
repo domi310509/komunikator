@@ -101,7 +101,6 @@ function pokazCzat(wiadomosci) {
             img.alt = 'sas';
             img.style.width = '3vw';
             img.style.height = '3vh';
-            img.style.marginRight = '2vh';
             let wiadomosc = document.createElement('div');
             if (i.receiver_id == uzytkownik.id) wiadomosc.className = 'dymekZnajomego';
             else wiadomosc.className = 'dymekMoj';
