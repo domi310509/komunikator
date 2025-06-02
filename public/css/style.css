@@ -374,25 +374,36 @@ h2 {
     font-size: 1.7vh;
 }
 
-.dymekZnajomego,
-.dymekMoj {
+
+.dymek {
     background-color: var(--kolorBorderow);
     color: var(--kolorTekstu);
     border-radius: 2vh;
     padding: 0.5vh;
     font-size: 2.5vh;
-    margin: 2vh;
     height: auto;
     min-height: 3vh;
     text-wrap: wrap;
     word-wrap: break-word;
-    width: fit-content;
-    max-width: 60%;
-
+    width: calc(100% - 5vh);
 }
-
-.dymekMoj {
-    margin-left: auto;
+.wiadomoscKontenerMoj,
+.wiadomoscKontenerZnajomego{
+    display: flex;
+    flex-direction: row;
+    margin: 2vh;
+    height: fit-content;
+    min-height: 3vh;
+    width: fit-content;
+    max-width: 70%;
+}
+.wiadomoscKontenerMoj{
+margin-left: auto;
+}
+.usunWiadomosc{
+    height: 3vh;
+    width: 3vh;
+    margin: 1vh;
 }
 
 ::-webkit-scrollbar {
