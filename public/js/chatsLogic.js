@@ -309,3 +309,13 @@ function usunKonto() {
     logout();// to tu jest specjalnie, jakby użytkownik usunął nie to konto na którym jest obcenie zalogowany to zostanie wylogowany. Nie chce mi się robć wyjątku na taką sytuację
     window.location.href = "/index.html";
 }
+document.getElementById("polski").addEventListener('click', () => {
+    console.log("Ustawiono język polski");
+    localStorage.setItem("lang", "pl");
+    location.reload()
+})
+document.getElementById("angielski").addEventListener('click', () => {
+    console.log("Ustawiono język angielski");
+    localStorage.setItem("lang", "en");
+    location.reload()
+})
