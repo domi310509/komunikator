@@ -134,6 +134,9 @@ function pokazCzat(wiadomosci) {
     if (wiadomosci.length != 0) {
         for (let i of wiadomosci) {
             let kontener = document.createElement('div');
+            let godzina = document.createElement('span');
+            godzina.className = 'godzinaWiadomosci';
+            godzina.innerText= new Date(i.sent_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             let smietnik = document.createElement('div');
             smietnik.className = 'usunWiadomosc';
             smietnik.dataset.id = i.id;
@@ -143,9 +146,11 @@ function pokazCzat(wiadomosci) {
                 kontener.className = 'wiadomoscKontenerZnajomego';
                 kontener.appendChild(wiadomosc);
                 kontener.appendChild(smietnik);
+                kontener.appendChild(godzina);
             }
             else {
                 kontener.className = 'wiadomoscKontenerMoj';
+                kontener.appendChild(godzina);
                 kontener.appendChild(smietnik);
                 kontener.appendChild(wiadomosc);
             }
@@ -312,10 +317,10 @@ function usunKonto() {
 document.getElementById("polski").addEventListener('click', () => {
     console.log("Ustawiono język polski");
     localStorage.setItem("lang", "pl");
-    location.reload()
+    location.reload();
 })
 document.getElementById("angielski").addEventListener('click', () => {
     console.log("Ustawiono język angielski");
     localStorage.setItem("lang", "en");
-    location.reload()
+    location.reload();
 })
