@@ -22,6 +22,7 @@ h2 {
 :root {
     --kolorTla: #130208;
     --kolorTlaJasniejszy: #460e2b;
+    --kolorTlaTroszeczkeJasniejszy: #1f0510;
     --kolorBorderow: #7c183c;
     --kolorTekstu: #ff8274;
     --kolorTekstuCiemniejszy: #d53c6a;
@@ -143,6 +144,7 @@ h2 {
     border: none;
     color: var(--kolorTekstu);
     font-size: 2vh;
+    padding-left: 1vh;
 }
 
 #polePisania:focus {
@@ -183,14 +185,18 @@ h2 {
 .okienkoOsoby2 {
     justify-content: left;
     height: 8vh;
-    width: 100%;
+    width: 90%;
     background-color: var(--kolorBorderow);
     margin: 1vh;
     border-radius: 2vh;
 }
 
+.okienkoOsoby:hover{
+    box-shadow: 0 0 1vh var(--kolorTekstu);
+}
+
 .okienkoOsoby2 {
-    background-color: #4d1026;
+    background-color: var(--kolorTlaJasniejszy);
 }
 
 .profilowePasekBoczny {
@@ -225,19 +231,19 @@ h2 {
 
 #ustawieniaPasekBoczny:hover {
     background-color: var(--kolorTlaJasniejszy);
-    box-shadow: 0 0 10px rgba(255, 130, 116, 0.4);
+    box-shadow: 0 0 10px var(--kolorTekstu);
 }
 
 #wyloguj:hover {
     background-color: var(--kolorTlaJasniejszy);
-    box-shadow: 0 0 10px rgba(255, 130, 116, 0.4);
+    box-shadow: 0 0 10px var(--kolorTekstu);
 }
 
 .wyborUstawienia {
     width: 20vh;
     background-color: var(--kolorBorderow);
-    border: var(--kolorTekstuCiemniejszy) 0.5vh solid;
-    color: #ff8274;
+    border: var(--kolorTekstuCiemniejszy) 0.3vh solid;
+    color: var(--kolorTekstu);
     margin: 2vh;
     border-radius: 2vh;
     line-height: 3.5vh;
@@ -278,6 +284,11 @@ h2 {
     border-radius: 2vh;
 }
 
+#ustawieniaPasekBoczny:hover, #wyloguj:hover, #wylogujZeWyszystkichUrzadzen:hover, #usunKonto:hover, .wyborUstawienia:hover{
+    background-color: var(--kolorTlaJasniejszy);
+    box-shadow: 0 0 1vh var(--kolorTekstu);
+}
+
 #ekranUsuwania {
     display: none;
 }
@@ -286,7 +297,7 @@ h2 {
     height: 3vh;
     width: 30vh;
     margin: 0.5vh;
-    background-color: #1f0510;
+    background-color: var(--kolorTla);
     border: solid;
     border-color: var(--kolorBorderow);
     border-radius: 1.5vh;
@@ -309,7 +320,7 @@ h2 {
     height: 3vh;
     width: 15vh;
     margin: 0.5vh;
-    background-color: #1f0510;
+    background-color: var(--kolorTla);
     border: solid;
     border-color: var(--kolorBorderow);
     border-radius: 1.5vh;
@@ -343,7 +354,7 @@ h2 {
 #pasekBoczny {
     height: 95vh;
     width: 25vw;
-    background-color: #1f0510;
+    background-color: var(--kolorTlaTroszeczkeJasniejszy);
     border-radius: 1vh;
     margin-left: 1.5vw;
 }
@@ -354,7 +365,7 @@ h2 {
 #pusto {
     height: 95vh;
     width: 70vw;
-    background-color: #1f0510;
+    background-color: var(--kolorTlaTroszeczkeJasniejszy);
     border-radius: 1vh;
     margin: 1.5vw;
 }
@@ -442,7 +453,7 @@ h2 {
     min-width: 3.5vh;
 }
 .godzinaWiadomosci{
-    color:#7c183d77;
+    color:var(--kolorBorderow);
     font-size: 1.5vh;
 }
 .wiadomoscKontenerMoj,

@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkrzydLink</title>
     <link rel="icon" type="image/x-icon" href="/images/logo.svg">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/translations.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="translations.js"></script>
     <link rel="icon" type="image/x-icon" href="/images/logo.svg">
 </head>
 
@@ -32,9 +32,30 @@
 
             <h2 data-i18n="kolorStrony"></h2>
             <div class="flexPion">
-                <div class="wyborUstawienia" data-i18n="Czerwony" onclick=""></div>
-                <div class="wyborUstawienia" data-i18n="Niebieski"></div>
-                <div class="wyborUstawienia" data-i18n="Zielony"></div>
+                <div class="wyborUstawienia" data-i18n="Domyslny" onclick="
+                document.documentElement.style.setProperty('--kolorTla', '#130208');
+                document.documentElement.style.setProperty('--kolorTlaJasniejszy', '#460e2b');
+                document.documentElement.style.setProperty('--kolorTlaTroszeczkeJasniejszy', '#1f0510');
+                document.documentElement.style.setProperty('--kolorBorderow', '#7c183c');
+                document.documentElement.style.setProperty('--kolorTekstuCiemniejszy', '#d53c6a');
+                document.documentElement.style.setProperty('--kolorTekstu', '#ff8274');
+                "></div>
+                <div class="wyborUstawienia" data-i18n="Niebieski" onclick="
+                document.documentElement.style.setProperty('--kolorTla', '#2a173b');
+                document.documentElement.style.setProperty('--kolorTlaJasniejszy', '#443f7b');
+                document.documentElement.style.setProperty('--kolorTlaTroszeczkeJasniejszy', '#3f2c5f');
+                document.documentElement.style.setProperty('--kolorBorderow', '#4c5c87');
+                document.documentElement.style.setProperty('--kolorTekstuCiemniejszy', '#69809e');
+                document.documentElement.style.setProperty('--kolorTekstu', '#95c5ac');
+                "></div>
+                <div class="wyborUstawienia" data-i18n="Zielony" onclick="
+                document.documentElement.style.setProperty('--kolorTla', '#040c06');
+                document.documentElement.style.setProperty('--kolorTlaJasniejszy', '#1e3a29');
+                document.documentElement.style.setProperty('--kolorTlaTroszeczkeJasniejszy', '#112318');
+                document.documentElement.style.setProperty('--kolorBorderow', '#305d42');
+                document.documentElement.style.setProperty('--kolorTekstuCiemniejszy', '#4d8061');
+                document.documentElement.style.setProperty('--kolorTekstu', '#bedc7f');
+                "></div>
             </div>
             <h2 data-i18n="jezyk"></h2>
             <div class="flexPion">
@@ -80,10 +101,10 @@
             </div>
         </div>
     </div>
-    <script src="/js/frontend.js"></script>
+    <script src="frontend.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/backend.js"></script>
-    <script src="/js/chatsLogic.js"></script>
+    <script src="backend.js"></script>
+    <script src="chatsLogic.js"></script>
 </body>
 
 </html>
