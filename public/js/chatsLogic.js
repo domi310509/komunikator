@@ -136,6 +136,7 @@ function pokazCzat(wiadomosci) {
             let kontener = document.createElement('div');
             let smietnik = document.createElement('div');
             smietnik.className = 'usunWiadomosc';
+            smietnik.dataset.id = i.id;
             let wiadomosc = document.createElement('div');
             wiadomosc.className = 'dymek';
             if (i.receiver_id == uzytkownik.id) {
@@ -155,10 +156,11 @@ function pokazCzat(wiadomosci) {
     document.getElementById('nazwaUzytkownikaCzat').innerText = otwartyChat.nazwa;
     document.getElementById('wiadomosci').scrollBy(0, document.body.scrollHeight);
     for (let i of document.getElementsByClassName("usunWiadomosc")) {
-    i.addEventListener('click', () => {
-        console.log("Usuwanie wiadomości" + i.innerText);
-    });
-}
+        i.addEventListener('click', () => {
+            deleteMessage(i.dataset.id);
+            i.parentElement.remove();
+        });
+    }
 
 }
 
@@ -302,8 +304,8 @@ document.getElementById("nieusuwajKonta").addEventListener('click', () => {
     document.getElementById("ekranUsuwania").style.display = 'none';
     document.getElementById("pusto").style.display = 'none';
 })
-function usunKonto(){
-    deleteAccount(document.getElementById("usunKontoLogin").value,document.getElementById("usunKontoHaslo").value);
+function usunKonto() {
+    deleteAccount(document.getElementById("usunKontoLogin").value, document.getElementById("usunKontoHaslo").value);
     logout();// to tu jest specjalnie, jakby użytkownik usunął nie to konto na którym jest obcenie zalogowany to zostanie wylogowany. Nie chce mi się robć wyjątku na taką sytuację
     window.location.href = "/index.html";
 }
