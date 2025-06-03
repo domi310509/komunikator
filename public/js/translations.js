@@ -31,6 +31,9 @@ window.translations = {
     Niebieski: "Niebieski",
     Polski: "Polski",
     Angielski: "Angielski",
+    kolorStrony: "Kolor Strony:",
+    jezyk: "Język:",
+    usunKonto: "Usuń Konto",
     errors: {
         //Błędy kodu
         NETWORK_ERROR: "Błąd połączenia z serwerem. Spróbuj ponownie później.",
@@ -94,6 +97,9 @@ window.translations = {
   Niebieski: "Blue",
   Polski: "Polish",
   Angielski: "English",
+  kolorStrony: "Website Color:",
+  jezyk: "Language:",
+  usunKonto: "Delete Account",
   errors: {
     // Code errors
     NETWORK_ERROR: "Network connection error. Please try again later.",
