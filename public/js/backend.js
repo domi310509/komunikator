@@ -412,6 +412,10 @@ function getChatHistory(withUserId){
     socket.emit('getMessages', {withUserId});
 }
 
+function deleteMessage(id){
+    socket.emit("deleteMessage", {id});
+}
+
 /**
  * Pobiera listę wszystkich rozmów użytkownika
  */

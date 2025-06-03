@@ -135,6 +135,48 @@ io.on('connection', (socket) => {
         socket.emit("pong");
     });
 
+    socket.on("deleteMessage", async ({id}) => {
+        try {
+            const myId = socket.user.id;
+            const [foundId] = await pool.query(
+                `SELECT id FROM messages where id = ? and (sender_id = ? or receiver_id = ?)`,
+                [id, myId, myId]
+            );
+            console.log(foundId, id);
+            if(foundId.length < 1){
+                return;
+            }
+            await pool.query('delete from messages where id = ?', [id]);
+
+            try {
+                const myId = socket.user.id;
+                const [rows] = await pool.query(
+                    `SELECT sender_id, receiver_id, content, sent_at FROM messages where sender_id = ? or receiver_id = ? ORDER BY receiver_id, sender_id, sent_at`,
+                    [myId, myId]
+                );
+                const chats = {};
+
+                // Grupowanie wiadomości po receiver_id i sender_id (ignorowanie kolejności)
+                rows.forEach(message => {
+                    const { sender_id, receiver_id } = message;
+                    const chatId = `${Math.min(sender_id, receiver_id)}_${Math.max(sender_id, receiver_id)}`;
+
+                    if (!chats[chatId]) {
+                        chats[chatId] = [];
+                    }
+                    chats[chatId].push(message);
+                });
+
+                // Skoro wiadomości są pogrupowane, możemy je wysłać do klienta
+                socket.emit('chatHistory', chats);
+            } catch (error) {
+                console.error('Error when fetching chat history:', error);
+            }
+        } catch (error) {
+            console.error('Error when deleting message:', error);
+        }
+    })
+
     socket.on('disconnect', () => {
         console.log('User disconnected');
     });

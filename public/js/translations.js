@@ -52,6 +52,7 @@ window.translations = {
         MESSAGE_TOO_LONG: "Wiadomość jest za długa.",
         NOT_AUTHENTICATED: "Musisz być zalogowany.",
         ALREADY_AUTHENTICATED: "Jesteś już zalogowany.",
+        ACCOUNT_DOESNT_EXIST: "Konto o podanym loginie nie istnieje.",
 
         // Tokeny
         MISSING_ACCESS_TOKEN: "Brak tokenu uwierzytelniającego.",
@@ -63,11 +64,66 @@ window.translations = {
   },
   en: {
     zalogujsie: "Log in",
-    login: "Login",
-    haslo: "Password",
-    errors: {
-        
-    },
+  login: "Login:",
+  haslo: "Password:",
+  powtorzhaslo: "Repeat password:",
+  zarejestrujsie: "Register",
+  roznehasla: "Passwords do not match",
+  hasloprzewodnie: "SkrzydLink",
+  stworzKonto: "Create account",
+  mamJuzKonto: "I already have an account",
+  skillIssue: "Forgot your password?",
+  copyright: "© 2025 Skrzydlink. All rights reserved.",
+  pomoc: "Help",
+  politykaPrywatnosci: "Privacy Policy",
+  cele: "Goals",
+  tworcy: "Creators",
+  przypominanieHasla: "Password reminder",
+  jednakPamietamHaslo: "Actually, I remember",
+  Wyslij: "Send",
+  poleWiadomosci: "Write a message",
+  zajetyLogin: "The provided login is already in use. Please choose another.",
+  stronaGlowna: "Home",
+  daneLogowaniaNieZgadzajaSie: "Login details do not match. Please try again.",
+  nieUdaloSieZarejestrowac: "Registration failed. Please try again.",
+  wyloguj: "Log out",
+  ustawienia: "Settings",
+  krotkiOpis: "A new communicator connecting people.",
+  Czerwony: "Red",
+  Zielony: "Green",
+  Niebieski: "Blue",
+  Polski: "Polish",
+  Angielski: "English",
+  errors: {
+    // Code errors
+    NETWORK_ERROR: "Network connection error. Please try again later.",
+    INVALID_INPUT: "Invalid input.",
+    REGISTRATION_ERROR: "Registration error.",
+    LOGIN_ERROR: "Login error.",
+    DB_CONSTRAINT_FAILED: "Database error.",
+    SERVER_ERROR: "A server error occurred.",
+    LOGOUT_ERROR: "Logout error.",
+    ACCOUNT_DELETION_ERROR: "Account deletion error.",
+
+    // User errors
+    INVALID_CREDENTIALS: "Invalid login or password.",
+    LOGIN_EMPTY: "No input provided.",
+    PASSWORDS_DIFFERENT: "Passwords do not match.",
+    LOGIN_TAKEN: "Login is already taken.",
+    USER_NOT_FOUND: "User not found.",
+    MESSAGE_EMPTY: "Message cannot be empty.",
+    MESSAGE_TOO_LONG: "Message is too long.",
+    NOT_AUTHENTICATED: "You must be logged in.",
+    ALREADY_AUTHENTICATED: "You are already logged in.",
+    ACCOUNT_DOESNT_EXIST: "No account exists with the provided login.",
+
+    // Tokens
+    MISSING_ACCESS_TOKEN: "Missing access token.",
+    INVALID_ACCESS_TOKEN: "Invalid access token.",
+    EXPIRED_ACCESS_TOKEN: "Access token has expired.",
+    MISSING_REFRESH_TOKEN: "Missing refresh token.",
+    INVALID_REFRESH_TOKEN: "Invalid refresh token.",
+  }
   }
 };
 

@@ -55,7 +55,7 @@ async function login(req, res) {
         const [user] = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
 
         if(user.length === 0){
-            return res.status(400).json({error:'INVALID_CREDENTIALS'});
+            return res.status(400).json({error:'ACCOUNT_DOESNT_EXIST'});
         }
 
         const isMatch = await bcrypt.compare(password, user[0].password);
